@@ -1,0 +1,6 @@
+https://www.youtube.com/watch?v=kUc-rwbJtqY
+Make interaction between 2 components using subscription ?
+Silbing1 and Sibling2 want to communicaite mutually, so we create service for that.
+We define methods for raising event.
+We include service to both component.
+At the end we implement the inreaction that should be executed upon the rasiing the event.
