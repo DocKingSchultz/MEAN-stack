@@ -1,31 +1,37 @@
-<c-header>
-  <c-container fluid>
-    <c-header-brand [routerLink]>Brand</c-header-brand>
-    <c-header-nav class="ms-auto">
-      <c-nav-item>
-        <a active="true" [routerLink] cNavLink>Home</a>
-      </c-nav-item>
-      <c-nav-item>
-        <a cNavLink routerLink="/components/alert">Link</a>
-      </c-nav-item>
-      <c-nav-item>
-        <a cNavLink disabled routerLink="/components/alert">Disabled</a>
-      </c-nav-item>
-      <c-dropdown alignment="end">
-        <a cHeaderToggler cDropdownToggle cNavLink caret="false"></a>
-        <ul cDropdownMenu>
-          <li><a [routerLink] cDropdownItem>Action</a></li>
-          <li><a [routerLink] cDropdownItem>Another action</a></li>
-          <li>
-            <hr cDropdownDivider>
+<nav class="navbar navbar-expand-md navbar-light bg-light">
+  <a class="navbar-brand" href="#">Home</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+              <a class="nav-link" href="#">Forms</a>
           </li>
-          <li><a [routerLink] cDropdownItem>Something else</a></li>
-        </ul>
-      </c-dropdown>
-    </c-header-nav>
-  </c-container>
-  <c-header-divider></c-header-divider>
-  <c-container fluid>
-    <c-header-text>Additional text</c-header-text>
-  </c-container>
-</c-header>
+          <li class="nav-item">
+              <a class="nav-link" href="#">Pricing</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Profile</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Data table</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Change Password</a>
+    </li>
+      </ul>
+      <ul class="navbar-nav">
+          <li class="nav-item">
+              <a class="nav-link" href="signin">Login</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" href="#">Register</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Logout</a>
+        </li>
+
+      </ul>
+  </div>
+</nav>

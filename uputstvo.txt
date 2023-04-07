@@ -11,6 +11,7 @@
 	npm install @coreui/angular@4
 	npm install @coreui/icons
 	npm install @coreui/icons-angular
+	npm install --save @angular/cdk @angular/material
 	npm install bootstrap
 	npm install jquery
 	Project start : ng serve --open

@@ -7,9 +7,14 @@ import { HomeComponent } from './home/home.component';
 import { HeaderComponent } from './header/header.component';
 import { SigninComponent } from './signin/signin.component';
 import { AdminComponent } from './admin/admin.component';
-import { ContainerComponent, FooterModule, NavItemComponent, DropdownComponent } from '@coreui/angular'
+import { ContainerComponent, FooterModule, NavItemComponent, DropdownComponent, TableModule, UtilitiesModule } from '@coreui/angular'
 import { HeaderModule } from '@coreui/angular';
 import { HttpClientModule } from '@angular/common/http';
+import {MatTabsModule} from '@angular/material/tabs'
+import { RouterModule } from '@angular/router';
+import { DataTableComponent } from './data-table/data-table.component';
+import { FormComponent } from './form/form.component';
+import { ChangePasswordComponent } from './change-password/change-password.component';
 
 
 @NgModule({
@@ -19,7 +24,10 @@ import { HttpClientModule } from '@angular/common/http';
     HomeComponent,
     HeaderComponent,
     SigninComponent,
-    AdminComponent
+    AdminComponent,
+    DataTableComponent,
+    FormComponent,
+    ChangePasswordComponent,
   ],
   imports: [
     BrowserModule,
@@ -30,8 +38,10 @@ import { HttpClientModule } from '@angular/common/http';
     NavItemComponent,
     DropdownComponent,
     HttpClientModule,
-
-
+    MatTabsModule,
+    RouterModule,
+    TableModule,
+    UtilitiesModule
   ],
   providers: [],
   bootstrap: [AppComponent]
