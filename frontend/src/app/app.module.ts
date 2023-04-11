@@ -10,11 +10,14 @@ import { AdminComponent } from './admin/admin.component';
 import { ContainerComponent, FooterModule, NavItemComponent, DropdownComponent, TableModule, UtilitiesModule } from '@coreui/angular'
 import { HeaderModule } from '@coreui/angular';
 import { HttpClientModule } from '@angular/common/http';
-import {MatTabsModule} from '@angular/material/tabs'
 import { RouterModule } from '@angular/router';
 import { DataTableComponent } from './data-table/data-table.component';
 import { FormComponent } from './form/form.component';
 import { ChangePasswordComponent } from './change-password/change-password.component';
+import { RegisterComponent } from './register/register.component';
+import { UserInfoNavBarComponent } from './user-info-nav-bar/user-info-nav-bar.component';
+import { ProfileComponent } from './profile/profile.component';
+import { LogoutComponent } from './logout/logout.component';
 
 
 @NgModule({
@@ -28,6 +31,10 @@ import { ChangePasswordComponent } from './change-password/change-password.compo
     DataTableComponent,
     FormComponent,
     ChangePasswordComponent,
+    RegisterComponent,
+    UserInfoNavBarComponent,
+    ProfileComponent,
+    LogoutComponent,
   ],
   imports: [
     BrowserModule,
@@ -38,7 +45,6 @@ import { ChangePasswordComponent } from './change-password/change-password.compo
     NavItemComponent,
     DropdownComponent,
     HttpClientModule,
-    MatTabsModule,
     RouterModule,
     TableModule,
     UtilitiesModule
