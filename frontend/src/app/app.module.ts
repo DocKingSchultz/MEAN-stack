@@ -18,6 +18,7 @@ import { RegisterComponent } from './register/register.component';
 import { UserInfoNavBarComponent } from './user-info-nav-bar/user-info-nav-bar.component';
 import { ProfileComponent } from './profile/profile.component';
 import { LogoutComponent } from './logout/logout.component';
+import { UploadFilesComponent } from './upload-files/upload-files.component';
 
 
 @NgModule({
@@ -35,6 +36,7 @@ import { LogoutComponent } from './logout/logout.component';
     UserInfoNavBarComponent,
     ProfileComponent,
     LogoutComponent,
+    UploadFilesComponent,
   ],
   imports: [
     BrowserModule,

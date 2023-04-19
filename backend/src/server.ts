@@ -21,4 +21,11 @@ app.use('/', router);
 
 app.listen(4000, () => console.log(`Express server running on port 4000`));
 
+export const cloudinary = require('cloudinary').v2;
 
+// Configuration
+cloudinary.config({
+  cloud_name: "dbojpprhx",
+  api_key: "665725843676129",
+  api_secret: "uGCyXNYTyJcJJsqrpzKZo1wYdzw"
+});

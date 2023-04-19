@@ -1,3 +1,4 @@
+import { UploadFilesComponent } from './upload-files/upload-files.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
@@ -19,6 +20,7 @@ const routes: Routes = [
   {path:"changePassword", component:ChangePasswordComponent},
   {path:"admin", component:AdminComponent},
   {path:"profile", component:ProfileComponent},
+  {path:"uploadFiles", component:UploadFilesComponent},
   {path: '**', component: HomeComponent }
 ];
 
