@@ -19,7 +19,10 @@ import { UserInfoNavBarComponent } from './user-info-nav-bar/user-info-nav-bar.c
 import { ProfileComponent } from './profile/profile.component';
 import { LogoutComponent } from './logout/logout.component';
 import { UploadFilesComponent } from './upload-files/upload-files.component';
-
+import { ClientComponent } from './client/client.component';
+import { AgencyComponent } from './agency/agency.component';
+import { AdminSignInComponent } from './admin-sign-in/admin-sign-in.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -37,6 +40,9 @@ import { UploadFilesComponent } from './upload-files/upload-files.component';
     ProfileComponent,
     LogoutComponent,
     UploadFilesComponent,
+    ClientComponent,
+    AgencyComponent,
+    AdminSignInComponent,
   ],
   imports: [
     BrowserModule,
@@ -49,7 +55,9 @@ import { UploadFilesComponent } from './upload-files/upload-files.component';
     HttpClientModule,
     RouterModule,
     TableModule,
-    UtilitiesModule
+    UtilitiesModule,
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

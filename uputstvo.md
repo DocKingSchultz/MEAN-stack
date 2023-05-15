@@ -34,3 +34,8 @@
  - isntall MongoDBCompass
  - Create Database, with first collection (table)
  - Target the database from the server.ts
+
+
+
+ Vreme : pocetak 15.5
+ 

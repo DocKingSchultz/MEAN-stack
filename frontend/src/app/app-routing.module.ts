@@ -1,5 +1,6 @@
+import { AdminSignInComponent } from './admin-sign-in/admin-sign-in.component';
 import { UploadFilesComponent } from './upload-files/upload-files.component';
-import { NgModule } from '@angular/core';
+import { NgModule, Component } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { SigninComponent } from './signin/signin.component';
@@ -9,6 +10,8 @@ import { RegisterComponent } from './register/register.component';
 import { ChangePasswordComponent } from './change-password/change-password.component';
 import { AdminComponent } from './admin/admin.component';
 import { ProfileComponent } from './profile/profile.component';
+import { AgencyComponent } from './agency/agency.component';
+import { ClientComponent } from './client/client.component';
 
 const routes: Routes = [
   {path:"", component:HomeComponent},
@@ -21,6 +24,9 @@ const routes: Routes = [
   {path:"admin", component:AdminComponent},
   {path:"profile", component:ProfileComponent},
   {path:"uploadFiles", component:UploadFilesComponent},
+  {path:"admin-sign-in", component:AdminSignInComponent},
+  {path:"agency", component:AgencyComponent},
+  {path:"client", component:ClientComponent},
   {path: '**', component: HomeComponent }
 ];
 

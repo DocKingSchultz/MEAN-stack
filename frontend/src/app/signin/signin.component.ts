@@ -14,18 +14,36 @@ export class SigninComponent implements OnInit {
   ngOnInit(): void {
 
   }
-  username: string|undefined;
-  password: string|undefined;
-  message: string | undefined;
+  username: string = "";
+  password: string = "";
+  message: string  = "";
 
 
   constructor(private usrServ:UserServiceService, private router: Router){ }
 
   login()
   {
+    alert("In")
     if(checkIfAllFieldsAreFilled("loginForm"))
     {
-      
+      this.usrServ.login(this.username, this.password, false).subscribe((data:any)=>{
+        if(!data){
+          alert("Korisnik sa unetim podacima ne postoji u sistemu !");
+        }
+        else{
+          if(data.type=="client"){
+            alert(data)
+            localStorage.setItem("user", JSON.stringify(data))
+            this.router.navigate(['client']);
+          }
+          else if(data.type=="agency"){
+            alert(data)
+            localStorage.setItem("user", JSON.stringify(data))
+            this.router.navigate(['agency']);
+          }
+
+        }
+      })
     }
   }
 
