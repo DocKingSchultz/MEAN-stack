@@ -1,5 +1,5 @@
  Vreme : pocetak 15.5
- Vreme : 21min
+ Vreme : 4h + 2h
 
 i. Uvod :
 1. Napraviti users klasu
@@ -35,11 +35,87 @@ ii. Registracija korisnika (ne radi se za administratora) :
 6. Npraviti proveru velicine slike 
 7. Npraviti postvljanje default slike (ako nista nije obelezeno)
 
-iii. Prihvatanje i odbijanje zahteva registracije
+iii. Prihvatanje i odbijanje zahteva registracije :
 1. Izlistati sve zahteve u tabeli (pogeldati prethodni projekat mozda)
 2. Psotaviti 2 dugmeta prihvati i odbijanje
 3. Npraviti metodu za odbivanje, brisanje zahteva iz sistema
 4. Npraviti metodu prihvati (ubacivanje korisnika u users, i brisanje iz regreqs)
+
+iv. Neregistrovani korisnici :
+1. Pregled agenncija u sistemu :
+	1)Napraviti informacije o agenciji (model front, model 	back, tabela u bazi)
+		-informacije iz registracije
+		-Dodati niz : komentari
+			-Npraviti bazu,front,back, komentar
+				-Tekst komentara
+				-*Depersonalizovani podaci o klijentu
+		-Galerija slika radova
+			niz stringova sa heshom slika 
+			Sta je galerija slika agencije ? Jel su to objekti koji su odradjeni ?
+	2)Pretrazivanje agencije prema nazivu i/ili adresi
+		Npraviti metode za sortiranje po informacijama po abecedi
+		Kliktajem na naslov u ulazu tabele
+	2)Tabela
+
+v. Klijent :
+0. Ispis podatak pritiskom na profil
+	ime prezime email adresa kontakt telefon
+1. Npraviti tabove za meni :
+	Objekti	
+2. Ispis objekata
+	Npraviti modele objekta
+	Obican ispis objekta :
+		tip, adresa, broj prostorija, kvadratura 
+		Postaviti 2 dugmeta izbrisi i izmeni
+		Omoguciti pregled skice :
+			Napraviti dugme pregled kada se pritisne na dugme iskoci prozor sa pregledom
+			postaivti ispod skice choose file opciju, sa tekstom promeni izgled prostorije i dugmetom potvrdi
+		Pregled skice :
+			Napraviti js metodu koja parsira json fajl i generise sliku na cavnasu sa zadatim informacijama
+
+Drugi deo :
+3. Ubacivanje objekta :
+	Forma :
+		tip objekta ...
+		broj prostorija
+	Postaviti proveru da je broj prostorija manji od 3
+	Npraviti js skriptu za citanje json formata
+Json format ulazi :
+[tip]
+[adresa]
+[broj prostorija]
+[kvadratura]
+...
+Nrapviti da se od json formata direkt ubaci u bazu
+
+cloudinary upload :
+https://blog.bitsrc.io/api-upload-file-to-cloudinary-with-node-js-a16da3e747f7
+https://www.djamware.com/post/5f0533338ce55338fd15aca3/mean-stack-angular-10-tutorial-upload-image-file
+
+
+
+Tabele :
+i)User
+ii)RegReqs
+iii)Agencija
+iv)Klijent
+v)Objekat
+	tip objekta
+	adresa objekta
+	broj prostorija
+	kvadratura
+	Skica :
+		Broj prostorija prostorije :
+		[0]
+			pocetak kvadrata
+			duzina
+			sirina
+			status (radi se, zavrsena, neutralno)
+			vrata [niz] :
+				(x,y) pocetak
+	*slika (canvas objekta)
+
+
 
 
 

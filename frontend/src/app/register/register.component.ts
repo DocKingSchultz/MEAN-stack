@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { UserServiceService } from 'src/app/services/user-service.service';
 import { RegReq } from 'src/models/regreq';
+import { UploadFilesComponent } from '../upload-files/upload-files.component';
 
 
 declare function checkPasswordMatching(pass:string, confpass:string):boolean;
@@ -21,6 +22,25 @@ export class RegisterComponent implements OnInit {
   }
 
   req:RegReq = new RegReq();
+  fileName = '';
+  reader = new FileReader();
+
+  onFileChanged(event:any) {
+    this.reader.readAsDataURL(event.target.files[0])
+    var image = new Image()
+    image.src = event.target.result
+    image.onload = function () {
+      var height = image.height;
+      var width = image.width;
+      if (height > 100 || width > 100) {
+        alert("Height and Width must not exceed 100px.");
+        return false;
+      }
+      alert("Uploaded image has valid Height and Width.");
+      return true;
+    };
+
+  }
 
   registration()
   {
