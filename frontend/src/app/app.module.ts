@@ -23,6 +23,9 @@ import { ClientComponent } from './client/client.component';
 import { AgencyComponent } from './agency/agency.component';
 import { AdminSignInComponent } from './admin-sign-in/admin-sign-in.component';
 import { FormsModule } from '@angular/forms';
+import { FileUploadComponent } from './file-upload/file-upload.component';
+import {MatIconModule} from '@angular/material/icon';
+import {MatProgressBarModule} from '@angular/material/progress-bar'
 
 @NgModule({
   declarations: [
@@ -43,6 +46,7 @@ import { FormsModule } from '@angular/forms';
     ClientComponent,
     AgencyComponent,
     AdminSignInComponent,
+    FileUploadComponent,
   ],
   imports: [
     BrowserModule,
@@ -57,7 +61,9 @@ import { FormsModule } from '@angular/forms';
     TableModule,
     UtilitiesModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    MatIconModule,
+    MatProgressBarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

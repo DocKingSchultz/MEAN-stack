@@ -2,12 +2,14 @@ import express from 'express';
 import cors from 'cors'
 import bodyParser from 'body-parser'
 import mongoose from 'mongoose'
+import { onFileupload } from './controllers/fileUploader';
 
 
-
+const fileUpload = require('express-fileupload');
 const app = express();
 app.use(cors())
 app.use(bodyParser.json())
+app.use(fileUpload());
 
 mongoose.connect("mongodb://localhost:27017/MEAN-stack");
 
@@ -20,8 +22,10 @@ conn.once('open',()=>{
 const router = express.Router();
 
 app.use('/', router);
+app.route('/api/thumbnail-upload').post(onFileupload);
 
 app.listen(4000, () => console.log(`Express server running on port 4000`));
+
 
 // export const cloudinary = require('cloudinary').v2;
 
