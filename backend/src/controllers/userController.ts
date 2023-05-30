@@ -3,11 +3,12 @@ import e, * as express from 'express';
 
 export class userController
 {
-    login = (req: express.Request, res: express.Response)=>{
+    login = (req: express.Request, response: express.Response)=>{
         let username = req.body.username;
         let password = req.body.password;
         let isAdmin = req.body.isAdmin;
         let user = new User();
+        console.log("Logging the user :" + req.body.username + "  " + req.body.password)
         User.findOne({'username':username, 'password': password}, (err, res)=>
         {
                 if(res && ((isAdmin==true && res.type=="admin") || (isAdmin==false && res.type!="admin")))
@@ -15,12 +16,12 @@ export class userController
                     user.type=res.type;
                     user.username=res.username;
                     user.password=res.password;
-                    res.json(res);  
+                    response.json(res);  
                 }
                 else 
                 {
                     console.log("User doesn't exists in the system")
-                    res.json(null);         
+                    response.json(null);         
                 }  
         })
     }

@@ -15,6 +15,7 @@ export class UserServiceService {
       password:password,
       isAdmin:isAdmin
     }
+    alert(username + password + isAdmin)
     return this.httpClient.post(`${uri}/users/login`, data);
   }
   changePassword(username:string, password:string)

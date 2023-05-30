@@ -28,7 +28,9 @@
               "src/styles.css"
             ],
             "scripts": [
-            "src/scripts/formValidityChecker.js"]
+            "src/scripts/formValidityChecker.js",
+            "src/scripts/front_functions.js"
+          ]
           },
           "configurations": {
             "production": {

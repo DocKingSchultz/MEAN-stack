@@ -23,7 +23,6 @@ export class SigninComponent implements OnInit {
 
   login()
   {
-    alert("In")
     if(checkIfAllFieldsAreFilled("loginForm"))
     {
       this.usrServ.login(this.username, this.password, false).subscribe((data:any)=>{

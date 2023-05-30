@@ -1,7 +1,7 @@
  Vreme : pocetak 15.5
  Vreme : 4h + 2h
 
-i. Uvod :
+<!-- i. Uvod :
 1. Napraviti users klasu
 2. Napraviti klijent, agencija, administrator u bazi
 3. Npraviti isto za front stranice
@@ -12,9 +12,9 @@ i. Uvod :
 	-Ubaciti js fajl u projekat
 	Лозинку проверити коришћењем регуларног израза (минимално 7 карактера, максимално 12 карактера, 
 	од тога бар једно велико слово, један број и један специјални карактер, и мора почињати словом). 
-8. Promenu lozinke uvezati
+8. Promenu lozinke uvezati -->
 
-ii. Registracija korisnika (ne radi se za administratora) :
+<!-- ii. Registracija korisnika (ne radi se za administratora) :
 1. Nrpaviti stranicu sa formom sa formom 
 	- корисничко име (које је јединствено, на нивоу свих корисника у систему), 
 	- лозинка1 (и потврда лозинке), 
@@ -27,13 +27,28 @@ ii. Registracija korisnika (ne radi se za administratora) :
 	- назив агенције, 
 	- адреса седишта агенције (држава, град, улица и број), 
 	- матични број агенције, 
-	- кратак текстуални опис о агенцији. 
-3. Npraviti frontalni deo za ubacivanje slike
-4. Npraviti u bazi RegReqs tabelu 
+	- кратак текстуални опис о агенцији.  -->
+3. Npraviti Multer komuniakciju za ubacivanje slike :
+	Raditi sve na zasebnoj komponenti file-upload
+	Guide : https://github.com/JosephScript/mean-multer-ngf
+
+
+<!-- 4. Npraviti u bazi RegReqs tabelu 
 5. Napraviti modele za reqreqs
-	za sliku staviti string, koji je zapravo hesh+.jpg
+	za sliku staviti string, koji je zapravo hesh+.jpg -->
+
 6. Npraviti proveru velicine slike 
 7. Npraviti postvljanje default slike (ako nista nije obelezeno)
+
+
+8. Npraviti front deo u angularu za pakiranje podataka za slanje na back
+9. Odraditi slanje na back, i proveirti uspesnost
+10. Ubaciti podatke u bazu
+11. Proveiriti da li radi dobro
+12. Proveriti kako da dohvatis sliku koja je sacuvana sa multerom
+13. Proveriti kako radi registracija da li provera popunjensot svioh polja
+14. Proveriti proveru lozinke
+
 
 iii. Prihvatanje i odbijanje zahteva registracije :
 1. Izlistati sve zahteve u tabeli (pogeldati prethodni projekat mozda)

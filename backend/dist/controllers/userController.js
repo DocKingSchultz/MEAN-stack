@@ -7,21 +7,22 @@ exports.userController = void 0;
 const user_1 = __importDefault(require("../models/user"));
 class userController {
     constructor() {
-        this.login = (req, res) => {
+        this.login = (req, response) => {
             let username = req.body.username;
             let password = req.body.password;
             let isAdmin = req.body.isAdmin;
             let user = new user_1.default();
+            console.log("Logging the user :" + req.body.username + "  " + req.body.password);
             user_1.default.findOne({ 'username': username, 'password': password }, (err, res) => {
                 if (res && ((isAdmin == true && res.type == "admin") || (isAdmin == false && res.type != "admin"))) {
                     user.type = res.type;
                     user.username = res.username;
                     user.password = res.password;
-                    res.json(res);
+                    response.json(res);
                 }
                 else {
                     console.log("User doesn't exists in the system");
-                    res.json(null);
+                    response.json(null);
                 }
             });
         };

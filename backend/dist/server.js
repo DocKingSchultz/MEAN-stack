@@ -8,6 +8,7 @@ const cors_1 = __importDefault(require("cors"));
 const body_parser_1 = __importDefault(require("body-parser"));
 const mongoose_1 = __importDefault(require("mongoose"));
 const fileUploader_1 = require("./controllers/fileUploader");
+const userController_1 = require("./controllers/userController");
 const fileUpload = require('express-fileupload');
 const app = (0, express_1.default)();
 app.use((0, cors_1.default)());
@@ -21,6 +22,7 @@ conn.once('open', () => {
 const router = express_1.default.Router();
 app.use('/', router);
 app.route('/api/thumbnail-upload').post(fileUploader_1.onFileupload);
+router.route('/users/login').post((req, res) => new userController_1.userController().login(req, res));
 app.listen(4000, () => console.log(`Express server running on port 4000`));
 // export const cloudinary = require('cloudinary').v2;
 // // Configuration

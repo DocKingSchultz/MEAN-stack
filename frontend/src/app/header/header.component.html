@@ -1,5 +1,5 @@
-<nav class="navbar navbar-expand-md navbar-light bg-light">
-    <div class="collapse navbar-collapse" id="navbarNav">
+<!-- <nav class="navbar navbar-expand-md navbar-light bg-light">
+    <div v class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item">
                 <a class="nav-link" href="home">Home</a>
@@ -39,4 +39,18 @@
         </ul>
 
     </div>
-</nav>
+</nav> -->
+
+<div class="topnav" id="myTopnav">
+    <a href="home"           [ngClass]="{'active': router.url==='/home' }"                       >Home</a>
+    <a href="file-upload"    [ngClass]="{'active': router.url==='/file-upload' }"                >File upload</a>
+    <a href="signin"         [ngClass]="{'active': router.url==='/signin'}"                      >Prijavi se</a>
+    <a href="register"       [ngClass]="{'active': router.url==='/register'}"                    >Registracija</a>
+    <a href="profile "       [ngClass]="{'active': router.url==='/profile'}"                     >Pregled profila</a>
+    <a href="changePassword" [ngClass]="{'active': router.url==='/changePassword'}"              >Promeni lozinku</a>
+    <a href="logout" >Logout</a>
+    <a href="javascript:void(0);" class="icon" onclick="navBarFunction()">
+        <i class="fa fa-bars"></i>
+    </a>
+</div>
+
