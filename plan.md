@@ -30,9 +30,48 @@
 	- кратак текстуални опис о агенцији.  -->
 3. Npraviti Multer komuniakciju za ubacivanje slike :
 	Raditi sve na zasebnoj komponenti file-upload
-	Guide : https://github.com/JosephScript/mean-multer-ngf
+	Guide : 
+	File upload  : https://github.com/JosephScript/mean-multer-ngf
+	Image upload : https://github.com/Jon-Peppinck/mean-image-upload
+
+KDP :
+	Imatu sliku monitora ispred sebe 
+
+Snimci :
+	https://studentetfbgacrs-my.sharepoint.com/personal/sa190595d_student_etf_bg_ac_rs/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Fsa190595d%5Fstudent%5Fetf%5Fbg%5Fac%5Frs%2FDocuments%2FSnimci%20predavanja%2F6%2E%20semestar%20%282022%29%2F%21%20KDP&ga=1
+
+Kodovi za analizirati (https://studentetfbgacrs-my.sharepoint.com/personal/sa190595d_student_etf_bg_ac_rs/_layouts/15/onedrive.aspx?ga=1&id=%2Fpersonal%2Fsa190595d%5Fstudent%5Fetf%5Fbg%5Fac%5Frs%2FDocuments%2FSnimci%20predavanja%2F6%2E%20semestar%20%282022%29%2F%21%20KDP%2FKod&view=0) :
+	1. 04-1 - Regioni 
+	2. Uslovna sinhronizacija
+	3. One Lane bridge problem
+	4. Readers Writers NO fifo
+	5. Readers Writers FIFO
+	6. Ciggaretes Smoker problem
+	7. UnisexBathroom problem
+	8. UnisexBathroom FIFO
+	9. Savings account
+	
+	1. 05-1 Monitori
+	2. Readers Writers
+	3. Readers Writers FIFO
+	4. Cigaretes
+	5. Unisex
+	6. Unisex FIFO
+
+*Za nejasne zadatke pogledati video predavanje
 
 
+Odraditi rokove :
+	2019 https://si.kocka.tech/wiki/%D0%9A%D0%94%D0%9F/%D0%9A2_2019
+	2022 https://si.kocka.tech/wiki/%D0%9A%D0%94%D0%9F/%D0%9A2_2022
+	
+
+*Dodatni rokovi :
+	Januar 22 https://si.kocka.tech/wiki/%D0%9A%D0%94%D0%9F/%D0%88%D0%B0%D0%BD%D1%83%D0%B0%D1%80_2022
+	Janaur 21 https://si.kocka.tech/wiki/%D0%9A%D0%94%D0%9F/%D0%88%D0%B0%D0%BD%D1%83%D0%B0%D1%80_2021
+	Januar 20 https://si.kocka.tech/wiki/%D0%9A%D0%94%D0%9F/%D0%88%D0%B0%D0%BD%D1%83%D0%B0%D1%80_2020
+
+	
 <!-- 4. Npraviti u bazi RegReqs tabelu 
 5. Napraviti modele za reqreqs
 	za sliku staviti string, koji je zapravo hesh+.jpg -->
@@ -47,7 +86,8 @@
 11. Proveiriti da li radi dobro
 12. Proveriti kako da dohvatis sliku koja je sacuvana sa multerom
 13. Proveriti kako radi registracija da li provera popunjensot svioh polja
-14. Proveriti proveru lozinke
+14. Proveriti proveru 
+
 
 
 iii. Prihvatanje i odbijanje zahteva registracije :
