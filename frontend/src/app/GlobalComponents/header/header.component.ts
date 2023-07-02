@@ -22,7 +22,6 @@ export class HeaderComponent implements OnDestroy{
     this.userTypeSubscription=this.cserv.getUpdate().subscribe
     (type=>{
       this.userType = type.text
-      alert("promena tipa na " + type.text)
     })
   }
   private userTypeSubscription:Subscription;

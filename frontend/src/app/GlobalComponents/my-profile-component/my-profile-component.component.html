@@ -1,0 +1,73 @@
+<div class="container">
+  <h1 class="center-label">Pregled Profila</h1>
+  <form class="profile-form">
+    <label for="username">Koriscniko ime:</label>
+    <input type="text" id="username" name="username" [(ngModel)]="user.username" required>
+    
+    <div class="row" *ngIf="user.type">
+      <div class="column">
+        <label for="type">Tip:</label>
+        <input type="text" id="type" name="type" [(ngModel)]="user.type" required>
+      </div>
+    </div>
+
+    <div class="row" *ngIf="user.name">
+      <div class="column">
+        <label for="name">Ime:</label>
+        <input type="text" id="name" name="name" [(ngModel)]="user.name" required>
+      </div>
+    </div>
+
+    <div class="row" *ngIf="user.lastname">
+      <div class="column">
+        <label for="lastname">Prezime:</label>
+        <input type="text" id="lastname" name="lastname" [(ngModel)]="user.lastname" required>
+      </div>
+    </div>
+
+    <div class="row" *ngIf="user.address">
+      <div class="column">
+        <label for="address">Adresa:</label>
+        <input type="text" id="address" name="address" [(ngModel)]="user.address" required>
+      </div>
+    </div>
+
+    <div class="row" *ngIf="user.email">
+      <div class="column">
+        <label for="email">Email:</label>
+        <input type="text" id="email" name="email" [(ngModel)]="user.email" required>
+      </div>
+    </div>
+
+    <div class="row" *ngIf="user.phone">
+      <div class="column">
+        <label for="phone">Broj telefona:</label>
+        <input type="number" id="phone" name="phone" [(ngModel)]="user.phone" required>
+      </div>
+    </div>
+
+    <div class="row" *ngIf="user.picture">
+      <div class="column">
+        <label for="picture">Profilna slika:</label>
+        <input type="text" id="picture" name="picture" [(ngModel)]="user.picture" required>
+      </div>
+    </div>
+
+    <div class="row" *ngIf="user.mnumber">
+      <div class="column">
+        <label for="mnumber">Maticni broj:</label>
+        <input type="number" id="mnumber" name="mnumber" [(ngModel)]="user.mnumber" required>
+      </div>
+    </div>
+
+    <div class="row" *ngIf="user.description">
+      <div class="column">
+        <label for="description">Opis:</label>
+        <textarea id="description" name="description" rows="5" [(ngModel)]="user.description" required></textarea>
+      </div>
+    </div>
+    <div class="center-button">
+    <button type="submit">Save</button>
+    </div>
+  </form>
+</div>

@@ -14,7 +14,6 @@ import { RouterModule } from '@angular/router';
 import { DataTableComponent } from './TemplateComponents/data-table/data-table.component';
 import { ChangePasswordComponent } from './change-password/change-password.component';
 import { RegisterComponent } from './GlobalComponents/register/register.component';
-import { ProfileComponent } from './GlobalComponents/profile/profile.component';
 import { LogoutComponent } from './GlobalComponents/logout/logout.component';
 import { UploadFilesComponent } from './TemplateComponents/upload-files/upload-files.component';
 import { ClientComponent } from './client/client.component';
@@ -26,7 +25,8 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
 import { AdminRegReqComponent } from './AdminComponents/admin/admin-reg-req/admin-reg-req.component';
 import { ChooseRegistrationPageComponent } from './GlobalComponents/choose-registration-page/choose-registration-page.component';
 import { ClientRegistrationComponent } from './GlobalComponents/client-registration/client-registration.component';
-import { AgnecyRegistrationComponent } from './GlobalComponents/agnecy-registration/agnecy-registration.component'
+import { AgnecyRegistrationComponent } from './GlobalComponents/agnecy-registration/agnecy-registration.component';
+import { MyProfileComponentComponent } from './GlobalComponents/my-profile-component/my-profile-component.component'
 
 @NgModule({
   declarations: [
@@ -39,7 +39,6 @@ import { AgnecyRegistrationComponent } from './GlobalComponents/agnecy-registrat
     DataTableComponent,
     ChangePasswordComponent,
     RegisterComponent,
-    ProfileComponent,
     LogoutComponent,
     UploadFilesComponent,
     ClientComponent,
@@ -49,6 +48,7 @@ import { AgnecyRegistrationComponent } from './GlobalComponents/agnecy-registrat
     ChooseRegistrationPageComponent,
     ClientRegistrationComponent,
     AgnecyRegistrationComponent,
+    MyProfileComponentComponent,
   ],
   imports: [
     BrowserModule,

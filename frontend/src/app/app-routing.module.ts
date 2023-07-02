@@ -8,13 +8,13 @@ import { DataTableComponent } from './TemplateComponents/data-table/data-table.c
 import { RegisterComponent } from './GlobalComponents/register/register.component';
 import { ChangePasswordComponent } from './change-password/change-password.component';
 import { AdminComponent } from './AdminComponents/admin/admin.component';
-import { ProfileComponent } from './GlobalComponents/profile/profile.component';
 import { AgencyComponent } from './agency/agency.component';
 import { ClientComponent } from './client/client.component';
 import { AdminRegReqComponent } from './AdminComponents/admin/admin-reg-req/admin-reg-req.component';
 import { ChooseRegistrationPageComponent } from './GlobalComponents/choose-registration-page/choose-registration-page.component';
 import { ClientRegistrationComponent } from './GlobalComponents/client-registration/client-registration.component';
 import { AgnecyRegistrationComponent } from './GlobalComponents/agnecy-registration/agnecy-registration.component';
+import { MyProfileComponentComponent } from './GlobalComponents/my-profile-component/my-profile-component.component';
 
 const routes: Routes = [
   {path:"", component:HomeComponent},
@@ -24,7 +24,7 @@ const routes: Routes = [
   {path:"register", component:ChooseRegistrationPageComponent},
   {path:"changePassword", component:ChangePasswordComponent},
   {path:"admin", component:AdminComponent},
-  {path:"profile", component:ProfileComponent},
+  {path:"profile", component:MyProfileComponentComponent},
   {path:"uploadFiles", component:UploadFilesComponent},
   {path:"admin-sign-in", component:AdminSignInComponent},
   {path:"agency", component:AgencyComponent},
