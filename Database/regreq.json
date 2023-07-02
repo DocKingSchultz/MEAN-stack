@@ -1,5 +1,23 @@
 [{
   "_id": {
+    "$oid": "64a19f62a899ad1785164adc"
+  },
+  "username": "klijent1",
+  "password": "Cofa097#",
+  "passwordConfirmed": "Cofa097#",
+  "type": "client",
+  "name": "Filip",
+  "lastname": "Jankovic",
+  "address": "",
+  "email": "",
+  "phone": 0,
+  "picture": "",
+  "mnumber": 0,
+  "description": "",
+  "status": "aktivan",
+  "__v": 0
+},{
+  "_id": {
     "$oid": "64a19fbfa899ad1785164ae2"
   },
   "username": "ag1",
@@ -31,24 +49,6 @@
   "phone": 2131,
   "picture": "",
   "mnumber": 65432674,
-  "description": "",
-  "status": "aktivan",
-  "__v": 0
-},{
-  "_id": {
-    "$oid": "64a19f62a899ad1785164adc"
-  },
-  "username": "klijent1",
-  "password": "Cofa097#",
-  "passwordConfirmed": "Cofa097#",
-  "type": "client",
-  "name": "Filip",
-  "lastname": "Jankovic",
-  "address": "",
-  "email": "",
-  "phone": 0,
-  "picture": "",
-  "mnumber": 0,
   "description": "",
   "status": "aktivan",
   "__v": 0
