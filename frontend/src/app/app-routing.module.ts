@@ -1,25 +1,27 @@
-import { AdminSignInComponent } from './admin-sign-in/admin-sign-in.component';
-import { UploadFilesComponent } from './upload-files/upload-files.component';
+import { AdminSignInComponent } from './AdminComponents/admin/admin-sign-in/admin-sign-in.component';
+import { UploadFilesComponent } from './TemplateComponents/upload-files/upload-files.component';
 import { NgModule, Component } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { HomeComponent } from './home/home.component';
-import { SigninComponent } from './signin/signin.component';
-import { DataTableComponent } from './data-table/data-table.component';
-import { FormComponent } from './form/form.component';
-import { RegisterComponent } from './register/register.component';
+import { HomeComponent } from './GlobalComponents/home/home.component';
+import { SigninComponent } from './GlobalComponents/signin/signin.component';
+import { DataTableComponent } from './TemplateComponents/data-table/data-table.component';
+import { RegisterComponent } from './GlobalComponents/register/register.component';
 import { ChangePasswordComponent } from './change-password/change-password.component';
-import { AdminComponent } from './admin/admin.component';
-import { ProfileComponent } from './profile/profile.component';
+import { AdminComponent } from './AdminComponents/admin/admin.component';
+import { ProfileComponent } from './GlobalComponents/profile/profile.component';
 import { AgencyComponent } from './agency/agency.component';
 import { ClientComponent } from './client/client.component';
+import { AdminRegReqComponent } from './AdminComponents/admin/admin-reg-req/admin-reg-req.component';
+import { ChooseRegistrationPageComponent } from './GlobalComponents/choose-registration-page/choose-registration-page.component';
+import { ClientRegistrationComponent } from './GlobalComponents/client-registration/client-registration.component';
+import { AgnecyRegistrationComponent } from './GlobalComponents/agnecy-registration/agnecy-registration.component';
 
 const routes: Routes = [
   {path:"", component:HomeComponent},
   {path:"dataTable", component: DataTableComponent},
   {path:"signin", component: SigninComponent},
   {path:"home", component:HomeComponent},
-  {path:"form", component:FormComponent},
-  {path:"register", component:RegisterComponent},
+  {path:"register", component:ChooseRegistrationPageComponent},
   {path:"changePassword", component:ChangePasswordComponent},
   {path:"admin", component:AdminComponent},
   {path:"profile", component:ProfileComponent},
@@ -27,6 +29,9 @@ const routes: Routes = [
   {path:"admin-sign-in", component:AdminSignInComponent},
   {path:"agency", component:AgencyComponent},
   {path:"client", component:ClientComponent},
+  {path:"regreq", component:AdminRegReqComponent},
+  {path:"registerClient", component:ClientRegistrationComponent},
+  {path:"registerAgency", component:AgnecyRegistrationComponent},
   {path: '**', component: HomeComponent }
 ];
 

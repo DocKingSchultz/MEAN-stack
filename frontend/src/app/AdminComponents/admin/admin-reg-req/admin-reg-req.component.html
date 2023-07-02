@@ -1,0 +1,24 @@
+
+  <div class="table-container">
+    <table class="table-nice">
+      <tr>
+        <th>Korisnicko ime</th>
+        <th>Tip naloga</th>
+        <th>Status naloga</th>
+  
+        <th></th>
+        
+      </tr>
+      <tr *ngFor = 'let req of regReqs'>
+        <td>{{req.username}}</td>
+        <td>{{req.type}}</td>
+        <td>{{req.status}}</td>
+        <td *ngIf="req.status=='neaktivan'">
+            <button class="button" (click)="changeAccStatus(req, 'aktivan')" >Aktiviraj nalog</button>
+        </td>
+        <td *ngIf="req.status=='aktivan'">
+            <button class="button" (click)="changeAccStatus(req, 'neaktivan')" >Dektiviraj nalog</button>
+        </td>   
+     </tr>
+    </table>
+  </div>

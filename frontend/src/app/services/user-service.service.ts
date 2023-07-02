@@ -15,7 +15,6 @@ export class UserServiceService {
       password:password,
       isAdmin:isAdmin
     }
-    alert(username + password + isAdmin)
     return this.httpClient.post(`${uri}/users/login`, data);
   }
   changePassword(username:string, password:string)
@@ -24,11 +23,11 @@ export class UserServiceService {
       username:username,
       password:password
     }
-    return this.httpClient.post(`${this.uri}/changePassword`, data);
+    return this.httpClient.post(`${this.uri}/users/changePassword`, data);
   }
   regitration(req:RegReq)
   {
-    return this.httpClient.post(`${this.uri}/makeRegistrationRequest`, req);
+    return this.httpClient.post(`${this.uri}/users/makeRegistrationRequest`, req);
   }
 
 }

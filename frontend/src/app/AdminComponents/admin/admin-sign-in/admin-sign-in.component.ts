@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { UserServiceService } from '../services/user-service.service';
+import { UserServiceService } from '../../../services/user-service.service';
 import { Router } from '@angular/router';
+import { CommonServiceService } from 'src/app/services/common-service.service';
 
 declare function checkIfAllFieldsAreFilled(pass:string):boolean;
 
@@ -17,7 +18,7 @@ export class AdminSignInComponent implements OnInit{
   password: string = "";
   message: string  = "";
 
-  constructor(private usrServ:UserServiceService, private router: Router){ }
+  constructor(private usrServ:UserServiceService, private router: Router, private cserv:CommonServiceService){ }
 
   login()
   {
@@ -29,6 +30,7 @@ export class AdminSignInComponent implements OnInit{
         }
         else{
             localStorage.setItem("user", JSON.stringify(data))
+            this.cserv.sendUpdate("admin")
             this.router.navigate(['admin']);
         }
       })

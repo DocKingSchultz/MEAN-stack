@@ -1,6 +1,3 @@
- Vreme : pocetak 15.5
- Vreme : 4h + 2h
-
 <!-- i. Uvod :
 1. Napraviti users klasu
 2. Napraviti klijent, agencija, administrator u bazi
@@ -28,75 +25,32 @@
 	- адреса седишта агенције (држава, град, улица и број), 
 	- матични број агенције, 
 	- кратак текстуални опис о агенцији.  -->
-3. Npraviti Multer komuniakciju za ubacivanje slike :
-	Raditi sve na zasebnoj komponenti file-upload
-	Guide : 
-	File upload  : https://github.com/JosephScript/mean-multer-ngf
-	Image upload : https://github.com/Jon-Peppinck/mean-image-upload
+3. Ubacivanje slike [Teodora]
+-Napraviti polje za ubacivanje slike :
+	register component
+-Ubaciti default slicicu
+	src/assets/pictures
+-Npraviti proveru formata :
+	slika mora biti min 100x100, maks 300x300
+	ukoliko slika nije odabrana postaviti default sliku
+	ukoliko slika nije u formatu ispisati poruku
+-Dodati ubacivanje slike na backu
+-Ubaciti slicicu negde na frontu da se testira rad 
 
-KDP :
-	Imatu sliku monitora ispred sebe 
-
-Snimci :
-	https://studentetfbgacrs-my.sharepoint.com/personal/sa190595d_student_etf_bg_ac_rs/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Fsa190595d%5Fstudent%5Fetf%5Fbg%5Fac%5Frs%2FDocuments%2FSnimci%20predavanja%2F6%2E%20semestar%20%282022%29%2F%21%20KDP&ga=1
-
-Kodovi za analizirati (https://studentetfbgacrs-my.sharepoint.com/personal/sa190595d_student_etf_bg_ac_rs/_layouts/15/onedrive.aspx?ga=1&id=%2Fpersonal%2Fsa190595d%5Fstudent%5Fetf%5Fbg%5Fac%5Frs%2FDocuments%2FSnimci%20predavanja%2F6%2E%20semestar%20%282022%29%2F%21%20KDP%2FKod&view=0) :
-	1. 04-1 - Regioni 
-	2. Uslovna sinhronizacija
-	3. One Lane bridge problem
-	4. Readers Writers NO fifo
-	5. Readers Writers FIFO
-	6. Ciggaretes Smoker problem
-	7. UnisexBathroom problem
-	8. UnisexBathroom FIFO
-	9. Savings account
-	
-	1. 05-1 Monitori
-	2. Readers Writers
-	3. Readers Writers FIFO
-	4. Cigaretes
-	5. Unisex
-	6. Unisex FIFO
-
-*Za nejasne zadatke pogledati video predavanje
+iii0 Subscribe header na promenu u okviru logina:
+Napraviti servis za promenu tipa korisnika
+U njemu treba da se nalazi vrednost tipam korisnika
 
 
-Odraditi rokove :
-	2019 https://si.kocka.tech/wiki/%D0%9A%D0%94%D0%9F/%D0%9A2_2019
-	2022 https://si.kocka.tech/wiki/%D0%9A%D0%94%D0%9F/%D0%9A2_2022
-	
-
-*Dodatni rokovi :
-	Januar 22 https://si.kocka.tech/wiki/%D0%9A%D0%94%D0%9F/%D0%88%D0%B0%D0%BD%D1%83%D0%B0%D1%80_2022
-	Janaur 21 https://si.kocka.tech/wiki/%D0%9A%D0%94%D0%9F/%D0%88%D0%B0%D0%BD%D1%83%D0%B0%D1%80_2021
-	Januar 20 https://si.kocka.tech/wiki/%D0%9A%D0%94%D0%9F/%D0%88%D0%B0%D0%BD%D1%83%D0%B0%D1%80_2020
-
-	
-<!-- 4. Npraviti u bazi RegReqs tabelu 
-5. Napraviti modele za reqreqs
-	za sliku staviti string, koji je zapravo hesh+.jpg -->
-
-6. Npraviti proveru velicine slike 
-7. Npraviti postvljanje default slike (ako nista nije obelezeno)
-
-
-8. Npraviti front deo u angularu za pakiranje podataka za slanje na back
-9. Odraditi slanje na back, i proveirti uspesnost
-10. Ubaciti podatke u bazu
-11. Proveiriti da li radi dobro
-12. Proveriti kako da dohvatis sliku koja je sacuvana sa multerom
-13. Proveriti kako radi registracija da li provera popunjensot svioh polja
-14. Proveriti proveru 
-
-
-
-iii. Prihvatanje i odbijanje zahteva registracije :
+iii. Prihvatanje i odbijanje zahteva registracije : [Filip]
 1. Izlistati sve zahteve u tabeli (pogeldati prethodni projekat mozda)
 2. Psotaviti 2 dugmeta prihvati i odbijanje
 3. Npraviti metodu za odbivanje, brisanje zahteva iz sistema
 4. Npraviti metodu prihvati (ubacivanje korisnika u users, i brisanje iz regreqs)
 
-iv. Neregistrovani korisnici :
+
+
+iv. Neregistrovani korisnici : [Teodora]
 1. Pregled agenncija u sistemu :
 	1)Napraviti informacije o agenciji (model front, model 	back, tabela u bazi)
 		-informacije iz registracije
@@ -142,10 +96,6 @@ Json format ulazi :
 [kvadratura]
 ...
 Nrapviti da se od json formata direkt ubaci u bazu
-
-cloudinary upload :
-https://blog.bitsrc.io/api-upload-file-to-cloudinary-with-node-js-a16da3e747f7
-https://www.djamware.com/post/5f0533338ce55338fd15aca3/mean-stack-angular-10-tutorial-upload-image-file
 
 
 

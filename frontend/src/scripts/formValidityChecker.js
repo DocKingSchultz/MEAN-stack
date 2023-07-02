@@ -28,7 +28,7 @@ function checkPasswordMatching(pass, confpass) {
   }
 
   function checkPasswordRegularity(password) {
-    if (!password.match(/^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{7,12}$/)) {
+    if (!password.match(/^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_\-+=<>?])[A-Za-z][A-Za-z0-9!@#$%^&*()_\-+=<>?]{6,11}$/)) {
       alert('Password need to have ...');
       return false;
     }

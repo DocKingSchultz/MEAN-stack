@@ -1,0 +1,49 @@
+<section class="vh-100 bg-image">
+    <div class="mask d-flex align-items-center h-100 gradient-custom-3">
+      <div class="container h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+          <div class="col-12 col-md-9 col-lg-7 col-xl-6">
+            <div class="card" style="border-radius: 15px;">
+              <div class="card-body p-5">
+                <h2 class="text-uppercase text-center mb-5">Create an account</h2>
+                <form id="registerForm">
+  
+                  <div class="form-outline mb-4">
+                    <input type="text" id="i1" class="form-control form-control-lg" name="name" placeholder="Ime" [(ngModel)]='req.name' [required]="true"/>
+                  </div>
+                  <div class="form-outline mb-4">
+                    <input type="text" id="i2" class="form-control form-control-lg"  name="prezime" placeholder="Prezime" [(ngModel)]='req.lastname' [required]="true"/>
+                  </div>
+  
+                  <div class="form-outline mb-4">
+                    <input type="text" id="i3" class="form-control form-control-lg" name="username" placeholder="Korisnicko ime" [(ngModel)]='req.username' [required]="true"/>
+                  </div>
+  
+                  <div class="form-outline mb-4">
+                    <input type="password" id="i4" class="form-control form-control-lg" name="pass" placeholder="Lozinka" [(ngModel)]='req.password' [(ngModel)]='req.password' [required]="true"/>
+                  </div>
+  
+                  <div class="form-outline mb-4">
+                    <input type="password" id="i5" class="form-control form-control-lg" name="passc" placeholder="Ponovo unesite lozinku" [(ngModel)]='req.passwordConfirmed' [required]="true"/>
+                  </div>
+  
+
+                  
+                  <!-- Ubaciti polje slike -->
+                  
+                  <div class="row">
+                    <input type="submit" value="Potvrdi" (click)="registration()">
+                 </div>
+                  <p class="text-center text-muted mt-5 mb-0">Već posedujete nalog? <a href="signin"
+                      class="fw-bold text-body"><u>Prijavite se</u></a></p>
+  
+                </form>
+  
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  

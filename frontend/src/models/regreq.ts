@@ -11,5 +11,5 @@ export class RegReq{
   picture:string="";
   mnumber:number=0;
   description:string="";
-  status:string="neutral"
+  status:string="neaktivan"
 }

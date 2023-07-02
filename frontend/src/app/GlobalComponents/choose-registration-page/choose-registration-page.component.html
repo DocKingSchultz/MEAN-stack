@@ -1,0 +1,18 @@
+<div class="container centered-container">
+    <h1 class="text-center">Tip korisnika :</h1>
+    <form>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="radioOption" id="radio1" value="option1" [(ngModel)]="option">
+        <label class="form-check-label" for="radio1">
+          Agencija
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="radioOption" id="radio2" value="option2" checked>
+        <label class="form-check-label" for="radio2">
+         Klijent
+        </label>
+      </div>
+      <button type="button" class="btn btn-primary mt-3" id="confirmButton" (click)="redirectToReg(option)">Nastavi</button>
+    </form>
+  </div>

@@ -2,30 +2,31 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { FooterComponent } from './footer/footer.component';
-import { HomeComponent } from './home/home.component';
-import { HeaderComponent } from './header/header.component';
-import { SigninComponent } from './signin/signin.component';
-import { AdminComponent } from './admin/admin.component';
+import { FooterComponent } from './GlobalComponents/footer/footer.component';
+import { HomeComponent } from './GlobalComponents/home/home.component';
+import { HeaderComponent } from './GlobalComponents/header/header.component';
+import { SigninComponent } from './GlobalComponents/signin/signin.component';
+import { AdminComponent } from './AdminComponents/admin/admin.component';
 import { ContainerComponent, FooterModule, NavItemComponent, DropdownComponent, TableModule, UtilitiesModule } from '@coreui/angular'
 import { HeaderModule } from '@coreui/angular';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
-import { DataTableComponent } from './data-table/data-table.component';
-import { FormComponent } from './form/form.component';
+import { DataTableComponent } from './TemplateComponents/data-table/data-table.component';
 import { ChangePasswordComponent } from './change-password/change-password.component';
-import { RegisterComponent } from './register/register.component';
-import { UserInfoNavBarComponent } from './user-info-nav-bar/user-info-nav-bar.component';
-import { ProfileComponent } from './profile/profile.component';
-import { LogoutComponent } from './logout/logout.component';
-import { UploadFilesComponent } from './upload-files/upload-files.component';
+import { RegisterComponent } from './GlobalComponents/register/register.component';
+import { ProfileComponent } from './GlobalComponents/profile/profile.component';
+import { LogoutComponent } from './GlobalComponents/logout/logout.component';
+import { UploadFilesComponent } from './TemplateComponents/upload-files/upload-files.component';
 import { ClientComponent } from './client/client.component';
 import { AgencyComponent } from './agency/agency.component';
-import { AdminSignInComponent } from './admin-sign-in/admin-sign-in.component';
+import { AdminSignInComponent } from './AdminComponents/admin/admin-sign-in/admin-sign-in.component';
 import { FormsModule } from '@angular/forms';
-import { FileUploadComponent } from './file-upload/file-upload.component';
 import {MatIconModule} from '@angular/material/icon';
-import {MatProgressBarModule} from '@angular/material/progress-bar'
+import {MatProgressBarModule} from '@angular/material/progress-bar';
+import { AdminRegReqComponent } from './AdminComponents/admin/admin-reg-req/admin-reg-req.component';
+import { ChooseRegistrationPageComponent } from './GlobalComponents/choose-registration-page/choose-registration-page.component';
+import { ClientRegistrationComponent } from './GlobalComponents/client-registration/client-registration.component';
+import { AgnecyRegistrationComponent } from './GlobalComponents/agnecy-registration/agnecy-registration.component'
 
 @NgModule({
   declarations: [
@@ -36,17 +37,18 @@ import {MatProgressBarModule} from '@angular/material/progress-bar'
     SigninComponent,
     AdminComponent,
     DataTableComponent,
-    FormComponent,
     ChangePasswordComponent,
     RegisterComponent,
-    UserInfoNavBarComponent,
     ProfileComponent,
     LogoutComponent,
     UploadFilesComponent,
     ClientComponent,
     AgencyComponent,
     AdminSignInComponent,
-    FileUploadComponent,
+    AdminRegReqComponent,
+    ChooseRegistrationPageComponent,
+    ClientRegistrationComponent,
+    AgnecyRegistrationComponent,
   ],
   imports: [
     BrowserModule,

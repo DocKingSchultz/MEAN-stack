@@ -1,5 +1,7 @@
+import regreqs from "../models/regreqs";
 import User from "../models/user";
 import e, * as express from 'express';
+import user from "../models/user";
 
 export class userController
 {
@@ -37,6 +39,30 @@ export class userController
         }
 
          }).clone()
+    }
+    makeRegistrationRequest= (req: express.Request, res: express.Response)=>{
+        console.log("makeregreqbac l")
+        let regReq = new regreqs(req.body); 
+        let username =req.body.username;
+        regreqs.findOne({username:username}, (err, alreadyExists)=>
+        {
+            if(!alreadyExists)
+            {
+                user.findOne({username:username}, (err, exists)=>
+                {
+                    if(!exists)
+
+                                            regReq.save().then(regReq=>{
+                                                res.status(200).json({'message': 'Zahtev za registracijom uspesno kreiran'});
+                                            }).catch(err=>{
+                                                console.log(err);
+                                                res.status(400).json({'message': 'error'})
+                                            })
+                                            
+                })
+            }else res.json({'message':'Korisnik sa unetim podacima vec postoji u sistemu'})
+        })
+        
     }
 
 }
