@@ -15,7 +15,7 @@ export class User {
     public picture: string = '',
     public mnumber: number = 0,
     public description: string = '',
-    public status: string = '',
+    public status: string = 'neaktivan',
     public objects: ObjectInfo[] = [],
     public agencyWorkPictures: string[] = [],
     public agencyComments: Comment[] = [],
