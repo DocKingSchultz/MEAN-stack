@@ -5,8 +5,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './GlobalComponents/home/home.component';
 import { SigninComponent } from './GlobalComponents/signin/signin.component';
 import { DataTableComponent } from './TemplateComponents/data-table/data-table.component';
-import { RegisterComponent } from './GlobalComponents/register/register.component';
-import { ChangePasswordComponent } from './change-password/change-password.component';
+import { ChangePasswordComponent } from './GlobalComponents/change-password/change-password.component';
 import { AdminComponent } from './AdminComponents/admin/admin.component';
 import { AgencyComponent } from './agency/agency.component';
 import { ClientComponent } from './client/client.component';
@@ -15,6 +14,7 @@ import { ChooseRegistrationPageComponent } from './GlobalComponents/choose-regis
 import { ClientRegistrationComponent } from './GlobalComponents/client-registration/client-registration.component';
 import { AgnecyRegistrationComponent } from './GlobalComponents/agnecy-registration/agnecy-registration.component';
 import { MyProfileComponentComponent } from './GlobalComponents/my-profile-component/my-profile-component.component';
+import { ObjectsComponent } from './client/objects/objects.component';
 
 const routes: Routes = [
   {path:"", component:HomeComponent},
@@ -32,6 +32,7 @@ const routes: Routes = [
   {path:"regreq", component:AdminRegReqComponent},
   {path:"registerClient", component:ClientRegistrationComponent},
   {path:"registerAgency", component:AgnecyRegistrationComponent},
+  {path:"objects", component:ObjectsComponent},
   {path: '**', component: HomeComponent }
 ];
 

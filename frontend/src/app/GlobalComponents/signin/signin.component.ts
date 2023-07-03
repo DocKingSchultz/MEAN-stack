@@ -28,7 +28,7 @@ export class SigninComponent implements OnInit {
     {
       this.usrServ.login(this.username, this.password, false).subscribe((data:any)=>{
         if(!data){
-          alert("Korisnik sa unetim podacima ne postoji u sistemu !");
+          alert("Korisnik sa unetim podacima ne postoji u sistemu, ili zahtev za registracijom nije odobren !");
         }
         else{
           if(data.type=="client"){

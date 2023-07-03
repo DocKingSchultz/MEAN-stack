@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http"
-import { RegReq } from 'src/models/regreq';
+import { User } from 'src/models/user';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -24,7 +25,7 @@ export class AdminService {
     }
     return this.http.post(`${this.uri}/admin/getAllRegistrationRequests`,data)
   }
-  changeAccStatus(req:RegReq, status:string)
+  changeAccStatus(req:User, status:string)
   {
     const data = {
       req:req,

@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import  '../utils/util'
 import { uri } from '../utils/util';
-import { RegReq } from 'src/models/regreq';
+import { User } from 'src/models/user';
 
 @Injectable({providedIn: 'root'})
 export class UserServiceService {
@@ -25,9 +25,13 @@ export class UserServiceService {
     }
     return this.httpClient.post(`${this.uri}/users/changePassword`, data);
   }
-  regitration(req:RegReq)
+  regitration(req:User)
   {
     return this.httpClient.post(`${this.uri}/users/makeRegistrationRequest`, req);
+  }
+  updateProfileInfo(user:User)
+  {
+    return this.httpClient.post(`${this.uri}/users/updateProfile`, user);
   }
 
 }

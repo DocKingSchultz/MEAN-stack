@@ -12,8 +12,7 @@ import { HeaderModule } from '@coreui/angular';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { DataTableComponent } from './TemplateComponents/data-table/data-table.component';
-import { ChangePasswordComponent } from './change-password/change-password.component';
-import { RegisterComponent } from './GlobalComponents/register/register.component';
+import { ChangePasswordComponent } from './GlobalComponents/change-password/change-password.component';
 import { LogoutComponent } from './GlobalComponents/logout/logout.component';
 import { UploadFilesComponent } from './TemplateComponents/upload-files/upload-files.component';
 import { ClientComponent } from './client/client.component';
@@ -26,7 +25,11 @@ import { AdminRegReqComponent } from './AdminComponents/admin/admin-reg-req/admi
 import { ChooseRegistrationPageComponent } from './GlobalComponents/choose-registration-page/choose-registration-page.component';
 import { ClientRegistrationComponent } from './GlobalComponents/client-registration/client-registration.component';
 import { AgnecyRegistrationComponent } from './GlobalComponents/agnecy-registration/agnecy-registration.component';
-import { MyProfileComponentComponent } from './GlobalComponents/my-profile-component/my-profile-component.component'
+import { MyProfileComponentComponent } from './GlobalComponents/my-profile-component/my-profile-component.component';
+import { ObjectsComponent } from './client/objects/objects.component';
+import { AgenciesComponent } from './client/agencies/agencies.component';
+import { AgencyRequestComponent } from './client/agency-request/agency-request.component';
+import { JobsComponent } from './client/jobs/jobs.component'
 
 @NgModule({
   declarations: [
@@ -38,7 +41,6 @@ import { MyProfileComponentComponent } from './GlobalComponents/my-profile-compo
     AdminComponent,
     DataTableComponent,
     ChangePasswordComponent,
-    RegisterComponent,
     LogoutComponent,
     UploadFilesComponent,
     ClientComponent,
@@ -49,6 +51,10 @@ import { MyProfileComponentComponent } from './GlobalComponents/my-profile-compo
     ClientRegistrationComponent,
     AgnecyRegistrationComponent,
     MyProfileComponentComponent,
+    ObjectsComponent,
+    AgenciesComponent,
+    AgencyRequestComponent,
+    JobsComponent,
   ],
   imports: [
     BrowserModule,

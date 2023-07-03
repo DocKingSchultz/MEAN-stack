@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { AdminService } from '../../../services/admin.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { RegReq } from 'src/models/regreq';
+import { User } from 'src/models/user';
 
 @Component({
   selector: 'app-admin-reg-req',
@@ -19,9 +19,9 @@ export class AdminRegReqComponent {
       this.regReqs=reqs;
     })
   }
-  regReqs : RegReq[];
+  regReqs : User[];
 
-  changeAccStatus(req:RegReq, status:string)
+  changeAccStatus(req:User, status:string)
   {
     this.adminServ.changeAccStatus(req, status).subscribe((mss:any)=>{
 

@@ -21,10 +21,19 @@ export class MyProfileComponentComponent {
     {
       this.user=JSON.parse(user)
     }
-    alert(JSON.stringify(user))
   }
 
 
   user:User;
+
+  save()
+  {
+    this.userv.updateProfileInfo(this.user).subscribe((info:any)=>{
+      alert(info)
+      {
+        alert(JSON.stringify(info))
+      }
+    })
+  }
   
 }

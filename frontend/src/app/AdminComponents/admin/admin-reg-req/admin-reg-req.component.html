@@ -9,7 +9,8 @@
         <th></th>
         
       </tr>
-      <tr *ngFor = 'let req of regReqs'>
+      <tr *ngFor = 'let req of regReqs' >
+        <ng-container *ngIf="req.type!='admin'">
         <td>{{req.username}}</td>
         <td>{{req.type}}</td>
         <td>{{req.status}}</td>
@@ -19,6 +20,7 @@
         <td *ngIf="req.status=='aktivan'">
             <button class="button" (click)="changeAccStatus(req, 'neaktivan')" >Dektiviraj nalog</button>
         </td>   
+      </ng-container>
      </tr>
     </table>
   </div>

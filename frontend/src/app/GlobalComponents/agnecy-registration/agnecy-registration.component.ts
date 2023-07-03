@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { UserServiceService } from 'src/app/services/user-service.service';
-import { RegReq } from 'src/models/regreq';
+import { User } from 'src/models/user';
 
 declare function checkPasswordMatching(pass:string, confpass:string):boolean;
 declare function checkIfAllFieldsAreFilled(formName:string):boolean;
@@ -18,7 +18,7 @@ export class AgnecyRegistrationComponent {
   ngOnInit(): void {
   }
 
-  req:RegReq = new RegReq();
+  req:User = new User();
 
 
   registration()
