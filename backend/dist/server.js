@@ -10,6 +10,7 @@ const mongoose_1 = __importDefault(require("mongoose"));
 const fileUploader_1 = require("./controllers/fileUploader");
 const userController_1 = require("./controllers/userController");
 const adminController_1 = require("./controllers/adminController");
+const clientController_1 = require("./controllers/clientController");
 var logger = require('morgan');
 const fileUpload = require('express-fileupload');
 const app = (0, express_1.default)();
@@ -32,6 +33,7 @@ router.route('/users/makeRegistrationRequest').post((req, res) => new userContro
 router.route('/admin/getAllRegistrationRequests').post((req, res) => new adminController_1.adminController().getAllRegistrationRequests(req, res));
 router.route('/admin/changeAccStatus').post((req, res) => new adminController_1.adminController().changeAccStatus(req, res));
 router.route('/users/updateProfile').post((req, res) => new userController_1.userController().updateProfile(req, res));
+router.route('/client/addNewOjbect').post((req, res) => new clientController_1.clientController().addNewOjbect(req, res));
 app.listen(4000, () => console.log(`Express server running on port 4000`));
 // export const cloudinary = require('cloudinary').v2;
 // // Configuration

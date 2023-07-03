@@ -10,23 +10,18 @@ export interface Room extends Document {
   }
 export const RoomSchema: Schema<Room> = new Schema({
   x: {
-    type: Number,
-    required: true,
+    type: Number
   },
   y: {
-    type: Number,
-    required: true,
+    type: Number
   },
   length: {
-    type: Number,
-    required: true,
+    type: Number
   },
   width: {
-    type: Number,
-    required: true,
+    type: Number
   },
   color: {
-    type: String,
-    required: true,
+    type: String
   },
 });

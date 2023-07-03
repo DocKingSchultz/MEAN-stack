@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import  '../utils/util'
 import { uri } from '../utils/util';
 import { User } from 'src/models/user';
+import { ObjectInfo } from 'src/models/objeinfo';
 
 @Injectable({providedIn: 'root'})
 export class UserServiceService {
@@ -32,6 +33,10 @@ export class UserServiceService {
   updateProfileInfo(user:User)
   {
     return this.httpClient.post(`${this.uri}/users/updateProfile`, user);
+  }
+  addNewOjbect(obj:ObjectInfo)
+  {
+    return this.httpClient.post(`${this.uri}/users/updateProfile`, obj);
   }
 
 }

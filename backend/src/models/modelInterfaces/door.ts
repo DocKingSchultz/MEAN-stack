@@ -7,11 +7,9 @@ export interface Door extends Document{
   }
 export const DoorSchema: Schema<Door> = new Schema({
   x: {
-    type: Number,
-    required: true,
+    type: Number
   },
   y: {
-    type: Number,
-    required: true,
+    type: Number
   },
 });

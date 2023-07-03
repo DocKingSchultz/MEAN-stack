@@ -5,6 +5,7 @@ import mongoose from 'mongoose'
 import { onFileupload } from './controllers/fileUploader';
 import { userController } from './controllers/userController';
 import { adminController } from './controllers/adminController';
+import { clientController } from './controllers/clientController';
 
 
 var logger = require('morgan');
@@ -51,6 +52,9 @@ router.route('/admin/changeAccStatus').post(
 )
 router.route('/users/updateProfile').post(
     (req, res)=>new userController().updateProfile(req, res)
+)
+router.route('/client/addNewOjbect').post(
+    (req, res)=>new clientController().addNewOjbect(req, res)
 )
 app.listen(4000, () => console.log(`Express server running on port 4000`));
 

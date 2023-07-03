@@ -30,7 +30,8 @@ import { ObjectsComponent } from './client/objects/objects.component';
 import { AgenciesComponent } from './client/agencies/agencies.component';
 import { AgencyRequestComponent } from './client/agency-request/agency-request.component';
 import { JobsComponent } from './client/jobs/jobs.component';
-import { CreateNewObjectComponent } from './client/create-new-object/create-new-object.component'
+import { CreateNewObjectComponent } from './client/create-new-object/create-new-object.component';
+import { CanvasPopupComponentComponent } from './GlobalComponents/canvas-popup-component/canvas-popup-component.component'
 
 @NgModule({
   declarations: [
@@ -57,6 +58,7 @@ import { CreateNewObjectComponent } from './client/create-new-object/create-new-
     AgencyRequestComponent,
     JobsComponent,
     CreateNewObjectComponent,
+    CanvasPopupComponentComponent,
   ],
   imports: [
     BrowserModule,
