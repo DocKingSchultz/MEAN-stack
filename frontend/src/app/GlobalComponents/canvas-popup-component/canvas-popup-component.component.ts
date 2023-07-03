@@ -7,6 +7,7 @@ import { Sketch } from 'src/models/sketch';
   styleUrls: ['./canvas-popup-component.component.css']
 })
 export class CanvasPopupComponentComponent {
+  
   @ViewChild('canvasElement', { static: true }) canvasRef!: ElementRef<HTMLCanvasElement>;
   canvasOpen = false;
   ctx!: CanvasRenderingContext2D;
