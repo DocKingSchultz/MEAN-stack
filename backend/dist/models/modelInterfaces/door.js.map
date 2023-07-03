@@ -1,0 +1,1 @@
+{"version":3,"file":"door.js","sourceRoot":"","sources":["../../../src/models/modelInterfaces/door.ts"],"names":[],"mappings":";;;AACA,uCAAkC;AAMrB,QAAA,UAAU,GAAiB,IAAI,iBAAM,CAAC;IACjD,CAAC,EAAE;QACD,IAAI,EAAE,MAAM;QACZ,QAAQ,EAAE,IAAI;KACf;IACD,CAAC,EAAE;QACD,IAAI,EAAE,MAAM;QACZ,QAAQ,EAAE,IAAI;KACf;CACF,CAAC,CAAC"}

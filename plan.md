@@ -37,16 +37,16 @@
 -Dodati ubacivanje slike na backu
 -Ubaciti slicicu negde na frontu da se testira rad 
 
-iii0 Subscribe header na promenu u okviru logina:
+<!-- iii0 Subscribe header na promenu u okviru logina:
 Napraviti servis za promenu tipa korisnika
-U njemu treba da se nalazi vrednost tipam korisnika
+U njemu treba da se nalazi vrednost tipam korisnika -->
 
 
-iii. Prihvatanje i odbijanje zahteva registracije : [Filip]
+<!-- iii. Prihvatanje i odbijanje zahteva registracije : [Filip]
 1. Izlistati sve zahteve u tabeli (pogeldati prethodni projekat mozda)
 2. Psotaviti 2 dugmeta prihvati i odbijanje
 3. Npraviti metodu za odbivanje, brisanje zahteva iz sistema
-4. Npraviti metodu prihvati (ubacivanje korisnika u users, i brisanje iz regreqs)
+4. Npraviti metodu prihvati (ubacivanje korisnika u users, i brisanje iz regreqs) -->
 
 
 

@@ -1,0 +1,1 @@
+{"version":3,"file":"sketch.js","sourceRoot":"","sources":["../../../src/models/modelInterfaces/sketch.ts"],"names":[],"mappings":";;;AACA,iCAA0C;AAC1C,iCAA0C;AAC1C,uCAAkC;AAOrB,QAAA,YAAY,GAAmB,IAAI,iBAAM,CAAC;IACrD,KAAK,EAAE;QACL,IAAI,EAAE,CAAC,iBAAU,CAAC;QAClB,QAAQ,EAAE,IAAI;KACf;IACD,KAAK,EAAE;QACL,IAAI,EAAE,CAAC,iBAAU,CAAC;QAClB,QAAQ,EAAE,IAAI;KACf;CACF,CAAC,CAAC"}

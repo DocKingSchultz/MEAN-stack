@@ -31,6 +31,7 @@ router.route('/users/changePassword').post((req, res) => new userController_1.us
 router.route('/users/makeRegistrationRequest').post((req, res) => new userController_1.userController().makeRegistrationRequest(req, res));
 router.route('/admin/getAllRegistrationRequests').post((req, res) => new adminController_1.adminController().getAllRegistrationRequests(req, res));
 router.route('/admin/changeAccStatus').post((req, res) => new adminController_1.adminController().changeAccStatus(req, res));
+router.route('/users/updateProfile').post((req, res) => new userController_1.userController().updateProfile(req, res));
 app.listen(4000, () => console.log(`Express server running on port 4000`));
 // export const cloudinary = require('cloudinary').v2;
 // // Configuration

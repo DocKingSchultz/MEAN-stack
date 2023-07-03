@@ -49,7 +49,9 @@ router.route('/admin/getAllRegistrationRequests').post(
 router.route('/admin/changeAccStatus').post(
     (req, res)=>new adminController().changeAccStatus(req, res)
 )
-
+router.route('/users/updateProfile').post(
+    (req, res)=>new userController().updateProfile(req, res)
+)
 app.listen(4000, () => console.log(`Express server running on port 4000`));
 
 

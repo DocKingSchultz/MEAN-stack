@@ -5,11 +5,10 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.adminController = void 0;
 const user_1 = __importDefault(require("../models/user"));
-const regreqs_1 = __importDefault(require("../models/regreqs"));
 class adminController {
     constructor() {
         this.getAllRegistrationRequests = (req, res) => {
-            regreqs_1.default.find({}, (err, reqs) => {
+            user_1.default.find({}, (err, reqs) => {
                 if (err)
                     console.log("getting reg requests error :" + err);
                 else {
@@ -18,37 +17,21 @@ class adminController {
             });
         };
         this.changeAccStatus = (req, res) => {
-            let regReq = req.body.req;
-            let username = regReq.username;
-            let status = req.body.status;
-            regreqs_1.default.findOneAndUpdate({ "username": username }, { "status": status }, (err, res) => {
+            let user = req.body.req;
+            let username = user.username;
+            let status = user.status;
+            if (status == "neaktivan") {
+                status = "aktivan";
+            }
+            else {
+                status = "neaktivan";
+            }
+            console.log(username);
+            user_1.default.findOneAndUpdate({ "username": username }, { "status": status }, (err, res) => {
                 if (err)
                     throw (err);
-                else {
-                    user_1.default.findOne({ "username": username }, (err, res) => {
-                        if (err)
-                            throw (err);
-                        else {
-                            if (res) {
-                                user_1.default.deleteOne({ "username": username }, (err) => {
-                                }).clone().catch(err => {
-                                    if (err) {
-                                        console.log("Greska pri deaktiviranju kompanije Admin/changeAccStatus : " + err);
-                                    }
-                                });
-                            }
-                            else {
-                                let comp = new user_1.default(regReq);
-                                comp.status = status;
-                                if (status == 'aktivan') {
-                                    comp.save(function (err) {
-                                        if (err)
-                                            throw (err);
-                                    });
-                                }
-                            }
-                        }
-                    });
+                else if (!res) {
+                    console.log("Cant update user status, as user doesnt exist in database" + JSON.stringify(res));
                 }
             });
         };
