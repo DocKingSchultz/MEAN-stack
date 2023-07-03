@@ -20,18 +20,59 @@ export class AgnecyRegistrationComponent {
 
   req:User = new User();
 
+  selectedFile: File;
 
-  registration()
-  {
-    this.req.type="agency"
-    if(checkIfAllFieldsAreFilled("registerForm")
-    && checkPasswordRegularity(this.req.password)
-    && checkPasswordMatching(this.req.password, this.req.passwordConfirmed)){
-      this.userServ.regitration(this.req).subscribe((mess:any)=>{
-        alert(mess['message'])
-  })
+  onFileSelected(event: any) {
+    this.selectedFile = event.target.files[0];
+    const reader:FileReader = new FileReader();
+    reader.onloadend=(e)=>{
+      if(reader.result!=null)
+        this.req.picture=reader.result.toString();
+    }
+    reader.readAsDataURL(this.selectedFile);
+  }
 
-   }
+  registration() {
+    if (this.selectedFile) {
+      const img = new Image();
+      const reader = new FileReader();
 
- }
+      reader.onload = (e: any) => {
+        img.onload = () => {
+          const width = img.width;
+          const height = img.height;
+          if (width >= 100 && width <= 300 && height >= 100 && height <= 300) {
+            //alert('Image dimensions are within the range of 100px to 300px.');
+              this.req.type="agency"
+              if(checkIfAllFieldsAreFilled("registerForm")
+              && checkPasswordRegularity(this.req.password)
+              && checkPasswordMatching(this.req.password, this.req.passwordConfirmed)){
+                this.userServ.regitration(this.req).subscribe((mess:any)=>{
+                  this.ruter.navigate(['/']);
+                  alert(mess['message'])
+                })
+              }
+          }
+          else {
+            alert('Image dimensions are not within the range of 100px to 300px.');
+          }
+        };
+        img.src = e.target.result; 
+      };
+      reader.readAsDataURL(this.selectedFile);
+    }
+    else{ //default profile photo  
+      this.req.picture="assets/pictures/defaultAgencyLogo.png"
+      this.req.type="agency"
+      if(checkIfAllFieldsAreFilled("registerForm")
+      && checkPasswordRegularity(this.req.password)
+      && checkPasswordMatching(this.req.password, this.req.passwordConfirmed)){
+        this.userServ.regitration(this.req).subscribe((mess:any)=>{
+          this.ruter.navigate(['/']);
+          alert(mess['message'])
+        })
+      }
+    }
+  }
+
 }

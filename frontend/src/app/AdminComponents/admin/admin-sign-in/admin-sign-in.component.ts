@@ -26,7 +26,7 @@ export class AdminSignInComponent implements OnInit{
     {
       this.usrServ.login(this.username, this.password, true).subscribe((data:any)=>{
         if(!data){
-          alert("Adinistrator sa unetim podacima ne postoji u sistemu");
+          alert("Administrator sa unetim podacima ne postoji u sistemu");
         }
         else{
             localStorage.setItem("user", JSON.stringify(data))

@@ -44,7 +44,16 @@
                     <textarea class="form-control" id="i11" rows="3" placeholder="Opis" name="descr" [(ngModel)]='req.description'></textarea>
                   </div>
                   
-                  <!-- Ubaciti polje slike -->
+                  <div class="form-outline mb-4">
+                    <p>Logo</p>
+                    <div *ngIf='req.picture==""'>
+                      <img src="assets\pictures\defaultAgencyLogo.png" width="100px" alt="example placeholder avatar">
+                      </div>
+                      <div *ngIf='req.picture!=""'>
+                          <img src="{{req.picture}}" width="100px" alt="profile picture">
+                      </div>
+                      <input type="file" name="picture" (change)='onFileSelected($event)'>
+                  </div>
                   
                   <div class="row">
                     <input type="submit" value="Potvrdi" (click)="registration()">

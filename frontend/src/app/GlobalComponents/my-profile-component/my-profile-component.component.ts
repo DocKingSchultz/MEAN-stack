@@ -25,15 +25,44 @@ export class MyProfileComponentComponent {
 
 
   user:User;
+  selectedFile: File;
 
+  onFileSelected(event: any) {
+    this.selectedFile = event.target.files[0];
+    const reader:FileReader = new FileReader();
+    reader.onloadend=(e)=>{
+      if(reader.result!=null)
+        this.user.picture=reader.result.toString();
+    }
+    reader.readAsDataURL(this.selectedFile);
+  }
   save()
   {
-    this.userv.updateProfileInfo(this.user).subscribe((info:any)=>{
-      alert(info)
-      {
-        alert(JSON.stringify(info))
-      }
-    })
+    if (this.selectedFile) {
+      const img = new Image();
+      const reader = new FileReader();
+
+      reader.onload = (e: any) => {
+        img.onload = () => {
+          const width = img.width;
+          const height = img.height;
+          if (width >= 100 && width <= 300 && height >= 100 && height <= 300) {
+            //alert('Image dimensions are within the range of 100px to 300px.');
+            this.userv.updateProfileInfo(this.user).subscribe((info:any)=>{
+              alert(info)
+              {
+                alert(JSON.stringify(info))
+              }
+            })
+          }
+          else {
+            alert('Image dimensions are not within the range of 100px to 300px.');
+          }
+        };
+        img.src = e.target.result; 
+      };
+      reader.readAsDataURL(this.selectedFile);
+    }
   }
-  
+
 }

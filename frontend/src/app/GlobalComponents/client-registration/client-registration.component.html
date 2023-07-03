@@ -34,12 +34,20 @@
                     <input type="text" id="i7" class="form-control form-control-lg"  name="number" placeholder="Broj telefona" [(ngModel)]='req.phone' [required]="true"/>
                   </div>
 
-                  
-                  <!-- Ubaciti polje slike -->
-                  
+                  <div class="form-outline mb-4">
+                    <p>Profilna slika</p>
+                    <div *ngIf='req.picture==""'>
+                      <img src="assets\pictures\deafultClientPhoto.jpg" width="100px" alt="example placeholder avatar">
+                      </div>
+                      <div *ngIf='req.picture!=""'>
+                          <img src="{{req.picture}}" width="100px" alt="profile picture">
+                      </div>
+                      <input type="file" name="picture" (change)='onFileSelected($event)'>
+                  </div>
+                    
                   <div class="row">
                     <input type="submit" value="Potvrdi" (click)="registration()">
-                 </div>
+                  </div>
                   <p class="text-center text-muted mt-5 mb-0">Već posedujete nalog? <a href="signin"
                       class="fw-bold text-body"><u>Prijavite se</u></a></p>
   

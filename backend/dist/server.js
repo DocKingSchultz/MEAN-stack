@@ -19,7 +19,7 @@ app.use(body_parser_1.default.json());
 app.use(express_1.default.static('public'));
 app.use(body_parser_1.default.urlencoded({ extended: false }));
 app.use(fileUpload());
-mongoose_1.default.connect("mongodb://localhost:27017/MEAN-stack");
+mongoose_1.default.connect("mongodb://0.0.0.0:27017/MEAN-stack");
 const conn = mongoose_1.default.connection;
 conn.once('open', () => {
     console.log('Uspesna konekcija');

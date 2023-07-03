@@ -49,7 +49,8 @@
     <div class="row" *ngIf="user.picture">
       <div class="column">
         <label for="picture">Profilna slika:</label>
-        <input type="text" id="picture" name="picture" [(ngModel)]="user.picture" required>
+        <img src="{{user.picture}}" width=100px alt="example placeholder avatar">
+        <input type="file" name="picture" (change)='onFileSelected($event)'>
       </div>
     </div>
 
