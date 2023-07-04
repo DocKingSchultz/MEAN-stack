@@ -4,6 +4,9 @@ import { ClientService } from 'src/app/services/client.service';
 import { ObjectInfo } from 'src/models/objeinfo';
 import { Sketch } from 'src/models/sketch';
 
+declare function validateJSON(jsonData:any):boolean
+declare function drawSketch(rectangles:any, confirmBool:boolean, doors:any):void
+
 @Component({
   selector: 'app-create-new-object',
   templateUrl: './create-new-object.component.html',
@@ -31,16 +34,23 @@ export class CreateNewObjectComponent {
       fileReader.onload = (e: any) => {
         try {
           const jsonData = JSON.parse(e.target.result);
-
+          if(!validateJSON(jsonData))
+          {
+            alert("JSON fajl ne odgovara opisu !")
+            return
+          }
           if (this.obj.roomCnt <= 3 || this.obj.roomCnt > 0) {
             let user = localStorage.getItem("user")
             if (user != null) {
-              alert(JSON.parse(user).username)
               this.obj.sketch.rooms = jsonData.rooms;
               this.obj.sketch.doors = jsonData.doors;
+              for(let i=0;i<this.obj.sketch.rooms.length;i++)
+              {
+                this.obj.sketch.rooms[i].color="white"
+              }
               this.clServ.addNewOjbect(this.obj, JSON.parse(user).username).subscribe((data: any) => {
                 if (data) {
-                  alert(JSON.stringify(data))
+                  drawSketch(this.obj.sketch.rooms, true, this.obj.sketch.doors)
                 }
                 else alert("Objekat neuspesno ubacen")
               })
@@ -51,6 +61,7 @@ export class CreateNewObjectComponent {
           }
           console.log(jsonData);
         } catch (error) {
+          alert("Fajl nije u JSON formatu")
           console.error('Error parsing JSON file:', error);
         }
       };

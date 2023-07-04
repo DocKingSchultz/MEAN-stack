@@ -77,7 +77,9 @@ import { AgencyDescriptionComponent } from './client/agency-description/agency-d
     HttpClientModule,
     FormsModule,
     MatIconModule,
-    MatProgressBarModule
+    MatProgressBarModule,
+    MatTableModule,
+    MatInputModule
   ],
   providers: [],
   bootstrap: [AppComponent]

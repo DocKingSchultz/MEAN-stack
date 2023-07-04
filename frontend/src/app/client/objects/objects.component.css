@@ -1,0 +1,23 @@
+.container {
+    background-color: white;
+    padding: 16px;
+  }
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: white;
+    padding: 16px;
+  }
+  
+  .mat-column-address,
+  .mat-column-roomCnt,
+  .mat-column-sqMetersNumber,
+  .mat-column-sketch,
+  .mat-column-actions {
+    text-align: center;
+  }
+  
+  .mat-cell {
+    padding: 8px;
+    background-color: white;
+  }

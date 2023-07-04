@@ -63,6 +63,10 @@ router.route('/users/getAgencyByUsername').post(
 router.route('/client/addNewOjbect').post(
     (req, res)=>new clientController().addNewOjbect(req, res)
 )
+router.route('/client/getAllObjects').post(
+    (req, res)=>new clientController().getAllObjects(req, res)
+)
+
 app.listen(4000, () => console.log(`Express server running on port 4000`));
 
 

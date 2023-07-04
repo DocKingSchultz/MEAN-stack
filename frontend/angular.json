@@ -29,7 +29,8 @@
             ],
             "scripts": [
             "src/scripts/formValidityChecker.js",
-            "src/scripts/front_functions.js"
+            "src/scripts/front_functions.js",
+            "src/scripts/jsonFormat.js"
           ]
           },
           "configurations": {

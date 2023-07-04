@@ -20,7 +20,7 @@ app.use(body_parser_1.default.json());
 app.use(express_1.default.static('public'));
 app.use(body_parser_1.default.urlencoded({ extended: false }));
 app.use(fileUpload());
-mongoose_1.default.connect("mongodb://0.0.0.0:27017/MEAN-stack");
+mongoose_1.default.connect("mongodb://localhost:27017/MEAN-stack");
 const conn = mongoose_1.default.connection;
 conn.once('open', () => {
     console.log('Uspesna konekcija');
@@ -37,6 +37,7 @@ router.route('/users/updateProfile').post((req, res) => new userController_1.use
 router.route('/users/getAgencies').get((req, res) => new agencyController_1.agencyController().getAgencies(req, res));
 router.route('/users/getAgencyByUsername').post((req, res) => new agencyController_1.agencyController().getAgencyByUsername(req, res));
 router.route('/client/addNewOjbect').post((req, res) => new clientController_1.clientController().addNewOjbect(req, res));
+router.route('/client/getAllObjects').post((req, res) => new clientController_1.clientController().getAllObjects(req, res));
 app.listen(4000, () => console.log(`Express server running on port 4000`));
 // export const cloudinary = require('cloudinary').v2;
 // // Configuration

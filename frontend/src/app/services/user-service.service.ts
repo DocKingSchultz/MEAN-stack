@@ -42,6 +42,10 @@ export class UserServiceService {
   {
     return this.httpClient.post(`${this.uri}/users/updateProfile`, obj);
   }
+  updateUser(user:User)
+  {
+    return this.httpClient.post(`${this.uri}/users/updateProfile`, user);
+  }
 
   getAgencies()
   {

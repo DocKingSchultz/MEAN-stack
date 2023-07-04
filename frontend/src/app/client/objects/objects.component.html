@@ -1,1 +1,24 @@
-<p>objects works!</p>
+<div class="table-responsive">
+<table class=table>
+    <thead>
+      <tr>
+        <th>Adresa</th>
+        <th>Broj Soba</th>
+        <th>Kvadratura</th>
+        <th>Akcija</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let object of objects; let i = index">
+        <td>{{ object.address }}</td>
+        <td>{{ object.roomCnt }}</td>
+        <td>{{ object.sqMetersNumber }}</td>
+        <td>
+          <button class="btn btn-primary" (click)="pregled(i)">Pregled</button>
+          <button class="btn btn-primary" (click)="izmeni(i)">Izmeni</button>
+          <button class="btn btn-primary" (click)="obrisi(i)">Obrisi</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

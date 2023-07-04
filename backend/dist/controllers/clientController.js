@@ -5,6 +5,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.clientController = void 0;
 const user_1 = __importDefault(require("../models/user"));
+const user_2 = __importDefault(require("../models/user"));
 class clientController {
     constructor() {
         this.addNewOjbect = (req, response) => {
@@ -20,6 +21,16 @@ class clientController {
                     response.json("Objekat uspesno dodat");
                     console.log(JSON.stringify(result));
                     console.log('Object inserted successfully into User collection.');
+                }
+            });
+        };
+        this.getAllObjects = (req, response) => {
+            user_2.default.findOne({ "username": req.body.username }, (err, reqs) => {
+                if (err)
+                    console.log("getting objects from user " + JSON.stringify(req.body) + " failed :" + err);
+                else {
+                    console.log(JSON.stringify(reqs));
+                    response.json(reqs);
                 }
             });
         };

@@ -20,8 +20,14 @@ export class ClientService {
       obj:obj,
       username:username
     }
-    alert(JSON.stringify(data.obj))
     return this.httpClient.post(`${this.uri}/client/addNewOjbect`, data);
   }
-
+  getAllObjects(username:string)
+  {
+    let data=
+    {
+      username:username
+    }
+    return this.httpClient.post(`${this.uri}/client/getAllObjects`,data)
+  }
 }

@@ -6,4 +6,6 @@ export class Sketch {
       public rooms: Room[] = [],
       public doors: Door[] = []
     ) {}
+    
+
   }

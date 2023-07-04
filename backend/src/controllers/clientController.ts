@@ -14,9 +14,16 @@ export class clientController {
               console.error('Error inserting object into User collection:', error);
             } else if(result){
                 response.json("Objekat uspesno dodat")
-                console.log(JSON.stringify(result))
               console.log('Object inserted successfully into User collection.');
             }
           });
+    }
+    getAllObjects= (req: express.Request, response: express.Response) => {
+      User.findOne({"username":req.body.username}, (err, reqs) => {
+        if (err) console.log("getting objects from user "+JSON.stringify(req.body)+" failed :"+ err)
+        else {
+          response.json(reqs)
+        }
+    })
     }
 }
