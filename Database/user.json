@@ -11,12 +11,13 @@
   "address": "Danicareva 43",
   "email": "ag@as.com",
   "phone": 213123,
-  "picture": "",
+  "picture": "assets/pictures/defaultAgencyLogo.png",
   "mnumber": 653808493,
   "description": "",
   "status": "aktivan",
   "__v": 0
-},{
+},
+{
   "_id": {
     "$oid": "64a1a0661974acd09e5c7eb9"
   },
@@ -29,12 +30,13 @@
   "address": "Komova 32",
   "email": "j@s.com",
   "phone": 2131,
-  "picture": "",
+  "picture": "assets/pictures/defaultAgencyLogo.png",
   "mnumber": 65432674,
   "description": "",
   "status": "aktivan",
   "__v": 0
-},{
+},
+{
   "_id": {
     "$oid": "64a19f62a899ad1785164adc"
   },
@@ -51,5 +53,40 @@
   "mnumber": 0,
   "description": "",
   "status": "aktivan",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64a444dbfba678b473955de1"
+  },
+  "username": "tea",
+  "password": "Teodora097#",
+  "passwordConfirmed": "Teodora097#",
+  "type": "agency",
+  "name": "TeaDoo",
+  "lastname": "",
+  "address": "Milana Rakica 77, Beograd",
+  "email": "tea@gmail.com",
+  "phone": 645685321,
+  "picture": "assets/pictures/defaultAgencyLogo.png",
+  "mnumber": 684611,
+  "description": "oiwefjiwfbhcnwioefjh09wiqeipowse",
+  "status": "aktivan",
+  "objects": [],
+  "agencyWorkPictures": [
+    "assets\\pictures\\white-kitchen-a1.png",
+    "assets\\pictures\\office-room-1.png",
+    "assets\\pictures\\minimalist-livingroom-1.png"
+  ],
+  "agencyComments": [
+    {
+      "usernameOfUser": "klijent1",
+      "nameOfUser": "Filip",
+      "lastnameOfUser": "Jankovic",
+      "mark": "3"
+    }
+  ],
+  "clientJobs": [],
+  "workers": [],
   "__v": 0
 }]
