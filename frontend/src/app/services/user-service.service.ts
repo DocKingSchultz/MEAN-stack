@@ -46,11 +46,14 @@ export class UserServiceService {
   {
     return this.httpClient.post(`${this.uri}/users/updateProfile`, user);
   }
+<<<<<<< Updated upstream
 
   getAgencies()
   {
     return this.httpClient.get<User[]>(`${this.uri}/users/getAgencies`);
   }
+=======
+>>>>>>> Stashed changes
 
 
   getAgencyByUsername(username:string)
