@@ -31,14 +31,8 @@ import { AgenciesComponent } from './client/agencies/agencies.component';
 import { AgencyRequestComponent } from './client/agency-request/agency-request.component';
 import { JobsComponent } from './client/jobs/jobs.component';
 import { CreateNewObjectComponent } from './client/create-new-object/create-new-object.component';
-<<<<<<< Updated upstream
 import { CanvasPopupComponentComponent } from './GlobalComponents/canvas-popup-component/canvas-popup-component.component';
 import { AgencyDescriptionComponent } from './client/agency-description/agency-description.component'
-=======
-import { CanvasPopupComponentComponent } from './GlobalComponents/canvas-popup-component/canvas-popup-component.component'
-import { MatTableModule } from '@angular/material/table';
-import { MatInputModule } from '@angular/material/input';
->>>>>>> Stashed changes
 
 @NgModule({
   declarations: [
@@ -83,9 +77,7 @@ import { MatInputModule } from '@angular/material/input';
     HttpClientModule,
     FormsModule,
     MatIconModule,
-    MatProgressBarModule,
-    MatTableModule,
-    MatInputModule
+    MatProgressBarModule
   ],
   providers: [],
   bootstrap: [AppComponent]
