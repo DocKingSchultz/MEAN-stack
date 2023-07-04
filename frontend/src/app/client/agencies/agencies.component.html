@@ -1,1 +1,11 @@
-<p>agencies works!</p>
+<div class="agency-container">
+    <div class="agency-card" *ngFor="let agency of agencies">
+        <a class="router-link" [routerLink]="['/agency-description', agency.username]">
+            <img class="agency-picture" width="150px" [src]="agency.picture" alt="Agency Picture">
+            <div class="agency-info">
+              <h3 class="agency-name">{{ agency.name }}</h3>
+              <p class="agency-description">{{ agency.description }}</p>
+            </div>
+        </a>
+    </div>
+</div>

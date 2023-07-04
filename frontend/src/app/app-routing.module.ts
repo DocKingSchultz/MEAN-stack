@@ -16,6 +16,8 @@ import { AgnecyRegistrationComponent } from './GlobalComponents/agnecy-registrat
 import { MyProfileComponentComponent } from './GlobalComponents/my-profile-component/my-profile-component.component';
 import { ObjectsComponent } from './client/objects/objects.component';
 import { CreateNewObjectComponent } from './client/create-new-object/create-new-object.component';
+import { AgenciesComponent } from './client/agencies/agencies.component';
+import { AgencyDescriptionComponent } from './client/agency-description/agency-description.component';
 
 const routes: Routes = [
   {path:"", component:HomeComponent},
@@ -33,6 +35,8 @@ const routes: Routes = [
   {path:"regreq", component:AdminRegReqComponent},
   {path:"registerClient", component:ClientRegistrationComponent},
   {path:"registerAgency", component:AgnecyRegistrationComponent},
+  {path:"agencies", component:AgenciesComponent},
+  {path:"agency-description/:username", component:AgencyDescriptionComponent},
   {path:"objects", component:ObjectsComponent},
   {path:"newobject", component:CreateNewObjectComponent},
   {path: '**', component: HomeComponent }

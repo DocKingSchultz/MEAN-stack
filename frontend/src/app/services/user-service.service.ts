@@ -18,6 +18,7 @@ export class UserServiceService {
     }
     return this.httpClient.post(`${uri}/users/login`, data);
   }
+  
   changePassword(username:string, password:string)
   {
     const data = {
@@ -26,17 +27,33 @@ export class UserServiceService {
     }
     return this.httpClient.post(`${this.uri}/users/changePassword`, data);
   }
+
   regitration(req:User)
   {
     return this.httpClient.post(`${this.uri}/users/makeRegistrationRequest`, req);
   }
+
   updateProfileInfo(user:User)
   {
     return this.httpClient.post(`${this.uri}/users/updateProfile`, user);
   }
+
   addNewOjbect(obj:ObjectInfo)
   {
     return this.httpClient.post(`${this.uri}/users/updateProfile`, obj);
   }
 
+  getAgencies()
+  {
+    return this.httpClient.get<User[]>(`${this.uri}/users/getAgencies`);
+  }
+
+
+  getAgencyByUsername(username:string)
+  {
+    const data = {
+      username:username
+    }
+    return this.httpClient.post<User>(`${this.uri}/users/getAgencyByUsername`, data);
+  }
 }

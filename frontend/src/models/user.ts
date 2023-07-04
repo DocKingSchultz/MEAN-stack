@@ -1,5 +1,7 @@
+import { Comment } from "./comment";
 import { Job } from "./job";
 import { ObjectInfo } from "./objeinfo";
+import { Worker } from "./worker";
 
 export class User {
   constructor(

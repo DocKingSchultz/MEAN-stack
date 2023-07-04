@@ -1,0 +1,23 @@
+<div class="agency-container">
+    <div class="agency-info">
+      <h2 class="agency-name">{{agency.name}}</h2>
+      <img class="agency-picture" width="150px" [src]='agency.picture' alt="Agency Picture">
+      <p class="agency-description">{{agency.description}}</p>
+    </div>
+
+    <div class="comments-container">
+      <h3>Comments</h3>
+      <div class="comment" *ngFor="let comment of agency.agencyComments">
+        <div class="comment-username">{{ comment.usernameOfUser }}</div>
+        <div class="comment-details">
+          <span class="comment-name">{{ comment.nameOfUser }}</span>
+          <span class="comment-lastname">{{ comment.lastnameOfUser }}</span>
+          <span class="comment-mark">Mark: {{ comment.mark }}</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="gallery-container">
+      <img class="gallery-image" *ngFor="let picture of agency.agencyWorkPictures" [src]="picture" alt="Work Picture">
+    </div>
+  </div>

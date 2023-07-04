@@ -6,6 +6,7 @@ import { onFileupload } from './controllers/fileUploader';
 import { userController } from './controllers/userController';
 import { adminController } from './controllers/adminController';
 import { clientController } from './controllers/clientController';
+import { agencyController } from './controllers/agencyController';
 
 
 var logger = require('morgan');
@@ -22,7 +23,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use(fileUpload());
 
-mongoose.connect("mongodb://localhost:27017/MEAN-stack");
+mongoose.connect("mongodb://0.0.0.0:27017/MEAN-stack");
 
 const conn = mongoose.connection;
 
@@ -52,6 +53,12 @@ router.route('/admin/changeAccStatus').post(
 )
 router.route('/users/updateProfile').post(
     (req, res)=>new userController().updateProfile(req, res)
+)
+router.route('/users/getAgencies').get(
+    (req, res)=>new agencyController().getAgencies(req, res)
+)
+router.route('/users/getAgencyByUsername').post(
+    (req, res)=>new agencyController().getAgencyByUsername(req, res)
 )
 router.route('/client/addNewOjbect').post(
     (req, res)=>new clientController().addNewOjbect(req, res)
