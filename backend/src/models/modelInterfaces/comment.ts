@@ -6,6 +6,7 @@ export interface Comment extends Document{
     nameOfUser: string;
     lastnameOfUser: string;
     mark: number;
+    description:string;
   }
 
   export const CommentSchema: Schema<Comment> = new Schema({
@@ -22,4 +23,8 @@ export interface Comment extends Document{
       type: Number,
       required: true,
     },
+    description:{
+      type:String,
+      required:false,
+    }
   });

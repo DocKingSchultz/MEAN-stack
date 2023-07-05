@@ -34,7 +34,7 @@ export class SigninComponent implements OnInit {
           if(data.type=="client"){
             localStorage.setItem("user", JSON.stringify(data))
             this.cserv.sendUpdate("client")
-            this.router.navigate(['client']);
+            this.router.navigate(['profile']);
           }
           else if(data.type=="agency"){
             localStorage.setItem("user", JSON.stringify(data))

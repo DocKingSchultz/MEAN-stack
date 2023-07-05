@@ -26,10 +26,24 @@ class userController {
                 }
             });
         };
+        this.refresh = (req, response) => {
+            let username = req.body.username;
+            let user = new user_1.default();
+            console.log("Dohvatanje svezeg usera");
+            user_1.default.findOne({ 'username': username }, (err, res) => {
+                if (res) {
+                    console.log("User refreshed");
+                    response.json(res);
+                }
+                else {
+                    console.log("user failed to refresh info");
+                }
+            });
+        };
         this.changePassword = (req, res) => {
             let username = req.body.username;
             let password = req.body.password;
-            console.log(username + " " + password);
+            console.log("Promena loiznke za : " + username);
             user_1.default.findOneAndUpdate({ "username": username }, { "password": password }, (err, data) => {
                 if (data)
                     res.json(data);
@@ -39,7 +53,7 @@ class userController {
             }).clone();
         };
         this.makeRegistrationRequest = (req, res) => {
-            console.log("makeregreqbac l");
+            console.log("Kreiranje zahteva za registracijom");
             let user = new user_1.default(req.body);
             let username = req.body.username;
             user_1.default.findOne({ username: username }, (err, alreadyExistsUsername) => {
@@ -63,7 +77,7 @@ class userController {
         };
         this.updateProfile = (req, res) => {
             let user = new user_1.default(req.body);
-            console.log(JSON.stringify(req.body));
+            console.log("Update profila korinsika : " + user.username);
             user_1.default.findOneAndUpdate({ username: user.username }, user, (err, data) => {
                 if (err) {
                     console.log("Update profile failed" + JSON.stringify(err));

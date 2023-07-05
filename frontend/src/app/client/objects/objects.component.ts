@@ -11,6 +11,7 @@ import { User } from 'src/models/user';
 import { UserServiceService } from 'src/app/services/user-service.service';
 
 declare function drawSketch(rectangles:any, confirmBool:boolean, doors:any):void
+declare function validateJSON(jsonData:any):boolean
 
 @Component({
   selector: 'app-objects',
@@ -36,18 +37,104 @@ export class ObjectsComponent {
   file:any
   changedObj:ObjectInfo;
   user:User;
-  handleFileUpload(event: any, object: ObjectInfo) {
-    const file = event.target.files[0];
-    object.sketch = file;
-  }
+  selectedFile: File;
+  changedId:number
 
+  onFileSelected(event: any) {
+    this.selectedFile = event.target.files[0];
+  }
+  updateObject()
+  {
+    if (this.selectedFile) {
+      const fileReader = new FileReader();
+      fileReader.onload = (e: any) => {
+        try {
+          const jsonData = JSON.parse(e.target.result);
+          if(!validateJSON(jsonData))
+          {
+            alert("JSON fajl ne odgovara opisu !")
+            return
+          }
+          if (this.changedObj.roomCnt <= 3 || this.changedObj.roomCnt > 0) {
+            let user = localStorage.getItem("user")
+            if (user != null) {
+              this.changedObj.sketch.rooms = jsonData.rooms;
+              this.changedObj.sketch.doors = jsonData.doors;
+              for(let i=0;i<this.changedObj.sketch.rooms.length;i++)
+              {
+                this.changedObj.sketch.rooms[i].color="white"
+              }
+              this.objects[this.changedId]=this.changedObj
+              this.user=JSON.parse(user)
+              this.user.objects=this.objects
+              this.userServ.updateUser(this.user).subscribe((data: any) => {
+                if(data)
+                {
+                  alert("Objekat izmenjen")
+                }
+                else
+                {
+                  alert("Objekat neuspesno izmenjen")
+                }
+              })
+            }
+          }
+          else {
+            alert("Broj prostorija mora biti izmedju 1 i 3")
+          }
+          console.log(jsonData);
+        } catch (error) {
+          alert("Fajl nije u JSON formatu")
+          console.error('Error parsing JSON file:', error);
+        }
+      };
+      fileReader.readAsText(this.selectedFile);
+    }
+    else
+    {
+      if (this.changedObj.roomCnt <= 3 || this.changedObj.roomCnt > 0) {
+        let user = localStorage.getItem("user")
+        if (user != null) {
+          for(let i=0;i<this.changedObj.sketch.rooms.length;i++)
+          {
+            this.changedObj.sketch.rooms[i].color="white"
+          }
+          this.objects[this.changedId]=this.changedObj
+          this.user=JSON.parse(user)
+          this.user.objects=this.objects
+          this.userServ.updateUser(this.user).subscribe((data: any) => {
+            if(data)
+            { 
+              if(user!=null){
+                this.userServ.refreshUser(JSON.parse(user).username).subscribe((data: any) => {
+                  if(data)
+                  {
+                    alert("Objekat uspesno izmenjen")
+                    localStorage.setItem("user", JSON.parse(data))
+                  }
+                })
+              }
+            }
+            else
+            {
+              alert("Objekat neuspesno izmenjen")
+            }
+          })
+        }
+      }
+      else {
+        alert("Broj prostorija mora biti izmedju 1 i 3")
+      }
+    }
+  }
   pregled(id:number) {
 
     drawSketch(this.objects[id].sketch.rooms, false, this.objects[id].sketch.doors)
   }
 
   izmeni(id:number) {
-
+    this.changedObj=this.objects[id];
+    this.changedId=id
   }
 
   obrisi(id: number) {

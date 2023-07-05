@@ -16,7 +16,7 @@ exports.ObjectInfoSchema = new mongoose_1.Schema({
         type: Number,
         required: true,
     },
-    sqMeters: {
+    sqMetersNumber: {
         type: Number,
         required: true,
     },

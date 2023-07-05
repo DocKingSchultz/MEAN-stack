@@ -1,1 +1,32 @@
-<p>jobs works!</p>
+<div class="filter-container" *ngIf="selectedStatus!=null">
+    <label>Filtriraj:</label>
+    <select [(ngModel)]="selectedStatus" (change)="applyFilter()">
+      <option value="">All</option>
+      <option value="requested">Requested</option>
+      <option value="active">Active</option>
+      <option value="finished">Finished</option>
+      <option value="rejected">Rejected</option>
+    </select>
+  </div>
+<div class="table-responsive" *ngIf="filteredJobs!=null">
+    <table class=table>
+        <thead>
+          <tr>
+            <th>Datum pocetka radova</th>
+            <th>Datum zavretka radova</th>
+            <th>Status posla</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let job of filteredJobs; let i = index">
+            <td>{{ job.startDate }}</td>
+            <td>{{ job.endDate }}</td>
+            <td>{{ job.status }}</td>
+            <td>
+              <button class="btn btn-primary" (click)="pregled(i)">Pregled</button>
+              &nbsp;
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>

@@ -23,10 +23,5 @@ export class AgenciesComponent {
   }
 
   agencies:User[] = [];
-  //selectedAgency:string; //username
-
-
-  // goToAgency(agencyUsername:string){
-  //     this.ruter.navigate(['/agency-description/:'+agencyUsername]);
-  // }
+  
 }

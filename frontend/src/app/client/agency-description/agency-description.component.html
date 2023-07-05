@@ -1,23 +1,49 @@
-<div class="agency-container">
+<div class="agency-container" *ngIf="arrangeJobVisible==false && agency!=null">
     <div class="agency-info">
       <h2 class="agency-name">{{agency.name}}</h2>
-      <img class="agency-picture" width="150px" [src]='agency.picture' alt="Agency Picture">
+      <img class="agency-picture rounded" width="150px" [src]='agency.picture' alt="Agency Picture">
       <p class="agency-description">{{agency.description}}</p>
+      <button class="schedule-button" *ngIf="user.type=='client'" (click)="arrangeJob()">Zakazi posao</button>
     </div>
 
     <div class="comments-container">
-      <h3>Comments</h3>
+      <h2>Komentari</h2>
       <div class="comment" *ngFor="let comment of agency.agencyComments">
-        <div class="comment-username">{{ comment.usernameOfUser }}</div>
         <div class="comment-details">
-          <span class="comment-name">{{ comment.nameOfUser }}</span>
-          <span class="comment-lastname">{{ comment.lastnameOfUser }}</span>
-          <span class="comment-mark">Mark: {{ comment.mark }}</span>
+          <div class="comment-username" *ngIf="user.type=='client'">{{ comment.nameOfUser }} {{ comment.lastnameOfUser }} [{{ comment.usernameOfUser }}] :</div>
+          <div class="comment-username" *ngIf="user.type!='client'">{{ comment.usernameOfUser }} :</div>
+          <div class="comment-description">{{ comment.description}} </div>
+          <div class="comment-mark">{{ comment.mark }}</div>
         </div>
       </div>
     </div>
-
+    <h2>Fotografije agencija</h2>
     <div class="gallery-container">
       <img class="gallery-image" *ngFor="let picture of agency.agencyWorkPictures" [src]="picture" alt="Work Picture">
     </div>
   </div>
+
+
+<div class="form-container" *ngIf="arrangeJobVisible==true && selectedObject!=null" >
+  <form>
+    <div class="objects-info-container">
+      <ng-container *ngIf="user.objects">
+      <label>Izaberite objekat koji zelite da renovirate:</label>
+      <select [(ngModel)]="selectedObject" [ngModelOptions]="{standalone: true}">
+        <option *ngFor="let object of user.objects" [value]="object">{{ object.type }} na adresi : {{object.address}}, kvadrature {{object.sqMetersNumber}} </option>
+      </select>
+    </ng-container>
+    </div>
+
+      <div>
+          <label for="address">Datum pocetka radova</label>
+          <input type="date" id="dateS" [(ngModel)]="newJob.startDate" name="dateS" [ngModelOptions]="{standalone: true}">
+      </div>
+
+      <div>
+          <label for="roomCnt">Datum zavrsetka radova</label>
+          <input type="date" id="dateE" [(ngModel)]="newJob.endDate" name="dateE" [ngModelOptions]="{standalone: true}">
+      </div>
+      <button type="button" (click)="createNewJob()">Posalji zahtev</button>
+  </form>
+</div>

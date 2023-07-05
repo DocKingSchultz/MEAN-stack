@@ -5,10 +5,9 @@ import e, * as express from 'express';
 
 export class clientController {
     addNewOjbect = (req: express.Request, response: express.Response) => {
-        let obj = req.body.obj;
+      console.log("Ubacivanje novog objekta")
+      let obj = req.body.obj;
         let username = req.body.username;
-        console.log(JSON.stringify(obj))
-        console.log(username)
         user.updateOne({ username: username}, { $push: { 'objects': obj } }, (error, result) => {
             if (error) {
               console.error('Error inserting object into User collection:', error);
@@ -19,6 +18,7 @@ export class clientController {
           });
     }
     getAllObjects= (req: express.Request, response: express.Response) => {
+      console.log("Dohvatanje svih objekata")
       User.findOne({"username":req.body.username}, (err, reqs) => {
         if (err) console.log("getting objects from user "+JSON.stringify(req.body)+" failed :"+ err)
         else {
@@ -26,4 +26,17 @@ export class clientController {
         }
     })
     }
+    insertJob = (req: express.Request, response: express.Response) => {
+      console.log("Ubacivanje objekta")
+      let job = req.body.job;
+      let username = req.body.username;
+      user.updateOne({ username: username}, { $push: { 'clientJobs': job } }, (error, result) => {
+          if (error) {
+            console.error('Error inserting job into User collection:', error);
+          } else if(result){
+              response.json("Zahtev uspesno dodat")
+            console.log('Object inserted successfully into User collection.');
+          }
+        });
+  }
 }

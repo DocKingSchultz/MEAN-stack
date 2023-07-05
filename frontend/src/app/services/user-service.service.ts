@@ -51,7 +51,12 @@ export class UserServiceService {
   {
     return this.httpClient.get<User[]>(`${this.uri}/users/getAgencies`);
   }
-
+  refreshUser(username:string,){
+    const data = {
+      username:username,
+    }
+    return this.httpClient.post(`${uri}/users/refresh`, data);
+  }
 
   getAgencyByUsername(username:string)
   {

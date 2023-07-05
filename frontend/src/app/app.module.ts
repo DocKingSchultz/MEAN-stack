@@ -32,7 +32,8 @@ import { AgencyRequestComponent } from './client/agency-request/agency-request.c
 import { JobsComponent } from './client/jobs/jobs.component';
 import { CreateNewObjectComponent } from './client/create-new-object/create-new-object.component';
 import { CanvasPopupComponentComponent } from './GlobalComponents/canvas-popup-component/canvas-popup-component.component';
-import { AgencyDescriptionComponent } from './client/agency-description/agency-description.component'
+import { AgencyDescriptionComponent } from './client/agency-description/agency-description.component';
+import { ArrangeNewJobComponent } from './arrange-new-job/arrange-new-job.component'
 
 @NgModule({
   declarations: [
@@ -61,6 +62,7 @@ import { AgencyDescriptionComponent } from './client/agency-description/agency-d
     CreateNewObjectComponent,
     CanvasPopupComponentComponent,
     AgencyDescriptionComponent,
+    ArrangeNewJobComponent,
   ],
   imports: [
     BrowserModule,

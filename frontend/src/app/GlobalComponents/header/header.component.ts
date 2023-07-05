@@ -3,6 +3,7 @@ import { Route, Router } from '@angular/router';
 import { ContainerComponent } from '@coreui/angular';
 import { Subscription } from 'rxjs';
 import { CommonServiceService } from '../../services/common-service.service';
+import { UserServiceService } from 'src/app/services/user-service.service';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -10,8 +11,8 @@ import { CommonServiceService } from '../../services/common-service.service';
 })
 export class HeaderComponent implements OnDestroy{
 
-  constructor(public router:Router, private cserv:CommonServiceService)
-  {
+  constructor(private userServ:UserServiceService,public router:Router, private cserv:CommonServiceService)
+   {
     
     this.userType="guest"
     var user = localStorage.getItem("user");
@@ -24,6 +25,8 @@ export class HeaderComponent implements OnDestroy{
       this.userType = type.text
     })
   }
+
+
   private userTypeSubscription:Subscription;
 
   userType='guest';

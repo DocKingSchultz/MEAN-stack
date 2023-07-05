@@ -12,7 +12,12 @@ import { Router } from '@angular/router';
 export class MyProfileComponentComponent {
 
   constructor(private userv:UserServiceService, private ruter:Router)
-  {
+  { 
+    var user = localStorage.getItem("user");
+    if(user!=null)
+    {
+      this.user=JSON.parse(user)
+    }   
   }
   ngOnInit():void
   {
@@ -20,7 +25,7 @@ export class MyProfileComponentComponent {
     if(user!=null)
     {
       this.user=JSON.parse(user)
-    }
+    }   
   }
 
 
@@ -49,11 +54,19 @@ export class MyProfileComponentComponent {
           if (width >= 100 && width <= 300 && height >= 100 && height <= 300) {
             //alert('Image dimensions are within the range of 100px to 300px.');
             this.userv.updateProfileInfo(this.user).subscribe((info:any)=>{
-              alert(info)
+              if(info)
               {
-                alert(JSON.stringify(info))
+                alert("Informacije izmenjene")
+                this.userv.refreshUser(this.user.username).subscribe((data:any)=>{
+                  if(data)
+                  {
+                    localStorage.setItem("user", JSON.stringify(data))
+                    alert("Uspesno azurirani podaci")
+                  }
+                })
               }
             })
+
           }
           else {
             alert('Image dimensions are not within the range of 100px to 300px.');
@@ -63,6 +76,23 @@ export class MyProfileComponentComponent {
       };
       reader.readAsDataURL(this.selectedFile);
     }
+    else
+    {
+      this.userv.updateProfileInfo(this.user).subscribe((info:any)=>{
+        if(info)
+        {
+
+          this.userv.refreshUser(this.user.username).subscribe((data:any)=>{
+            if(data)
+            {
+              localStorage.setItem("user", JSON.stringify(data))
+              alert("Uspesno azurirani podaci")
+            }
+          })
+        }
+      })
+    }
   }
+
 
 }

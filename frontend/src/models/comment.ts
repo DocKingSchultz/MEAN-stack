@@ -3,6 +3,7 @@ export class Comment {
       public usernameOfUser: string = '',
       public nameOfUser: string = '',
       public lastnameOfUser: string = '',
-      public mark: number = 0
+      public mark: number = 0,
+      public description:string=""
     ) {}
   }

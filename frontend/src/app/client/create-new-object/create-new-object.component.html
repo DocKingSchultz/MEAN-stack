@@ -1,28 +1,28 @@
 <div class="form-container">
     <form>
         <div>
-            <label for="type">Type:</label>
+            <label for="type">Tip</label>
             <input type="text" id="type" [(ngModel)]="obj.type" name="type">
         </div>
-
+  
         <div>
-            <label for="address">Address:</label>
+            <label for="address">Adresa</label>
             <input type="text" id="address" [(ngModel)]="obj.address" name="address">
         </div>
-
+  
         <div>
-            <label for="roomCnt">Room Count:</label>
+            <label for="roomCnt">Broj soba</label>
             <input type="number" id="roomCnt" [(ngModel)]="obj.roomCnt" name="roomCnt">
         </div>
-
+  
         <div>
-            <label for="sqMetersNumber">Square Meters:</label>
+            <label for="sqMetersNumber">Kvadratura</label>
             <input type="number" id="sqMetersNumber" [(ngModel)]="obj.sqMetersNumber" name="sqMetersNumber">
         </div>
         <div class="upload-container">
             <label for="file">Izaberite skicu prostorija u JSON formatu:</label>
             <input type="file" id="file" (change)="onFileSelected($event)">
         </div>
-        <button type="button" (click)="createObject() ">Create</button>
+        <button type="button" (click)="createObject() ">Kreiraj</button>
     </form>
 </div>

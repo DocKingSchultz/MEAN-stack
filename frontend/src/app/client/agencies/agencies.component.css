@@ -1,41 +1,48 @@
+/* Add this CSS to your stylesheet */
+.agency-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
 .agency-card {
-    width: 600px;
-    margin: 20px auto;
-    background-color: #fff;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease-in-out;
-  }
-  
-  .agency-card:hover {
-    transform: translateY(-5px);
-  }
-  
-  .router-link {
-    text-decoration: none;
-    color: inherit;
-    display: flex;
-  }
-  
-  .agency-image {
-    overflow: hidden;
-  }
-  
-  .agency-image img {
-    width: 100%;
-    height: auto;
-    object-fit: cover;
-  }
-  
-  .agency-info {
-    padding: 20px;
-  }
-  
-  .agency-name {
-    font-size: 1.2rem;
-    margin-bottom: 5px;
-  }
-  
-  .agency-description {
-    font-size: 0.9rem;
-    color: #777;
-  }
+  background-color: #f2f2f2;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin: 10px;
+  padding: 20px;
+  text-align: center;
+  transition: all 0.3s ease;
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.agency-card:hover {
+  transform: scale(1.05);
+}
+
+.router-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.agency-picture {
+  border-radius: 50%;
+  margin-bottom: 10px;
+}
+
+.agency-info {
+  padding: 10px;
+}
+
+.agency-name {
+  margin: 0;
+  font-size: 18px;
+}
+
+.agency-description {
+  margin: 0;
+  color: #555;
+}

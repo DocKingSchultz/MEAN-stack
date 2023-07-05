@@ -16,5 +16,9 @@ exports.CommentSchema = new mongoose_1.Schema({
         type: Number,
         required: true,
     },
+    description: {
+        type: String,
+        required: false,
+    }
 });
 //# sourceMappingURL=comment.js.map

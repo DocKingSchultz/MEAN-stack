@@ -1,7 +1,10 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
+import { ClientService } from 'src/app/services/client.service';
 import { UserServiceService } from 'src/app/services/user-service.service';
+import { Job } from 'src/models/job';
+import { ObjectInfo } from 'src/models/objeinfo';
 import { User } from 'src/models/user';
 
 @Component({
@@ -11,13 +14,33 @@ import { User } from 'src/models/user';
 })
 export class AgencyDescriptionComponent {
 
-  constructor(private userServ: UserServiceService, private ruter: Router, private route:ActivatedRoute) { }
+  constructor(private clServ:ClientService, private userServ: UserServiceService, private ruter: Router, private route:ActivatedRoute) 
+  {
+    let u = localStorage.getItem("user")
+    if(u!=null)
+    {
+      this.user=JSON.parse(u)
+      if(this.user.objects.length>0)
+      {
+        this.selectedObject=this.user.objects[0];
+      }
+    }
+  }
 
   agencyUsername:string;
   agency:User;
+  user:User;
 
   ngOnInit(): void {
-
+    let u = localStorage.getItem("user")
+    if(u!=null)
+    {
+      this.user=JSON.parse(u)
+      if(this.user.objects.length>0)
+      {
+        this.selectedObject=this.user.objects[0];
+      }
+    }
     const usernameParam = this.route.snapshot.paramMap.get('username');
     if (usernameParam) {
       this.agencyUsername = usernameParam;
@@ -35,5 +58,56 @@ export class AgencyDescriptionComponent {
 
   }
 
+  //Just for client
+  //
+  arrangeJobVisible=false;
+  selectedObject:ObjectInfo
+  newJob = new Job();
 
+  arrangeJob()
+  {
+    this.arrangeJobVisible=true;
+  }
+  createNewJob()
+  {
+    if (this.newJob.startDate && this.newJob.endDate) {
+      // Get the current date
+      const currentDate = new Date();
+      
+      // Convert the startDate and endDate strings to Date objects
+      const startDate = new Date(this.newJob.startDate);
+      const endDate = new Date(this.newJob.endDate);
+      
+      // Check if startDate is in the past
+      if (startDate < currentDate || endDate < startDate || startDate>endDate) {
+        // Handle the case when startDate is in the past
+        console.log("Datumi nisu lepo izabrani.");
+        return;
+      }
+      
+      this.newJob.object=this.selectedObject
+      this.clServ.insertJob(this.newJob, this.user.username).subscribe((data:any)=>{
+          if(data)
+          {
+            let user = localStorage.getItem("user")
+              if(user!=null){
+                this.userServ.refreshUser(JSON.parse(user).username).subscribe((data: any) => {
+                  if(data)
+                  {
+                    alert(JSON.stringify(data.clientJobs))
+                    localStorage.setItem("user", JSON.parse(data))
+                  }
+                })
+              }
+          }
+          else alert("Nastao je problem prilikom kreiranja zahteva.")
+      })
+
+      
+    } else {
+      // Handle the case when startDate or endDate is null
+      console.log("Please select both start date and end date.");
+    }
+    alert("Kreiranje novog posla")
+  }
 }

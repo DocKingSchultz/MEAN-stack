@@ -6,7 +6,7 @@ export interface ObjectInfo  extends Document{
     type: string;
     address: string;
     roomCnt: number;
-    sqMeters: number;
+    sqMetersNumber: number;
     sketch: Sketch;
     status: string;
   }
@@ -24,7 +24,7 @@ export  const ObjectInfoSchema: Schema<ObjectInfo> = new Schema({
       type: Number,
       required: true,
     },
-    sqMeters: {
+    sqMetersNumber: {
       type: Number,
       required: true,
     },

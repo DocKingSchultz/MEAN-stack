@@ -45,6 +45,9 @@ router.route('/users/changePassword').post(
 router.route('/users/makeRegistrationRequest').post(
     (req, res)=>new userController().makeRegistrationRequest(req, res)
 )
+router.route('/users/refresh').post(
+    (req, res)=>new userController().refresh(req, res)
+)
 router.route('/admin/getAllRegistrationRequests').post(
     (req, res)=>new adminController().getAllRegistrationRequests(req, res)
 )
@@ -65,6 +68,9 @@ router.route('/client/addNewOjbect').post(
 )
 router.route('/client/getAllObjects').post(
     (req, res)=>new clientController().getAllObjects(req, res)
+)
+router.route('/client/insertJob').post(
+    (req, res)=>new clientController().insertJob(req, res)
 )
 
 app.listen(4000, () => console.log(`Express server running on port 4000`));

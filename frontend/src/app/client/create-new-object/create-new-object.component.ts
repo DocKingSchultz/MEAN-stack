@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { ClientService } from 'src/app/services/client.service';
+import { UserServiceService } from 'src/app/services/user-service.service';
 import { ObjectInfo } from 'src/models/objeinfo';
 import { Sketch } from 'src/models/sketch';
 
@@ -14,7 +15,7 @@ declare function drawSketch(rectangles:any, confirmBool:boolean, doors:any):void
 })
 export class CreateNewObjectComponent {
 
-  constructor(private clServ: ClientService, private rutr: Router) {
+  constructor(private userServ:UserServiceService,private clServ: ClientService, private rutr: Router) {
 
   }
   ngOnInit() {
@@ -51,7 +52,21 @@ export class CreateNewObjectComponent {
               this.clServ.addNewOjbect(this.obj, JSON.parse(user).username).subscribe((data: any) => {
                 if (data) {
                   drawSketch(this.obj.sketch.rooms, true, this.obj.sketch.doors)
+                  if(user!=null){
+                  this.userServ.refreshUser(JSON.parse(user).username).subscribe((data: any) => {
+                    if(data)
+                    {
+                      localStorage.setItem("user", JSON.parse(data))
+
+                    }
+                  })
                 }
+                else
+                {
+                  alert("Objekat neuspesno ubacen")
+                }
+                }
+                
                 else alert("Objekat neuspesno ubacen")
               })
             }

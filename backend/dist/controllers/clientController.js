@@ -9,28 +9,40 @@ const user_2 = __importDefault(require("../models/user"));
 class clientController {
     constructor() {
         this.addNewOjbect = (req, response) => {
+            console.log("Ubacivanje novog objekta");
             let obj = req.body.obj;
             let username = req.body.username;
-            console.log(JSON.stringify(obj));
-            console.log(username);
             user_1.default.updateOne({ username: username }, { $push: { 'objects': obj } }, (error, result) => {
                 if (error) {
                     console.error('Error inserting object into User collection:', error);
                 }
                 else if (result) {
                     response.json("Objekat uspesno dodat");
-                    console.log(JSON.stringify(result));
                     console.log('Object inserted successfully into User collection.');
                 }
             });
         };
         this.getAllObjects = (req, response) => {
+            console.log("Dohvatanje svih objekata");
             user_2.default.findOne({ "username": req.body.username }, (err, reqs) => {
                 if (err)
                     console.log("getting objects from user " + JSON.stringify(req.body) + " failed :" + err);
                 else {
-                    console.log(JSON.stringify(reqs));
                     response.json(reqs);
+                }
+            });
+        };
+        this.insertJob = (req, response) => {
+            console.log("Ubacivanje objekta");
+            let job = req.body.job;
+            let username = req.body.username;
+            user_1.default.updateOne({ username: username }, { $push: { 'clientJobs': job } }, (error, result) => {
+                if (error) {
+                    console.error('Error inserting job into User collection:', error);
+                }
+                else if (result) {
+                    response.json("Zahtev uspesno dodat");
+                    console.log('Object inserted successfully into User collection.');
                 }
             });
         };

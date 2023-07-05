@@ -1,11 +1,38 @@
-<div class="table-responsive">
+<div class="form-container" *ngIf="changedObj!=null">
+  <form>
+      <div>
+          <label for="type">Tip</label>
+          <input type="text" id="type" [(ngModel)]="changedObj.type" name="type">
+      </div>
+
+      <div>
+          <label for="address">Adresa</label>
+          <input type="text" id="address" [(ngModel)]="changedObj.address" name="address">
+      </div>
+
+      <div>
+          <label for="roomCnt">Broj soba</label>
+          <input type="number" id="roomCnt" [(ngModel)]="changedObj.roomCnt" name="roomCnt">
+      </div>
+
+      <div>
+          <label for="sqMetersNumber">Kvadratura</label>
+          <input type="number" id="sqMetersNumber" [(ngModel)]="changedObj.sqMetersNumber" name="sqMetersNumber">
+      </div>
+      <div class="upload-container">
+          <label for="file">Izaberite skicu prostorija u JSON formatu:</label>
+          <input type="file" id="file" (change)="onFileSelected($event)">
+      </div>
+      <button type="button" (click)="updateObject() ">Sacuvaj promene</button>
+  </form>
+</div>  
+<div class="table-responsive" *ngIf="changedObj==null">
 <table class=table>
     <thead>
       <tr>
         <th>Adresa</th>
         <th>Broj Soba</th>
         <th>Kvadratura</th>
-        <th>Akcija</th>
       </tr>
     </thead>
     <tbody>
@@ -15,7 +42,9 @@
         <td>{{ object.sqMetersNumber }}</td>
         <td>
           <button class="btn btn-primary" (click)="pregled(i)">Pregled</button>
+          &nbsp;
           <button class="btn btn-primary" (click)="izmeni(i)">Izmeni</button>
+          &nbsp;
           <button class="btn btn-primary" (click)="obrisi(i)">Obrisi</button>
         </td>
       </tr>
