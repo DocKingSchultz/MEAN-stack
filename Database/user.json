@@ -1,5 +1,676 @@
 [{
   "_id": {
+    "$oid": "64a2b9338192e45184aa0637"
+  },
+  "username": "ag1",
+  "password": "Cofa097#",
+  "passwordConfirmed": "Cofa097#",
+  "type": "agency",
+  "name": "Hangla Enterprise",
+  "lastname": "",
+  "address": "Cara Nikolaja 72-74",
+  "email": "ag1@hotmail.com",
+  "phone": 653808493,
+  "picture": "assets/pictures/defaultAgencyLogo.png",
+  "mnumber": 123456789,
+  "description": "Jaka prica",
+  "status": "aktivan",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "64a2bb492a4e914b324e3d8e"
+  },
+  "username": "kl1",
+  "password": "Cofa097#",
+  "passwordConfirmed": "Cofa097#",
+  "type": "client",
+  "name": "Filip",
+  "lastname": "Jankovic",
+  "address": "",
+  "email": "gj@h.com",
+  "phone": 65404392,
+  "picture": "",
+  "description": "",
+  "status": "neaktivan",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "64a2ce955b61027ca780651e"
+  },
+  "username": "klijent1",
+  "password": "Cofa097#",
+  "passwordConfirmed": "Cofa097#",
+  "type": "client",
+  "name": "Filip",
+  "lastname": "Jankovic",
+  "address": "",
+  "email": "gh@hotmail.com",
+  "phone": 3123123,
+  "picture": "",
+  "description": "",
+  "status": "neaktivan",
+  "objects": [],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "64a2d79845f31cf6fd85375d"
+  },
+  "username": "klijent12",
+  "password": "Cofa097#",
+  "passwordConfirmed": "Cofa097#",
+  "type": "client",
+  "name": "Filip",
+  "lastname": "Jankovic",
+  "address": "",
+  "email": "gh@hotmail.com",
+  "phone": 3123123,
+  "picture": "",
+  "description": "",
+  "status": "neaktivan",
+  "objects": [],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "64a2d7c045f31cf6fd853760"
+  },
+  "username": "klijent123",
+  "password": "Cofa097#",
+  "passwordConfirmed": "Cofa097#",
+  "type": "client",
+  "name": "Filip",
+  "lastname": "Jankovic",
+  "address": "",
+  "email": "gh@hotmail.com",
+  "phone": 3123123,
+  "picture": "",
+  "description": "",
+  "status": "neaktivan",
+  "objects": [],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "64a2d81319ac91fe21ecf751"
+  },
+  "username": "klijent1234",
+  "password": "Cofa097#",
+  "passwordConfirmed": "Cofa097#",
+  "type": "client",
+  "name": "Filip",
+  "lastname": "Jankovic",
+  "address": "",
+  "email": "gh@hotmail.com",
+  "phone": 3123123,
+  "picture": "",
+  "description": "",
+  "status": "neaktivan",
+  "objects": [],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "64a2d8bdbf88d81d4f62b889"
+  },
+  "username": "klijent12345",
+  "password": "Cofa097#",
+  "passwordConfirmed": "Cofa097#",
+  "type": "client",
+  "name": "Filip",
+  "lastname": "Jankovic",
+  "address": "",
+  "email": "gh@hotmail.coms",
+  "phone": 3123123,
+  "picture": "",
+  "description": "",
+  "status": "neaktivan",
+  "objects": [],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "64a2f61d4f299b7fcf46f33c"
+  },
+  "username": "klijent123455",
+  "password": "Cofa097#",
+  "passwordConfirmed": "Cofa097#",
+  "type": "client",
+  "name": "Filip",
+  "lastname": "Jankovic",
+  "address": "",
+  "email": "gh@hotmail.comss",
+  "phone": 666666,
+  "picture": "",
+  "description": "",
+  "status": "aktivan",
+  "agencyWorkPictures": [],
+  "objects": [
+    {
+      "type": "dasd",
+      "address": "asda",
+      "roomCnt": 2,
+      "sketch": {
+        "rooms": [
+          {
+            "x": 10,
+            "y": 10,
+            "length": 99,
+            "width": 99,
+            "color": "white",
+            "_id": {
+              "$oid": "64a49960071430deb12191dc"
+            }
+          },
+          {
+            "x": 10,
+            "y": 110,
+            "length": 49,
+            "width": 49,
+            "color": "white",
+            "_id": {
+              "$oid": "64a49960071430deb12191dd"
+            }
+          },
+          {
+            "x": 110,
+            "y": 10,
+            "length": 79,
+            "width": 199,
+            "color": "white",
+            "_id": {
+              "$oid": "64a49960071430deb12191de"
+            }
+          }
+        ],
+        "doors": [
+          {
+            "x": 10,
+            "y": 20,
+            "_id": {
+              "$oid": "64a49960071430deb12191df"
+            }
+          },
+          {
+            "x": 30,
+            "y": 110,
+            "_id": {
+              "$oid": "64a49960071430deb12191e0"
+            }
+          },
+          {
+            "x": 110,
+            "y": 40,
+            "_id": {
+              "$oid": "64a49960071430deb12191e1"
+            }
+          },
+          {
+            "x": 180,
+            "y": 70,
+            "_id": {
+              "$oid": "64a49960071430deb12191e2"
+            }
+          }
+        ],
+        "_id": {
+          "$oid": "64a49960071430deb12191db"
+        }
+      },
+      "status": "",
+      "_id": {
+        "$oid": "64a49960071430deb12191da"
+      }
+    },
+    {
+      "type": "dasd",
+      "address": "asda",
+      "roomCnt": 2,
+      "sketch": {
+        "rooms": [
+          {
+            "x": 10,
+            "y": 10,
+            "length": 99,
+            "width": 99,
+            "color": "white",
+            "_id": {
+              "$oid": "64a499b4071430deb12191e6"
+            }
+          },
+          {
+            "x": 10,
+            "y": 110,
+            "length": 49,
+            "width": 49,
+            "color": "white",
+            "_id": {
+              "$oid": "64a499b4071430deb12191e7"
+            }
+          },
+          {
+            "x": 110,
+            "y": 10,
+            "length": 79,
+            "width": 199,
+            "color": "white",
+            "_id": {
+              "$oid": "64a499b4071430deb12191e8"
+            }
+          }
+        ],
+        "doors": [
+          {
+            "x": 10,
+            "y": 20,
+            "_id": {
+              "$oid": "64a499b4071430deb12191e9"
+            }
+          },
+          {
+            "x": 30,
+            "y": 110,
+            "_id": {
+              "$oid": "64a499b4071430deb12191ea"
+            }
+          },
+          {
+            "x": 110,
+            "y": 40,
+            "_id": {
+              "$oid": "64a499b4071430deb12191eb"
+            }
+          },
+          {
+            "x": 180,
+            "y": 70,
+            "_id": {
+              "$oid": "64a499b4071430deb12191ec"
+            }
+          }
+        ],
+        "_id": {
+          "$oid": "64a499b4071430deb12191e5"
+        }
+      },
+      "status": "",
+      "_id": {
+        "$oid": "64a499b4071430deb12191e4"
+      }
+    },
+    {
+      "type": "Kuca",
+      "address": "Pop Stojanova",
+      "roomCnt": 2,
+      "sqMetersNumber": 120,
+      "sketch": {
+        "rooms": [
+          {
+            "x": 10,
+            "y": 10,
+            "length": 99,
+            "width": 99,
+            "color": "white",
+            "_id": {
+              "$oid": "64a551fab9313aa9d755849e"
+            }
+          },
+          {
+            "x": 10,
+            "y": 110,
+            "length": 49,
+            "width": 49,
+            "color": "white",
+            "_id": {
+              "$oid": "64a551fab9313aa9d755849f"
+            }
+          },
+          {
+            "x": 110,
+            "y": 10,
+            "length": 79,
+            "width": 199,
+            "color": "white",
+            "_id": {
+              "$oid": "64a551fab9313aa9d75584a0"
+            }
+          }
+        ],
+        "doors": [
+          {
+            "x": 10,
+            "y": 20,
+            "_id": {
+              "$oid": "64a551fab9313aa9d75584a1"
+            }
+          },
+          {
+            "x": 30,
+            "y": 110,
+            "_id": {
+              "$oid": "64a551fab9313aa9d75584a2"
+            }
+          },
+          {
+            "x": 110,
+            "y": 40,
+            "_id": {
+              "$oid": "64a551fab9313aa9d75584a3"
+            }
+          },
+          {
+            "x": 180,
+            "y": 70,
+            "_id": {
+              "$oid": "64a551fab9313aa9d75584a4"
+            }
+          }
+        ],
+        "_id": {
+          "$oid": "64a551fab9313aa9d755849d"
+        }
+      },
+      "status": "",
+      "_id": {
+        "$oid": "64a551fab9313aa9d755849c"
+      }
+    }
+  ],
+  "agencyComments": [],
+  "clientJobs": [
+    {
+      "object": {
+        "type": "dasd",
+        "address": "asda",
+        "roomCnt": 2,
+        "sketch": {
+          "rooms": [
+            {
+              "x": 10,
+              "y": 10,
+              "length": 99,
+              "width": 99,
+              "color": "white",
+              "_id": {
+                "$oid": "64a49960071430deb12191dc"
+              }
+            },
+            {
+              "x": 10,
+              "y": 110,
+              "length": 49,
+              "width": 49,
+              "color": "white",
+              "_id": {
+                "$oid": "64a49960071430deb12191dd"
+              }
+            },
+            {
+              "x": 110,
+              "y": 10,
+              "length": 79,
+              "width": 199,
+              "color": "white",
+              "_id": {
+                "$oid": "64a49960071430deb12191de"
+              }
+            }
+          ],
+          "doors": [
+            {
+              "x": 10,
+              "y": 20,
+              "_id": {
+                "$oid": "64a49960071430deb12191df"
+              }
+            },
+            {
+              "x": 30,
+              "y": 110,
+              "_id": {
+                "$oid": "64a49960071430deb12191e0"
+              }
+            },
+            {
+              "x": 110,
+              "y": 40,
+              "_id": {
+                "$oid": "64a49960071430deb12191e1"
+              }
+            },
+            {
+              "x": 180,
+              "y": 70,
+              "_id": {
+                "$oid": "64a49960071430deb12191e2"
+              }
+            }
+          ],
+          "_id": {
+            "$oid": "64a49960071430deb12191db"
+          }
+        },
+        "status": "",
+        "_id": {
+          "$oid": "64a49960071430deb12191da"
+        }
+      },
+      "startDate": {
+        "$date": "2023-07-06T00:00:00.000Z"
+      },
+      "endDate": {
+        "$date": "2023-07-13T00:00:00.000Z"
+      },
+      "status": "requested",
+      "cost": 0,
+      "workers": [],
+      "_id": {
+        "$oid": "64a564316cfabd9a9032678b"
+      }
+    },
+    {
+      "object": {
+        "type": "dasd",
+        "address": "asda",
+        "roomCnt": 2,
+        "sketch": {
+          "rooms": [
+            {
+              "x": 10,
+              "y": 10,
+              "length": 99,
+              "width": 99,
+              "color": "white",
+              "_id": {
+                "$oid": "64a49960071430deb12191dc"
+              }
+            },
+            {
+              "x": 10,
+              "y": 110,
+              "length": 49,
+              "width": 49,
+              "color": "white",
+              "_id": {
+                "$oid": "64a49960071430deb12191dd"
+              }
+            },
+            {
+              "x": 110,
+              "y": 10,
+              "length": 79,
+              "width": 199,
+              "color": "white",
+              "_id": {
+                "$oid": "64a49960071430deb12191de"
+              }
+            }
+          ],
+          "doors": [
+            {
+              "x": 10,
+              "y": 20,
+              "_id": {
+                "$oid": "64a49960071430deb12191df"
+              }
+            },
+            {
+              "x": 30,
+              "y": 110,
+              "_id": {
+                "$oid": "64a49960071430deb12191e0"
+              }
+            },
+            {
+              "x": 110,
+              "y": 40,
+              "_id": {
+                "$oid": "64a49960071430deb12191e1"
+              }
+            },
+            {
+              "x": 180,
+              "y": 70,
+              "_id": {
+                "$oid": "64a49960071430deb12191e2"
+              }
+            }
+          ],
+          "_id": {
+            "$oid": "64a49960071430deb12191db"
+          }
+        },
+        "status": "",
+        "_id": {
+          "$oid": "64a49960071430deb12191da"
+        }
+      },
+      "startDate": {
+        "$date": "2023-07-12T00:00:00.000Z"
+      },
+      "endDate": {
+        "$date": "2023-07-13T00:00:00.000Z"
+      },
+      "status": "requested",
+      "cost": 0,
+      "workers": [],
+      "_id": {
+        "$oid": "64a567f66cfabd9a9032680e"
+      }
+    },
+    {
+      "object": {
+        "type": "dasd",
+        "address": "asda",
+        "roomCnt": 2,
+        "sketch": {
+          "rooms": [
+            {
+              "x": 10,
+              "y": 10,
+              "length": 99,
+              "width": 99,
+              "color": "white",
+              "_id": {
+                "$oid": "64a49960071430deb12191dc"
+              }
+            },
+            {
+              "x": 10,
+              "y": 110,
+              "length": 49,
+              "width": 49,
+              "color": "white",
+              "_id": {
+                "$oid": "64a49960071430deb12191dd"
+              }
+            },
+            {
+              "x": 110,
+              "y": 10,
+              "length": 79,
+              "width": 199,
+              "color": "white",
+              "_id": {
+                "$oid": "64a49960071430deb12191de"
+              }
+            }
+          ],
+          "doors": [
+            {
+              "x": 10,
+              "y": 20,
+              "_id": {
+                "$oid": "64a49960071430deb12191df"
+              }
+            },
+            {
+              "x": 30,
+              "y": 110,
+              "_id": {
+                "$oid": "64a49960071430deb12191e0"
+              }
+            },
+            {
+              "x": 110,
+              "y": 40,
+              "_id": {
+                "$oid": "64a49960071430deb12191e1"
+              }
+            },
+            {
+              "x": 180,
+              "y": 70,
+              "_id": {
+                "$oid": "64a49960071430deb12191e2"
+              }
+            }
+          ],
+          "_id": {
+            "$oid": "64a49960071430deb12191db"
+          }
+        },
+        "status": "",
+        "_id": {
+          "$oid": "64a49960071430deb12191da"
+        }
+      },
+      "startDate": {
+        "$date": "2023-07-06T00:00:00.000Z"
+      },
+      "endDate": {
+        "$date": "2023-07-27T00:00:00.000Z"
+      },
+      "status": "requested",
+      "cost": 0,
+      "workers": [],
+      "_id": {
+        "$oid": "64a568106cfabd9a90326823"
+      }
+    }
+  ],
+  "workers": [],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "64a3203a12694e2859d54e8b"
+  },
+  "username": "admin",
+  "password": "Cofa097#",
+  "passwordConfirmed": "Cofa097#",
+  "type": "client",
+  "name": "Admin",
+  "lastname": "Admin",
+  "address": "",
+  "email": "asda@dasda.com",
+  "phone": 653808493,
+  "picture": "",
+  "mnumber": 0,
+  "description": "",
+  "status": "neaktivan",
+  "objects": [],
+  "agencyWorkPictures": [],
+  "agencyComments": [],
+  "clientJobs": [],
+  "workers": [],
+  "__v": 0
+},{
+  "_id": {
     "$oid": "64a19fbfa899ad1785164ae2"
   },
   "username": "ag1",
@@ -16,8 +687,7 @@
   "description": "",
   "status": "aktivan",
   "__v": 0
-},
-{
+},{
   "_id": {
     "$oid": "64a1a0661974acd09e5c7eb9"
   },
@@ -35,8 +705,7 @@
   "description": "",
   "status": "aktivan",
   "__v": 0
-},
-{
+},{
   "_id": {
     "$oid": "64a19f62a899ad1785164adc"
   },
@@ -54,8 +723,7 @@
   "description": "",
   "status": "aktivan",
   "__v": 0
-},
-{
+},{
   "_id": {
     "$oid": "64a444dbfba678b473955de1"
   },
@@ -83,10 +751,36 @@
       "usernameOfUser": "klijent1",
       "nameOfUser": "Filip",
       "lastnameOfUser": "Jankovic",
-      "mark": "3"
+      "mark": "3",
+      "description": "Lose odradio"
+    },
+    {
+      "usernameOfUser": "klijent1",
+      "nameOfUser": "Marko",
+      "lastnameOfUser": "Jovanovic",
+      "mark": "4",
+      "description": "Dosta skupo radnici ostavili vasar za sobom"
     }
   ],
   "clientJobs": [],
   "workers": [],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "64a5332295cfd618ed99f34b"
+  },
+  "username": "ag1212",
+  "password": "Cofa097#",
+  "passwordConfirmed": "Cofa097#",
+  "type": "agency",
+  "name": "Basta",
+  "lastname": "",
+  "address": "Komova 32",
+  "email": "j@s.com",
+  "phone": 2131,
+  "picture": "assets/pictures/defaultAgencyLogo.png",
+  "mnumber": 65432674,
+  "description": "",
+  "status": "aktivan",
   "__v": 0
 }]
