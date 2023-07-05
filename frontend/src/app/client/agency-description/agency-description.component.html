@@ -3,15 +3,15 @@
       <h2 class="agency-name">{{agency.name}}</h2>
       <img class="agency-picture rounded" width="150px" [src]='agency.picture' alt="Agency Picture">
       <p class="agency-description">{{agency.description}}</p>
-      <button class="schedule-button" *ngIf="user.type=='client'" (click)="arrangeJob()">Zakazi posao</button>
+      <button class="schedule-button" *ngIf="userType=='client'" (click)="arrangeJob()">Zakazi posao</button>
     </div>
 
     <div class="comments-container">
       <h2>Komentari</h2>
       <div class="comment" *ngFor="let comment of agency.agencyComments">
         <div class="comment-details">
-          <div class="comment-username" *ngIf="user.type=='client'">{{ comment.nameOfUser }} {{ comment.lastnameOfUser }} [{{ comment.usernameOfUser }}] :</div>
-          <div class="comment-username" *ngIf="user.type!='client'">{{ comment.usernameOfUser }} :</div>
+          <div class="comment-username" *ngIf="userType=='client'">{{ comment.nameOfUser }} {{ comment.lastnameOfUser }} [{{ comment.usernameOfUser }}] :</div>
+          <div class="comment-username" *ngIf="userType=='guest'">{{ comment.usernameOfUser }} :</div>
           <div class="comment-description">{{ comment.description}} </div>
           <div class="comment-mark">{{ comment.mark }}</div>
         </div>
@@ -30,7 +30,7 @@
       <ng-container *ngIf="user.objects">
       <label>Izaberite objekat koji zelite da renovirate:</label>
       <select [(ngModel)]="selectedObject" [ngModelOptions]="{standalone: true}">
-        <option *ngFor="let object of user.objects" [value]="object">{{ object.type }} na adresi : {{object.address}}, kvadrature {{object.sqMetersNumber}} </option>
+        <option *ngFor="let object of user.objects" [ngValue]="object">{{ object.type }} na adresi : {{object.address}}, kvadrature {{object.sqMetersNumber}} </option>
       </select>
     </ng-container>
     </div>

@@ -63,6 +63,15 @@ router.route('/users/getAgencies').get(
 router.route('/users/getAgencyByUsername').post(
     (req, res)=>new agencyController().getAgencyByUsername(req, res)
 )
+router.route('/users/getAgenciesByName').post(
+    (req, res)=>new agencyController().getAgenciesByName(req, res)
+)
+router.route('/users/getAgenciesByAddress').post(
+    (req, res)=>new agencyController().getAgenciesByAddress(req, res)
+)
+router.route('/users/getAgenciesByNameAndAddress').post(
+    (req, res)=>new agencyController().getAgenciesByNameAndAddress(req, res)
+)
 router.route('/client/addNewOjbect').post(
     (req, res)=>new clientController().addNewOjbect(req, res)
 )

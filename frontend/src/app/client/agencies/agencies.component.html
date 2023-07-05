@@ -1,10 +1,15 @@
 <div class="agency-container">
+    <form class="search-form">
+        <input type="text" class="search-input" placeholder="Search by name" [(ngModel)]="searchName" [ngModelOptions]="{standalone: true}">
+        <input type="text" class="search-input" placeholder="Search by address" [(ngModel)]="searchAddress" [ngModelOptions]="{standalone: true}">
+        <button class="search-button" (click)="searchAgencies()">Search</button>
+    </form>
     <div class="agency-card" *ngFor="let agency of agencies">
         <a class="router-link" [routerLink]="['/agency-description', agency.username]">
             <img class="agency-picture" width="150px" [src]="agency.picture" alt="Agency Picture">
             <div class="agency-info">
-              <h3 class="agency-name">{{ agency.name }}</h3>
-              <p class="agency-description">{{ agency.description }}</p>
+                <h3 class="agency-name">{{ agency.name }}</h3>
+                <p class="agency-description">{{ agency.description }}</p>
             </div>
         </a>
     </div>

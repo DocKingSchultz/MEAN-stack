@@ -65,4 +65,29 @@ export class UserServiceService {
     }
     return this.httpClient.post<User>(`${this.uri}/users/getAgencyByUsername`, data);
   }
+  
+  getAgenciesByName(name:string)
+  {
+    const data = {
+      name:name
+    }
+    return this.httpClient.post<User[]>(`${this.uri}/users/getAgenciesByName`, data);
+  }
+
+  getAgenciesByAddress(address:string)
+  {
+    const data = {
+      address:address
+    }
+    return this.httpClient.post<User[]>(`${this.uri}/users/getAgenciesByAddress`, data);
+  }
+  
+  getAgenciesByNameAndAddress(name:string, address:string)
+  {
+    const data = {
+      name:name,
+      address:address
+    }
+    return this.httpClient.post<User[]>(`${this.uri}/users/getAgenciesByNameAndAddress`, data);
+  }
 }

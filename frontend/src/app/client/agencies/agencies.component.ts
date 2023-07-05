@@ -23,5 +23,45 @@ export class AgenciesComponent {
   }
 
   agencies:User[] = [];
-  
+  searchName:string;
+  searchAddress:string;
+
+  searchAgencies(){
+    if((typeof this.searchName === 'undefined'|| this.searchName == "") && (typeof this.searchAddress === 'undefined' || this.searchAddress==""))  //no search terms added -> get all the agencies
+    {
+      this.userServ.getAgencies().subscribe((data)=>{
+        if(data!=null)
+        {
+          this.agencies = data;
+        }
+      })
+    }   
+    else if(typeof this.searchName !== 'undefined' && this.searchName != "" && (typeof this.searchAddress === 'undefined' || this.searchAddress == "")) //only name was entered -> search by name
+    {
+      this.userServ.getAgenciesByName(this.searchName).subscribe((data)=>{
+        if(data!=null)
+        {
+          this.agencies = data;
+        }
+      })
+    }
+    else if((typeof this.searchName === 'undefined' || this.searchName == "") && typeof this.searchAddress !== 'undefined' && this.searchAddress != "") //only address was entered -> search by address
+    {
+      this.userServ.getAgenciesByAddress(this.searchAddress).subscribe((data)=>{
+        if(data!=null)
+        {
+          this.agencies = data;
+        }
+      })
+    }
+    else //both name and address were entered -> search by both
+    {
+      this.userServ.getAgenciesByNameAndAddress(this.searchName, this.searchAddress).subscribe((data)=>{
+        if(data!=null)
+        {
+          this.agencies = data;
+        }
+      })
+    }
+  }
 }

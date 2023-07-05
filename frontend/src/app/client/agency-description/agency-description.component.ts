@@ -20,26 +20,37 @@ export class AgencyDescriptionComponent {
     if(u!=null)
     {
       this.user=JSON.parse(u)
+      this.userType = this.user.type
       if(this.user.objects.length>0)
       {
         this.selectedObject=this.user.objects[0];
       }
+    }
+    else
+    {
+      this.userType = 'guest';
     }
   }
 
   agencyUsername:string;
   agency:User;
   user:User;
+  userType:string = 'guest';
 
   ngOnInit(): void {
     let u = localStorage.getItem("user")
     if(u!=null)
     {
       this.user=JSON.parse(u)
+      this.userType = this.user.type
       if(this.user.objects.length>0)
       {
         this.selectedObject=this.user.objects[0];
       }
+    }
+    else
+    {
+      this.userType = 'guest';
     }
     const usernameParam = this.route.snapshot.paramMap.get('username');
     if (usernameParam) {
