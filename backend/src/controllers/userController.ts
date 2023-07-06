@@ -91,4 +91,20 @@ export class userController {
         })
     }
 
+    getUserByEmail = (req: express.Request, res: express.Response) => {
+        let email = req.body.email;
+        console.log("Provera email: " + email)
+        User.findOne({ email: email }, (err, data) => {
+            if (data) {
+                console.log("Postoji korisnik sa email:"+ email)
+                res.json(data);
+            }
+            else {
+                console.log("Ne postoji korisnik sa email:"+ email)
+                res.json(null);
+            }
+
+        })
+    }
+
 }

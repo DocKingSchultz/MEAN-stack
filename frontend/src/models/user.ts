@@ -14,7 +14,7 @@ export class User {
     public address: string = '',
     public email: string = '',
     public phone: number = 0,
-    public picture: string = 'assets/pictures/defaultAgencyLogo.png',
+    public picture: string = '',
     public mnumber: number = 0,
     public description: string = '',
     public status: string = 'neaktivan',

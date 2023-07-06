@@ -16,6 +16,8 @@ export class AgnecyRegistrationComponent {
   constructor(private userServ: UserServiceService, private ruter: Router) { }
 
   ngOnInit(): void {
+    this.req.type="agency"
+    this.req.picture="assets/pictures/defaultAgencyLogo.png"
   }
 
   req:User = new User();
@@ -43,8 +45,6 @@ export class AgnecyRegistrationComponent {
           const height = img.height;
           if (width >= 100 && width <= 300 && height >= 100 && height <= 300) {
             //alert('Image dimensions are within the range of 100px to 300px.');
-              this.req.type="agency"
-              this.req.picture="assets/pictures/defaultAgencyLogo.png"
               if(checkIfAllFieldsAreFilled("registerForm")
               && checkPasswordRegularity(this.req.password)
               && checkPasswordMatching(this.req.password, this.req.passwordConfirmed)){

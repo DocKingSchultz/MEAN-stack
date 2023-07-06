@@ -4,7 +4,7 @@ import { UserServiceService } from 'src/app/services/user-service.service';
 declare function checkPasswordMatching(pass:string, confpass:string):boolean;
 declare function checkIfAllFieldsAreFilled(formName:string):boolean;
 declare function checkPasswordRegularity(formName:string):boolean;
-declare function checkPasswordEqality(oldpass:string, typedpass:string):boolean;
+//declare function checkPasswordEqality(oldpass:string, typedpass:string):boolean; -> doesn't exist
 @Component({
   selector: 'app-change-password',
   templateUrl: './change-password.component.html',
@@ -29,13 +29,15 @@ export class ChangePasswordComponent implements OnInit {
     if(checkIfAllFieldsAreFilled("changePassForm")&&
        checkPasswordMatching(this.newPass, this.newPassConfirmed)&&
        checkPasswordRegularity(this.newPass)&&
-       checkPasswordEqality(this.oldPass,userJson.password)){
+       checkPasswordMatching(this.oldPass,userJson.password)){
 
         this.servisKorisnik.changePassword(userJson.username, this.newPass).subscribe((data: any)=>{
           if(data)
           {
+            localStorage.removeItem('user');
+            localStorage.clear();
             alert("Lozinka je uspesno promenjena")
-            this.ruter.navigate([""])
+            this.ruter.navigate(["/logout"])
           }
           else alert("Doslo je do greske pri pokusaju menjanja lozinke")
         })

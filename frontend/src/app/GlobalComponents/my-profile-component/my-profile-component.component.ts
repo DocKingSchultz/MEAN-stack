@@ -53,6 +53,49 @@ export class MyProfileComponentComponent {
           const height = img.height;
           if (width >= 100 && width <= 300 && height >= 100 && height <= 300) {
             //alert('Image dimensions are within the range of 100px to 300px.');
+            //if email has changed -> check if there is alerady a user with that email!
+            this.userv.getUserByEmail(this.user.email).subscribe((data:User)=>{
+              if(data)
+              {
+                if(data.username == this.user.username) //my email didn't change
+                {
+                  this.userv.updateProfileInfo(this.user).subscribe((info:any)=>{
+                    if(info)
+                    {
+                      alert("Informacije izmenjene")
+                      this.userv.refreshUser(this.user.username).subscribe((data:any)=>{
+                        if(data)
+                        {
+                          localStorage.setItem("user", JSON.stringify(data))
+                          alert("Uspesno azurirani podaci")
+                        }
+                      })
+                    }
+                  })
+                }
+                else //my email changed, and is already used by a different user
+                { 
+                  alert("Email je vec koriscen od strane drugog korisnika!")
+                }
+              }
+            })
+          }
+          else {
+            alert('Image dimensions are not within the range of 100px to 300px.');
+          }
+        };
+        img.src = e.target.result; 
+      };
+      reader.readAsDataURL(this.selectedFile);
+    }
+    else
+    {
+      //if email has changed -> check if there is alerady a user with that email!
+      this.userv.getUserByEmail(this.user.email).subscribe((data:User)=>{
+        if(data)
+        {
+          if(data.username == this.user.username) //my email didn't change -> update my profile
+          {
             this.userv.updateProfileInfo(this.user).subscribe((info:any)=>{
               if(info)
               {
@@ -66,27 +109,25 @@ export class MyProfileComponentComponent {
                 })
               }
             })
-
           }
-          else {
-            alert('Image dimensions are not within the range of 100px to 300px.');
+          else //my email changed, and is already used by a different user
+          { 
+            alert("Email je vec koriscen od strane drugog korisnika!")
           }
-        };
-        img.src = e.target.result; 
-      };
-      reader.readAsDataURL(this.selectedFile);
-    }
-    else
-    {
-      this.userv.updateProfileInfo(this.user).subscribe((info:any)=>{
-        if(info)
+        }
+        else //no user with new email -> update my profile
         {
-
-          this.userv.refreshUser(this.user.username).subscribe((data:any)=>{
-            if(data)
+          this.userv.updateProfileInfo(this.user).subscribe((info:any)=>{
+            if(info)
             {
-              localStorage.setItem("user", JSON.stringify(data))
-              alert("Uspesno azurirani podaci")
+              alert("Informacije izmenjene")
+              this.userv.refreshUser(this.user.username).subscribe((data:any)=>{
+                if(data)
+                {
+                  localStorage.setItem("user", JSON.stringify(data))
+                  alert("Uspesno azurirani podaci")
+                }
+              })
             }
           })
         }

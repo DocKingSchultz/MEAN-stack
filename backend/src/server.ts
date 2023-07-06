@@ -57,6 +57,9 @@ router.route('/admin/changeAccStatus').post(
 router.route('/users/updateProfile').post(
     (req, res)=>new userController().updateProfile(req, res)
 )
+router.route('/users/getUserByEmail').post(
+    (req, res)=>new userController().getUserByEmail(req, res)
+)
 router.route('/users/getAgencies').get(
     (req, res)=>new agencyController().getAgencies(req, res)
 )

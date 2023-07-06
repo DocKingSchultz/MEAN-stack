@@ -37,7 +37,7 @@
                   <div class="form-outline mb-4">
                     <p>Profilna slika</p>
                     <div *ngIf='req.picture==""'>
-                      <img src="assets\pictures\deafultClientPhoto.jpg" width="100px" alt="example placeholder avatar">
+                      <img src="assets\pictures\deafultClientPhoto.jpg" width="100px" alt="default client photo">
                       </div>
                       <div *ngIf='req.picture!=""'>
                           <img src="{{req.picture}}" width="100px" alt="profile picture">

@@ -17,6 +17,8 @@ export class ClientRegistrationComponent {
   constructor(private userServ: UserServiceService, private ruter: Router, private http: HttpClient) { }
 
   ngOnInit(): void {
+    this.req.picture="assets/pictures/deafultClientPhoto.jpg"
+    this.req.type="client"
   }
 
   req:User = new User();
@@ -43,8 +45,6 @@ export class ClientRegistrationComponent {
           const height = img.height;
           if (width >= 100 && width <= 300 && height >= 100 && height <= 300) {
             //alert('Image dimensions are within the range of 100px to 300px.');
-              this.req.type="client"
-              this.req.picture="assets/pictures/deafultClientPhoto.jpg"
               if(checkIfAllFieldsAreFilled("registerForm")
               && checkPasswordRegularity(this.req.password)
               && checkPasswordMatching(this.req.password, this.req.passwordConfirmed)){

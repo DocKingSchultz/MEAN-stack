@@ -2,7 +2,7 @@
   <h1 class="center-label">Pregled Profila</h1>
   <form class="profile-form">
     <label for="username">Koriscniko ime:</label>
-    <input type="text" id="username" name="username" [(ngModel)]="user.username" required>
+    <input type="text" id="username" name="username" [(ngModel)]="user.username" required readonly>
     
     <div class="row" >
       <div class="column">
@@ -49,7 +49,7 @@
     <div class="row" >
       <div class="column">
         <label for="picture">Profilna slika:</label>
-        <img src="{{user.picture}}" width=100px alt="example placeholder avatar">
+        <img src="{{user.picture}}" width=100px alt="profile picture">
         <input type="file" name="picture" (change)='onFileSelected($event)'>
       </div>
     </div>

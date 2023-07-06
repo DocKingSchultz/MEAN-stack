@@ -42,6 +42,11 @@
   font-size: 18px;
 }
 
+.agency-address{
+  margin: 0;
+  font-size: 14px;
+}
+
 .agency-description {
   margin: 0;
   color: #555;
@@ -70,8 +75,22 @@
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  margin-right: 10px;
 }
 
 .search-button:hover {
+  background-color: #0056b3;
+}
+
+.sort-select {
+  padding: 8px 15px;
+  background-color: #f2f2f2;
+  color: #0056b3;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.sort-select option:checked {
   background-color: #0056b3;
 }

@@ -35,6 +35,7 @@ router.route('/users/refresh').post((req, res) => new userController_1.userContr
 router.route('/admin/getAllRegistrationRequests').post((req, res) => new adminController_1.adminController().getAllRegistrationRequests(req, res));
 router.route('/admin/changeAccStatus').post((req, res) => new adminController_1.adminController().changeAccStatus(req, res));
 router.route('/users/updateProfile').post((req, res) => new userController_1.userController().updateProfile(req, res));
+router.route('/users/getUserByEmail').post((req, res) => new userController_1.userController().getUserByEmail(req, res));
 router.route('/users/getAgencies').get((req, res) => new agencyController_1.agencyController().getAgencies(req, res));
 router.route('/users/getAgencyByUsername').post((req, res) => new agencyController_1.agencyController().getAgencyByUsername(req, res));
 router.route('/users/getAgenciesByName').post((req, res) => new agencyController_1.agencyController().getAgenciesByName(req, res));

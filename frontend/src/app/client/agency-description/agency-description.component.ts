@@ -60,6 +60,19 @@ export class AgencyDescriptionComponent {
         if(data!=null)
         {
           this.agency = data;
+          if(this.userType=='guest')
+          {
+            //depersonalize user comments
+            for(let i=0 ; i<this.agency.agencyComments.length;i++)
+            {
+              var depersonalizedUsername = this.agency.agencyComments[i].usernameOfUser.charAt(0)
+              for(let j=1; j<this.agency.agencyComments[i].usernameOfUser.length;j++) //only leave the first character shown
+              {
+                depersonalizedUsername = depersonalizedUsername + "*"
+              }
+              this.agency.agencyComments[i].usernameOfUser = depersonalizedUsername
+            }
+          }
         }
       })
     } 

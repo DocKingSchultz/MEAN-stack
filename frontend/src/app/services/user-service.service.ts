@@ -46,7 +46,13 @@ export class UserServiceService {
   {
     return this.httpClient.post(`${this.uri}/users/updateProfile`, user);
   }
-
+  getUserByEmail(email:string)
+  {
+    const data = {
+      email:email,
+    }
+    return this.httpClient.post<User>(`${this.uri}/users/getUserByEmail`, data);
+  }
   getAgencies()
   {
     return this.httpClient.get<User[]>(`${this.uri}/users/getAgencies`);
