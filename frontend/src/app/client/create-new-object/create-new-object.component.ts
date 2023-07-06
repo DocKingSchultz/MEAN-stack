@@ -56,8 +56,8 @@ export class CreateNewObjectComponent {
                   this.userServ.refreshUser(JSON.parse(user).username).subscribe((data: any) => {
                     if(data)
                     {
-                      localStorage.setItem("user", JSON.parse(data))
-
+                      localStorage.setItem("user", JSON.stringify(data))
+                      this.rutr.navigate(["objects"])
                     }
                   })
                 }

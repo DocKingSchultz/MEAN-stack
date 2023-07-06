@@ -1,4 +1,4 @@
-<div class="form-container" *ngIf="changedObj!=null">
+<div class="form-container" *ngIf="changeObjectFormActive==true">
   <form>
       <div>
           <label for="type">Tip</label>
@@ -26,10 +26,11 @@
       <button type="button" (click)="updateObject() ">Sacuvaj promene</button>
   </form>
 </div>  
-<div class="table-responsive" *ngIf="changedObj==null">
+<div class="table-responsive" *ngIf="changeObjectFormActive==false">
 <table class=table>
     <thead>
       <tr>
+        <th>Tip Objekta</th>
         <th>Adresa</th>
         <th>Broj Soba</th>
         <th>Kvadratura</th>
@@ -37,6 +38,7 @@
     </thead>
     <tbody>
       <tr *ngFor="let object of objects; let i = index">
+        <td>{{ object.type }}</td>
         <td>{{ object.address }}</td>
         <td>{{ object.roomCnt }}</td>
         <td>{{ object.sqMetersNumber }}</td>

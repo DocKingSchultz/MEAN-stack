@@ -92,7 +92,7 @@ export class AgencyDescriptionComponent {
       // Check if startDate is in the past
       if (startDate < currentDate || endDate < startDate || startDate>endDate) {
         // Handle the case when startDate is in the past
-        console.log("Datumi nisu lepo izabrani.");
+        alert("Datumi nisu lepo izabrani.");
         return;
       }
       
@@ -106,7 +106,7 @@ export class AgencyDescriptionComponent {
                   if(data)
                   {
                     alert(JSON.stringify(data.clientJobs))
-                    localStorage.setItem("user", JSON.parse(data))
+                    localStorage.setItem("user", JSON.stringify(data))
                   }
                 })
               }

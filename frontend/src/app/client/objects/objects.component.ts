@@ -22,6 +22,7 @@ export class ObjectsComponent {
 
   constructor(private userServ:UserServiceService, private cl:ClientService, private ruter:Router)
   {
+    this.changeObjectFormActive = false;
     let user = localStorage.getItem("user")
     if(user!=null){
     this.cl.getAllObjects(JSON.parse(user).username).subscribe((data: any) => {
@@ -31,7 +32,19 @@ export class ObjectsComponent {
       else alert("Objekti neuspesno dohvaceni")
     })
   }
-
+}
+  ngOnInit():void
+  {
+    this.changeObjectFormActive = false;
+    let user = localStorage.getItem("user")
+    if(user!=null){
+    this.cl.getAllObjects(JSON.parse(user).username).subscribe((data: any) => {
+      if (data) {
+        this.objects=data.objects
+      }
+      else alert("Objekti neuspesno dohvaceni")
+    })
+  }
   }
   objects:ObjectInfo[]=[];
   file:any
@@ -39,7 +52,7 @@ export class ObjectsComponent {
   user:User;
   selectedFile: File;
   changedId:number
-
+  changeObjectFormActive = false;
   onFileSelected(event: any) {
     this.selectedFile = event.target.files[0];
   }
@@ -70,7 +83,7 @@ export class ObjectsComponent {
               this.userServ.updateUser(this.user).subscribe((data: any) => {
                 if(data)
                 {
-                  alert("Objekat izmenjen")
+                  alert("Objekat uspesno promenjen")
                 }
                 else
                 {
@@ -110,7 +123,7 @@ export class ObjectsComponent {
                   if(data)
                   {
                     alert("Objekat uspesno izmenjen")
-                    localStorage.setItem("user", JSON.parse(data))
+                    localStorage.setItem("user", JSON.stringify(data))
                   }
                 })
               }
@@ -133,6 +146,7 @@ export class ObjectsComponent {
   }
 
   izmeni(id:number) {
+    this.changeObjectFormActive = true;
     this.changedObj=this.objects[id];
     this.changedId=id
   }
