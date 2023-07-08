@@ -24,7 +24,7 @@ export class JobsComponent {
   jobs: Job[] = []
   selectedStatus: string = "all"
   filteredJobs: Job[] = []
-
+  activeToPayJobsID:Job[]=[]
 
   pregled(id: number) {
 
@@ -39,9 +39,18 @@ export class JobsComponent {
           this.user = data
           this.jobs = data.clientJobs
           this.filteredJobs = this.jobs
+          this.activeToPayJobsID=[...this.user.clientJobs];
+          this.activeToPayJobsID.forEach((element, index) => {
+            let allGreen=true;
+            element.object.sketch.rooms.forEach(el => {
+              if(el.color!="green")allGreen=false;
+            });
+            if(!allGreen)this.activeToPayJobsID.splice(index, 1);
+          });
         }
       })
     }
+
   }
   prihvatiPosao(id: number) {
 
@@ -58,6 +67,16 @@ export class JobsComponent {
     } else {
       this.filteredJobs = this.jobs;
     }
+  }
+  getJobColor(status:string):String
+  {
+    if(status=="active" || status=="finished")
+    {
+      return "green"
+    }
+    if(status=="rejected")return "red"
+    
+    return ""
   }
 }
 

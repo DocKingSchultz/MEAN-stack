@@ -15,13 +15,15 @@
             <th>Datum pocetka radova</th>
             <th>Datum zavretka radova</th>
             <th>Cena radova</th>
+            <th>status</th>
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let job of filteredJobs; let i = index">
+          <tr *ngFor="let job of filteredJobs; let i = index" [ngStyle]="{'background-color': getJobColor(job.status)}">
             <td>{{ job.startDate }}</td>
             <td>{{ job.endDate }}</td>
             <td>{{job.cost}}</td>
+            <td>{{job.status}}</td>
             <td>
               <button class="btn btn-primary" (click)="pregled(i)">Objekat</button>
               &nbsp;
