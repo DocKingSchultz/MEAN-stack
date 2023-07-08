@@ -8,7 +8,7 @@
     <label for="description">Tekst:</label>
     <textarea class="form-control" id="description" name="description" [(ngModel)]="comment.description"></textarea>
   </div>
-  <button class="btn btn-primary" type="submit">Okaci komentar</button>
+  <button class="btn btn-primary" type="submit" (click)="ubaciKomentar()">Okaci komentar</button>
 </form>
 </div>
 <div class="filter-container" *ngIf="selectedStatus!=null">
@@ -27,7 +27,7 @@
           <tr>
             <th>Datum pocetka radova</th>
             <th>Datum zavretka radova</th>
-            <th>Cena radova</th>
+            <th>Ponuda agencije</th>
             <th>status</th>
           </tr>
         </thead>
@@ -44,7 +44,7 @@
               &nbsp;
               <button class="btn btn-primary" (click)="ostaviKomentar(i)" *ngIf="job.status=='finished'">Komentar</button>
               &nbsp;
-              <button class="btn btn-primary" *ngIf="job.cost!=0" (click)="prihvatiPosao(i)">Prihvati posao</button>
+              <button class="btn btn-primary" *ngIf="job.cost!=0 && job.status=='requested'" (click)="prihvatiPosao(i)">Prihvati posao</button>
 
             </td>
           </tr>

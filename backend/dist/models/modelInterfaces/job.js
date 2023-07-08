@@ -31,5 +31,8 @@ exports.JobSchema = new mongoose_1.Schema({
         type: [worker_1.WorkerSchema],
         default: [],
     },
+    agencyUsername: {
+        type: String
+    }
 });
 //# sourceMappingURL=job.js.map

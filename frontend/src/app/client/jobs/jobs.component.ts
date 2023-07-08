@@ -25,40 +25,76 @@ export class JobsComponent {
   jobs: Job[] = []
   selectedStatus: string = "all"
   filteredJobs: Job[] = []
-  activeToPayJobsID:Job[]=[]
-  leaveCommentFormActive=false;
-  indexSelectedJobToComment:number;
-  comment:Comment;
+  activeToPayJobsID: Job[] = []
+  leaveCommentFormActive = false;
+  indexSelectedJobToComment: number;
+  comment: Comment;
+  agencyCommented: User
+  commetAlreadyExisted: boolean
   pregled(id: number) {
 
-    drawSketch(this.jobs[id].object.sketch.rooms, false, this.jobs[id].object.sketch.doors)
+    drawSketch(this.filteredJobs[id].object.sketch.rooms, false, this.jobs[id].object.sketch.doors)
   }
   initializeVariables() {
     this.selectedStatus = "all"
-    this.leaveCommentFormActive=false
-    this.comment=new Comment();
+    this.leaveCommentFormActive = false
+    this.comment = new Comment();
     let user = localStorage.getItem("user")
     if (user != null) {
       this.usrServ.refreshUser(JSON.parse(user).username).subscribe((data: any) => {
         if (data) {
           this.user = data
           this.jobs = [...data.clientJobs]
-          this.comment.usernameOfUser=this.user.username
-          this.comment.nameOfUser=this.user.name;
-          this.comment.lastnameOfUser=this.user.lastname
+          this.comment.usernameOfUser = this.user.username
+          this.comment.nameOfUser = this.user.name;
+          this.comment.lastnameOfUser = this.user.lastname
           this.filteredJobs = [...data.clientJobs]
-          this.activeToPayJobsID=[...this.user.clientJobs];
+          this.activeToPayJobsID = [...this.user.clientJobs];
         }
       })
     }
 
   }
-  ubaciKomentar()
-  {
-    
+  ubaciKomentar() {
+    if (this.commetAlreadyExisted == false) {
+      this.agencyCommented.agencyComments.push(this.comment)
+    }
+    else {
+      this.agencyCommented.agencyComments.forEach((comEl,index) => {
+        if (comEl.usernameOfUser == this.user.username) {
+            this.agencyCommented.agencyComments[index]=this.comment    
+        }
+
+      });
+    }
+    this.usrServ.updateUser(this.agencyCommented).subscribe((data: any) => {
+      if (data) {
+        alert("Komentar uspesno uabcen")
+        this.ruter.navigate(["agencies"])
+      }
+      else {
+        alert("Nuespesno ubacivanje komentara")
+      }
+    })
   }
   prihvatiPosao(id: number) {
-
+    let mongoID = this.filteredJobs[id]._id
+    this.filteredJobs[id].status = "active";
+    this.user.clientJobs.forEach((element, index) => {
+      if (element._id == mongoID) {
+        element.status = "active"
+        this.usrServ.updateUser(this.user).subscribe((data: any) => {
+          if (data) {
+            alert("Posao prihvacen")
+            this.ruter.navigate(["jobs"])
+          }
+          else {
+            alert("Neuspsno prihvatanje posla")
+          }
+          return
+        })
+      }
+    });
   }
   applyFilter() {
     if (this.selectedStatus) {
@@ -73,57 +109,62 @@ export class JobsComponent {
       this.filteredJobs = this.jobs;
     }
   }
-  getJobColor(status:string):String
-  {
-    if(status=="active" || status=="finished")
-    {
+  getJobColor(status: string): String {
+    if (status == "active" || status == "finished") {
       return "green"
     }
-    if(status=="rejected")return "red"
-    
+    if (status == "rejected") return "red"
+
     return ""
   }
-  checkIfactiveToPayJobsID(id:number)
-  {
-      let allGreen=true;
-      for(let i=0; i<this.filteredJobs[id].object.sketch.rooms.length ;i++)
-      {
-        if(this.filteredJobs[id].object.sketch.rooms[i].color!="green")return false;
-      }
-      if(this.filteredJobs[id].status=="active") return true
-      else return false;
+  checkIfactiveToPayJobsID(id: number) {
+    let allGreen = true;
+    for (let i = 0; i < this.filteredJobs[id].object.sketch.rooms.length; i++) {
+      if (this.filteredJobs[id].object.sketch.rooms[i].color != "green") return false;
+    }
+    if (this.filteredJobs[id].status == "active") return true
+    else return false;
   }
 
-  ostaviKomentar(id:number)
-  {
-    this.leaveCommentFormActive=true;
+  ostaviKomentar(id: number) {
+    this.leaveCommentFormActive = true;
     let mongoID = this.filteredJobs[id]._id
+    this.commetAlreadyExisted = false;
     this.user.clientJobs.forEach((element, index) => {
-      if(element._id==mongoID)
-      {
-        this.indexSelectedJobToComment=index
+      if (element._id == mongoID) {
+        this.indexSelectedJobToComment = index
+        this.usrServ.getAgencyByUsername(this.user.clientJobs[this.indexSelectedJobToComment].agencyUsername).subscribe((data: any) => {
+          if (data) {
+            this.agencyCommented = data;
+            this.agencyCommented.agencyComments.forEach(comEl => {
+              if (comEl.usernameOfUser == this.user.username) {
+                this.comment.description = comEl.description
+                this.comment.mark = comEl.mark
+                this.commetAlreadyExisted = true;
+                this.ruter.navigate(["jobs"])
+              }
+            });
+          }
+        })
+
       }
     });
+
   }
 
-  plati(id:number)
-  {
+  plati(id: number) {
     let mongoID = this.filteredJobs[id]._id
-    this.filteredJobs[id].status="finished";
-    this.filteredJobs.splice(id,1)
+    this.filteredJobs[id].status = "finished";
     this.user.clientJobs.forEach((element, index) => {
-      if(element._id==mongoID)
-      {
-        element.status="finished"
+      if (element._id == mongoID) {
+        element.status = "finished"
         alert("promenjen status")
         this.usrServ.updateUser(this.user).subscribe((data: any) => {
-          if(data)
-          {
+          if (data) {
             alert("Objekat uspesno isplacen")
             this.ruter.navigate(["jobs"])
           }
-          else
-          {
+          else {
             alert("Objekat neuspesno isplacen")
           }
           return
