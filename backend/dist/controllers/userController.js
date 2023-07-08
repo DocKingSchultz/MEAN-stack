@@ -91,6 +91,20 @@ class userController {
                 }
             });
         };
+        this.getUserByUsername = (req, response) => {
+            let username = req.body.username;
+            console.log("Dohvatanje korisnika :" + req.body.username);
+            user_1.default.findOne({ 'username': username }, (err, data) => {
+                if (data) {
+                    console.log("Dohvatili korisnika");
+                    response.json(data);
+                }
+                else {
+                    console.log("User ne postoji u sitemu");
+                    response.json(null);
+                }
+            });
+        };
         this.getUserByEmail = (req, res) => {
             let email = req.body.email;
             console.log("Provera email: " + email);

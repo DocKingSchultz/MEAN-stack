@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { User } from 'src/models/user';
 import { UserServiceService } from '../../services/user-service.service';
 import { RoundedDirective } from '@coreui/angular';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-my-profile-component',
@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
 })
 export class MyProfileComponentComponent {
 
-  constructor(private userv:UserServiceService, private ruter:Router)
+  constructor(private userv:UserServiceService, private ruter:Router,private route:ActivatedRoute)
   { 
     var user = localStorage.getItem("user");
     if(user!=null)
@@ -21,15 +21,39 @@ export class MyProfileComponentComponent {
   }
   ngOnInit():void
   {
-    var user = localStorage.getItem("user");
-    if(user!=null)
-    {
-      this.user=JSON.parse(user)
-    }   
+    this.userv.refreshUser(this.user.username).subscribe((data:any)=>{
+      if(data)
+      {
+        localStorage.setItem("user", JSON.stringify(data))
+        this.user = data;
+        if(this.user.type=='admin')
+        {
+          const usernameParam = this.route.snapshot.paramMap.get('username');
+          if (usernameParam) 
+          {
+            this.userv.getUserByUsername(usernameParam).subscribe((data:User)=>{
+              if(data)
+              {
+                this.admin = this.user;
+                this.user = data;
+              }
+            })
+          }
+            
+        }
+        else //client/agency
+        {
+          //this.user = data;
+          //leave the user
+        }
+       
+      }
+    })
   }
 
 
   user:User;
+  admin:User;
   selectedFile: File;
 
   onFileSelected(event: any) {
@@ -63,6 +87,10 @@ export class MyProfileComponentComponent {
                     if(info)
                     {
                       alert("Informacije izmenjene")
+                      // if(this.admin==null) //there is no admin logged in
+                      // {
+
+                      // }
                       this.userv.refreshUser(this.user.username).subscribe((data:any)=>{
                         if(data)
                         {

@@ -19,9 +19,8 @@ export class User {
     public description: string = '',
     public status: string = 'neaktivan',
     public objects: ObjectInfo[] = [],
-    public agencyWorkPictures: string[] = [],
     public agencyComments: Comment[] = [],
     public clientJobs: Job[] = [],
-    public workers: Worker[] = []
+    public workers: number = 0
   ) {}
 }

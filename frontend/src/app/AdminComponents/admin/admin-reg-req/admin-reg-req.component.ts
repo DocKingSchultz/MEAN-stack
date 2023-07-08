@@ -31,4 +31,9 @@ export class AdminRegReqComponent {
       this.ruter.navigate([currentRoute]);
     });
   }
+
+  editUser(reqUsername:string)
+  {
+
+  }
 }

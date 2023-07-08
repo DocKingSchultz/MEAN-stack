@@ -7,7 +7,6 @@ const mongoose_1 = __importDefault(require("mongoose"));
 const comment_1 = require("./modelInterfaces/comment");
 const objectinfo_1 = require("./modelInterfaces/objectinfo");
 const job_1 = require("./modelInterfaces/job");
-const worker_1 = require("./modelInterfaces/worker");
 const Schema = mongoose_1.default.Schema;
 const User = new Schema({
     username: {
@@ -74,8 +73,7 @@ const User = new Schema({
         default: [],
     },
     workers: {
-        type: [worker_1.WorkerSchema],
-        default: [],
+        type: Number,
     },
 });
 exports.default = mongoose_1.default.model('User', User, 'user');

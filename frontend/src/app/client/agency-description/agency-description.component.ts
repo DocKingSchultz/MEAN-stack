@@ -118,7 +118,6 @@ export class AgencyDescriptionComponent {
                 this.userServ.refreshUser(JSON.parse(user).username).subscribe((data: any) => {
                   if(data)
                   {
-                    alert(JSON.stringify(data.clientJobs))
                     localStorage.setItem("user", JSON.stringify(data))
                   }
                 })
