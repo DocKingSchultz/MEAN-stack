@@ -20,6 +20,7 @@ import { AgenciesComponent } from './client/agencies/agencies.component';
 import { AgencyDescriptionComponent } from './client/agency-description/agency-description.component';
 import { JobsComponent } from './client/jobs/jobs.component';
 import { ArrangeNewJobComponent } from './arrange-new-job/arrange-new-job.component';
+import { AgencyJobsComponent } from './agency/agency-jobs/agency-jobs.component';
 
 const routes: Routes = [
   {path:"", component:HomeComponent},
@@ -43,6 +44,7 @@ const routes: Routes = [
   {path:"newobject", component:CreateNewObjectComponent},
   {path:"jobs", component:JobsComponent},
   {path:"newJob", component:ArrangeNewJobComponent},
+  {path:"agency-jobs", component:AgencyJobsComponent},
   {path: '**', component: HomeComponent }
 ];
 

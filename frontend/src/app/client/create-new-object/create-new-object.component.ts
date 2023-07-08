@@ -30,57 +30,90 @@ export class CreateNewObjectComponent {
   }
 
   createObject() {
+    let jsonData;
+    
     if (this.selectedFile) {
       const fileReader = new FileReader();
       fileReader.onload = (e: any) => {
         try {
-          const jsonData = JSON.parse(e.target.result);
-          if(!validateJSON(jsonData))
-          {
-            alert("JSON fajl ne odgovara opisu !")
-            return
+          jsonData = JSON.parse(e.target.result);
+          if (!validateJSON(jsonData)) {
+            alert("JSON fajl ne odgovara opisu!");
+            return;
           }
-          if (this.obj.roomCnt <= 3 || this.obj.roomCnt > 0) {
-            let user = localStorage.getItem("user")
-            if (user != null) {
-              this.obj.sketch.rooms = jsonData.rooms;
-              this.obj.sketch.doors = jsonData.doors;
-              for(let i=0;i<this.obj.sketch.rooms.length;i++)
-              {
-                this.obj.sketch.rooms[i].color="white"
-              }
-              this.clServ.addNewOjbect(this.obj, JSON.parse(user).username).subscribe((data: any) => {
-                if (data) {
-                  drawSketch(this.obj.sketch.rooms, true, this.obj.sketch.doors)
-                  if(user!=null){
-                  this.userServ.refreshUser(JSON.parse(user).username).subscribe((data: any) => {
-                    if(data)
-                    {
-                      localStorage.setItem("user", JSON.stringify(data))
-                      this.rutr.navigate(["objects"])
-                    }
-                  })
-                }
-                else
-                {
-                  alert("Objekat neuspesno ubacen")
-                }
-                }
-                
-                else alert("Objekat neuspesno ubacen")
-              })
-            }
-          }
-          else {
-            alert("Broj prostorija mora biti izmedju 1 i 3")
-          }
-          console.log(jsonData);
+          this.processJsonData(jsonData);
         } catch (error) {
-          alert("Fajl nije u JSON formatu")
+          alert("Fajl nije u JSON formatu");
           console.error('Error parsing JSON file:', error);
         }
       };
       fileReader.readAsText(this.selectedFile);
+    } else {
+      this.loadDefaultJson()
+        .then((data) => {
+          jsonData = data;
+          this.processJsonData(jsonData);
+        })
+        .catch((error) => {
+          console.error('Error loading default JSON file:', error);
+          alert("Greška prilikom učitavanja podrazumevanog JSON fajla");
+        });
+    }
+  }
+  
+  private loadDefaultJson(): Promise<any> {
+    let defaultJsonFilePath ; // Provide the path to your default JSON file
+    switch (this.obj.roomCnt){
+      case 1:{
+        defaultJsonFilePath="assets/Database/oneroomDefault.json"
+        break
+      }
+      case 2:{
+        defaultJsonFilePath="assets/Database/tworoomDefault.json"
+        break
+      }
+      case 3:{
+        defaultJsonFilePath="assets/Database/3r4d.json"
+        break
+      }
+      default:{
+          defaultJsonFilePath="assets/Database/3r4d.json"
+      }
+    }
+    return fetch(defaultJsonFilePath)
+      .then(response => response.json())
+      .catch(error => Promise.reject(error));
+  }
+  
+  private processJsonData(jsonData: any): void {
+    if (this.obj.roomCnt <= 3 && this.obj.roomCnt > 0) {
+      const user = localStorage.getItem("user");
+      if (user != null) {
+        this.obj.sketch.rooms = jsonData.rooms;
+        this.obj.sketch.doors = jsonData.doors;
+        for (let i = 0; i < this.obj.sketch.rooms.length; i++) {
+          this.obj.sketch.rooms[i].color = "white";
+        }
+        this.clServ.addNewOjbect(this.obj, JSON.parse(user).username).subscribe((data: any) => {
+          if (data) {
+            drawSketch(this.obj.sketch.rooms, true, this.obj.sketch.doors);
+            if (user != null) {
+              this.userServ.refreshUser(JSON.parse(user).username).subscribe((data: any) => {
+                if (data) {
+                  localStorage.setItem("user", JSON.stringify(data));
+                  this.rutr.navigate(["objects"]);
+                }
+              });
+            } else {
+              alert("Objekat neuspešno ubačen");
+            }
+          } else {
+            alert("Objekat neuspešno ubačen");
+          }
+        });
+      }
+    } else {
+      alert("Broj prostorija mora biti između 1 i 3");
     }
   }
 }
