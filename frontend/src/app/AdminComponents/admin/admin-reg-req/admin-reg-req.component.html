@@ -5,7 +5,7 @@
         <th>Korisnicko ime</th>
         <th>Tip naloga</th>
         <th>Status naloga</th>
-  
+        <th></th>
         <th></th>
         
       </tr>
@@ -19,7 +19,10 @@
         </td>
         <td *ngIf="req.status=='aktivan'">
             <button class="button" (click)="changeAccStatus(req, 'neaktivan')" >Dektiviraj nalog</button>
-        </td>   
+        </td>  
+        <td>
+          <button class="button" [routerLink]="['/profile', req.username]">Edit user</button>
+        </td> 
       </ng-container>
      </tr>
     </table>

@@ -46,6 +46,13 @@ export class UserServiceService {
   {
     return this.httpClient.post(`${this.uri}/users/updateProfile`, user);
   }
+  getUserByUsername(username:string)
+  {
+    const data = {
+      username:username,
+    }
+    return this.httpClient.post<User>(`${this.uri}/users/getUserByUsername`, data);
+  }
   getUserByEmail(email:string)
   {
     const data = {

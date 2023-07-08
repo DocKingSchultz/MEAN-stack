@@ -2,9 +2,7 @@ import mongoose from 'mongoose'
 import {Comment, CommentSchema}  from './modelInterfaces/comment'
 import { ObjectInfo, ObjectInfoSchema } from './modelInterfaces/objectinfo';
 import { Job, JobSchema } from './modelInterfaces/job';
-import { WorkerSchema } from './modelInterfaces/worker';
 import { Document } from 'mongodb';
-import { Worker } from 'cluster';
 const Schema = mongoose.Schema;
 
 interface User extends Document {
@@ -22,13 +20,10 @@ interface User extends Document {
   description?: string;
   status: string;
   objects: ObjectInfo[];
-  agencyWorkPictures: string[];
   agencyComments: Comment[];
   clientJobs: Job[];
-  workers: Worker[];
-
+  workers: number;
 }
-
 
 const User = new Schema<User>({
     username: {
@@ -95,8 +90,7 @@ const User = new Schema<User>({
         default: [],
       },
       workers: {
-        type: [WorkerSchema],
-        default: [],
+        type: Number,
       },
     });
 

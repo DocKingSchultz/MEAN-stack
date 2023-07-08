@@ -90,7 +90,20 @@ export class userController {
 
         })
     }
-
+    getUserByUsername = (req: express.Request, response: express.Response) => {
+        let username = req.body.username;
+        console.log("Dohvatanje korisnika :" + req.body.username)
+        User.findOne({ 'username': username}, (err, data) => {
+            if (data) {
+                console.log("Dohvatili korisnika")
+                response.json(data);
+            }
+            else {
+                console.log("User ne postoji u sitemu")
+                response.json(null);
+            }
+        })
+    }
     getUserByEmail = (req: express.Request, res: express.Response) => {
         let email = req.body.email;
         console.log("Provera email: " + email)

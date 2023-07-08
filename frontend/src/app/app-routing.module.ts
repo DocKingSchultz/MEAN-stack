@@ -29,7 +29,7 @@ const routes: Routes = [
   {path:"register", component:ChooseRegistrationPageComponent},
   {path:"changePassword", component:ChangePasswordComponent},
   {path:"admin", component:AdminComponent},
-  {path:"profile", component:MyProfileComponentComponent},
+  {path:"profile/:username", component:MyProfileComponentComponent},
   {path:"uploadFiles", component:UploadFilesComponent},
   {path:"admin-sign-in", component:AdminSignInComponent},
   {path:"agency", component:AgencyComponent},

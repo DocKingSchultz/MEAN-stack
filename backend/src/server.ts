@@ -57,6 +57,9 @@ router.route('/admin/changeAccStatus').post(
 router.route('/users/updateProfile').post(
     (req, res)=>new userController().updateProfile(req, res)
 )
+router.route('/users/getUserByUsername').post(
+    (req, res)=>new userController().getUserByUsername(req, res)
+)
 router.route('/users/getUserByEmail').post(
     (req, res)=>new userController().getUserByEmail(req, res)
 )
