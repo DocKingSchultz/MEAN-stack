@@ -110,6 +110,7 @@ export class AgencyDescriptionComponent {
       }
       
       this.newJob.object=this.selectedObject
+      this.newJob.agencyUsername=this.agency.username
       this.clServ.insertJob(this.newJob, this.user.username).subscribe((data:any)=>{
           if(data)
           {

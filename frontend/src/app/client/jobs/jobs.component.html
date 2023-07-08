@@ -1,3 +1,16 @@
+<div class="centered-container" *ngIf="leaveCommentFormActive==true">
+<form class="comment-form" >
+  <div class="form-group">
+    <label for="mark">Ocena rada:</label>
+    <input class="form-control" type="number" id="mark" name="mark" [(ngModel)]="comment.mark" min="1" max="5" />
+  </div>
+  <div class="form-group">
+    <label for="description">Tekst:</label>
+    <textarea class="form-control" id="description" name="description" [(ngModel)]="comment.description"></textarea>
+  </div>
+  <button class="btn btn-primary" type="submit">Okaci komentar</button>
+</form>
+</div>
 <div class="filter-container" *ngIf="selectedStatus!=null">
     <label>Filtriraj:</label>
     <select [(ngModel)]="selectedStatus" (change)="applyFilter()">
@@ -8,7 +21,7 @@
       <option value="rejected">Obijeni</option>
     </select>
   </div>
-<div class="table-responsive" *ngIf="filteredJobs!=null">
+<div class="table-responsive" *ngIf="filteredJobs!=null && leaveCommentFormActive==false">
     <table class=table>
         <thead>
           <tr>
@@ -26,6 +39,10 @@
             <td>{{job.status}}</td>
             <td>
               <button class="btn btn-primary" (click)="pregled(i)">Objekat</button>
+              &nbsp;
+              <button class="btn btn-primary" (click)="plati(i)" *ngIf="checkIfactiveToPayJobsID(i)==true">Plati</button>
+              &nbsp;
+              <button class="btn btn-primary" (click)="ostaviKomentar(i)" *ngIf="job.status=='finished'">Komentar</button>
               &nbsp;
               <button class="btn btn-primary" *ngIf="job.cost!=0" (click)="prihvatiPosao(i)">Prihvati posao</button>
 

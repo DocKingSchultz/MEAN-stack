@@ -11,6 +11,7 @@ export interface Job  extends Document{
     status: 'requested' | 'active' | 'finished' | 'rejected';
     cost: number;
     workers: Worker[];
+    agencyUsername:string
 }
 export  const JobSchema: Schema<Job> = new Schema({
     object: {
@@ -39,4 +40,7 @@ export  const JobSchema: Schema<Job> = new Schema({
       type: [WorkerSchema],
       default: [],
     },
+    agencyUsername:{
+      type:String
+    }
   });

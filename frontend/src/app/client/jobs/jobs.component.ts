@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { UserServiceService } from 'src/app/services/user-service.service';
+import { Comment } from 'src/models/comment';
 import { Job } from 'src/models/job';
 import { User } from 'src/models/user';
 
@@ -25,32 +26,36 @@ export class JobsComponent {
   selectedStatus: string = "all"
   filteredJobs: Job[] = []
   activeToPayJobsID:Job[]=[]
-
+  leaveCommentFormActive=false;
+  indexSelectedJobToComment:number;
+  comment:Comment;
   pregled(id: number) {
 
     drawSketch(this.jobs[id].object.sketch.rooms, false, this.jobs[id].object.sketch.doors)
   }
   initializeVariables() {
     this.selectedStatus = "all"
+    this.leaveCommentFormActive=false
+    this.comment=new Comment();
     let user = localStorage.getItem("user")
     if (user != null) {
       this.usrServ.refreshUser(JSON.parse(user).username).subscribe((data: any) => {
         if (data) {
           this.user = data
-          this.jobs = data.clientJobs
-          this.filteredJobs = this.jobs
+          this.jobs = [...data.clientJobs]
+          this.comment.usernameOfUser=this.user.username
+          this.comment.nameOfUser=this.user.name;
+          this.comment.lastnameOfUser=this.user.lastname
+          this.filteredJobs = [...data.clientJobs]
           this.activeToPayJobsID=[...this.user.clientJobs];
-          this.activeToPayJobsID.forEach((element, index) => {
-            let allGreen=true;
-            element.object.sketch.rooms.forEach(el => {
-              if(el.color!="green")allGreen=false;
-            });
-            if(!allGreen)this.activeToPayJobsID.splice(index, 1);
-          });
         }
       })
     }
 
+  }
+  ubaciKomentar()
+  {
+    
   }
   prihvatiPosao(id: number) {
 
@@ -77,6 +82,54 @@ export class JobsComponent {
     if(status=="rejected")return "red"
     
     return ""
+  }
+  checkIfactiveToPayJobsID(id:number)
+  {
+      let allGreen=true;
+      for(let i=0; i<this.filteredJobs[id].object.sketch.rooms.length ;i++)
+      {
+        if(this.filteredJobs[id].object.sketch.rooms[i].color!="green")return false;
+      }
+      if(this.filteredJobs[id].status=="active") return true
+      else return false;
+  }
+
+  ostaviKomentar(id:number)
+  {
+    this.leaveCommentFormActive=true;
+    let mongoID = this.filteredJobs[id]._id
+    this.user.clientJobs.forEach((element, index) => {
+      if(element._id==mongoID)
+      {
+        this.indexSelectedJobToComment=index
+      }
+    });
+  }
+
+  plati(id:number)
+  {
+    let mongoID = this.filteredJobs[id]._id
+    this.filteredJobs[id].status="finished";
+    this.filteredJobs.splice(id,1)
+    this.user.clientJobs.forEach((element, index) => {
+      if(element._id==mongoID)
+      {
+        element.status="finished"
+        alert("promenjen status")
+        this.usrServ.updateUser(this.user).subscribe((data: any) => {
+          if(data)
+          {
+            alert("Objekat uspesno isplacen")
+            this.ruter.navigate(["jobs"])
+          }
+          else
+          {
+            alert("Objekat neuspesno isplacen")
+          }
+          return
+        })
+      }
+    });
   }
 }
 
