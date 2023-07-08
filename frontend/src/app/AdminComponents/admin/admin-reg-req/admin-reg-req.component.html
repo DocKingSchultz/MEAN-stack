@@ -7,9 +7,10 @@
         <th>Status naloga</th>
         <th></th>
         <th></th>
+        <th></th>
         
       </tr>
-      <tr *ngFor = 'let req of regReqs' >
+      <tr *ngFor = 'let req of regReqs; let i=index' >
         <ng-container *ngIf="req.type!='admin'">
         <td>{{req.username}}</td>
         <td>{{req.type}}</td>
@@ -21,8 +22,11 @@
             <button class="button" (click)="changeAccStatus(req, 'neaktivan')" >Dektiviraj nalog</button>
         </td>  
         <td>
-          <button class="button" [routerLink]="['/profile', req.username]">Edit user</button>
+          <button class="button" [routerLink]="['/profile', req.username]">Izmeni nalog</button>
         </td> 
+        <td>
+          <button class="button" (click)="deleteUser(req.username,i)">Izbrisi nalog</button>
+        </td>
       </ng-container>
      </tr>
     </table>

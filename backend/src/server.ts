@@ -69,6 +69,9 @@ router.route('/users/getAgencies').get(
 router.route('/users/getAgencyByUsername').post(
     (req, res)=>new agencyController().getAgencyByUsername(req, res)
 )
+router.route('/users/deleteUser').post(
+    (req, res)=>new adminController().deleteUser(req, res)
+)
 router.route('/users/getAgenciesByName').post(
     (req, res)=>new agencyController().getAgenciesByName(req, res)
 )

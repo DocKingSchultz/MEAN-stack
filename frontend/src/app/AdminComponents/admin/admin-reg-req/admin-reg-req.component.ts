@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { AdminService } from '../../../services/admin.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { User } from 'src/models/user';
+import { response } from 'express';
 
 @Component({
   selector: 'app-admin-reg-req',
@@ -32,8 +33,11 @@ export class AdminRegReqComponent {
     });
   }
 
-  editUser(reqUsername:string)
+  deleteUser(reqUsername:string,index:number)
   {
-
+    this.adminServ.deleteUser(reqUsername).subscribe((res:any)=>{
+      alert(res);
+    })
+    this.regReqs.splice(index,1);
   }
 }

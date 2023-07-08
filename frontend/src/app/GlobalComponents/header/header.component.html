@@ -9,7 +9,7 @@
     </a>
 </div>
 <div class="topnav" id="myTopnav" *ngIf="userType=='client'">
-    <a href="profile "                     >Pregled profila</a>
+    <a href="profile/{{user.username}}"    >Pregled profila</a>
     <a href="changePassword"               >Promeni lozinku</a>
     <a href="objects"                      >Moji objekti</a>
     <a href="newobject"                    >Dodaj objekat</a>
@@ -22,7 +22,7 @@
 </div>
 <div class="topnav" id="myTopnav" *ngIf="userType=='agency'">
     <a href="home"                         >Home</a>
-    <a href="profile "                     >Pregled profila</a>
+    <a href="profile/{{user.username}}"    >Pregled profila</a>
     <a href="changePassword"               >Promeni lozinku</a>
     <a (click)="logout()" href="logout"                  >Logout</a>
     <a href="javascript:void(0);" class="icon" onclick="navBarFunction()">
@@ -31,8 +31,9 @@
 </div>
 <div class="topnav" id="myTopnav" *ngIf="userType=='admin'">
     <a href="regreq"                       >Pregled zahteva</a>
-    <a href="profile "                     >Pregled profila</a>
+    <a href="profile/{{user.username}}"    >Pregled profila</a>
     <a href="changePassword"               >Promeni lozinku</a>
+    <a href="register"                     >Registruj korisnika</a>
     <a (click)="logout()" href="logout"                  >Logout</a>
     <a href="javascript:void(0);" class="icon" onclick="navBarFunction()">
         <i class="fa fa-bars"></i>

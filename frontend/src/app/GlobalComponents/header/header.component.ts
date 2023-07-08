@@ -4,6 +4,7 @@ import { ContainerComponent } from '@coreui/angular';
 import { Subscription } from 'rxjs';
 import { CommonServiceService } from '../../services/common-service.service';
 import { UserServiceService } from 'src/app/services/user-service.service';
+import { User } from 'src/models/user';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -18,6 +19,7 @@ export class HeaderComponent implements OnDestroy{
     var user = localStorage.getItem("user");
     if(user!=null)
     {
+      this.user = JSON.parse(user)
       this.userType=JSON.parse(user).type
     }
     this.userTypeSubscription=this.cserv.getUpdate().subscribe
@@ -30,6 +32,7 @@ export class HeaderComponent implements OnDestroy{
   private userTypeSubscription:Subscription;
 
   userType='guest';
+  user:User;
 
   logout()
   {

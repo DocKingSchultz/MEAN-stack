@@ -35,6 +35,19 @@ class adminController {
                 }
             });
         };
+        this.deleteUser = (req, res) => {
+            let username = req.body.username;
+            console.log("Brisanje korisnika: " + username);
+            user_1.default.deleteOne({ username: username }, function (err, result) {
+                if (err) {
+                    console.error("Greska prilikom brisanje korisnika:" + username, err);
+                    res.json("Greska prilikom brisanje korisnika:" + username);
+                    return;
+                }
+                console.log("Uspesno izbrisan korisnik " + username);
+                res.json("Uspesno izbrisan korisnik " + username);
+            });
+        };
     }
 }
 exports.adminController = adminController;

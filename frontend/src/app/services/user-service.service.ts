@@ -60,6 +60,7 @@ export class UserServiceService {
     }
     return this.httpClient.post<User>(`${this.uri}/users/getUserByEmail`, data);
   }
+
   getAgencies()
   {
     return this.httpClient.get<User[]>(`${this.uri}/users/getAgencies`);
