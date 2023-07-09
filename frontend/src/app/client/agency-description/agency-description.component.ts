@@ -116,6 +116,7 @@ export class AgencyDescriptionComponent {
           {
             let user = localStorage.getItem("user")
               if(user!=null){
+                alert("Novi posao")
                 this.userServ.refreshUser(JSON.parse(user).username).subscribe((data: any) => {
                   if(data)
                   {
@@ -132,6 +133,5 @@ export class AgencyDescriptionComponent {
       // Handle the case when startDate or endDate is null
       console.log("Please select both start date and end date.");
     }
-    alert("Kreiranje novog posla")
   }
 }

@@ -18,6 +18,10 @@ export class UserServiceService {
     }
     return this.httpClient.post(`${uri}/users/login`, data);
   }
+  getAllUsers()
+  {
+    return this.httpClient.post(`${uri}/users/getAllUsers`, null);
+  }
   
   changePassword(username:string, password:string)
   {

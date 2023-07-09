@@ -23,18 +23,28 @@ export class userController {
             }
         })
     }
+    getAllUsers = (req: express.Request, response: express.Response) => {
+        User.find({}, (err, data) => {
+            if (err) {
+                console.error('Error retrieving documents:', err);
+                return;
+            }
+            else if(data)
+            {
+                response.json(data);
+            }
+        })
+    }
     refresh = (req: express.Request, response: express.Response) => {
         let username = req.body.username;
         let user = new User();
         console.log("Dohvatanje svezeg usera")
         User.findOne({ 'username': username }, (err, res) => {
-            if(res)
-            {
+            if (res) {
                 console.log("User refreshed")
                 response.json(res);
             }
-            else
-            {
+            else {
                 console.log("user failed to refresh info")
             }
         })
@@ -57,18 +67,17 @@ export class userController {
         let username = req.body.username;
         User.findOne({ username: username }, (err, alreadyExistsUsername) => {
             if (!alreadyExistsUsername) {
-                User.findOne({email: req.body.email }, (err, alreadyExistsEmail) => {
-                if(!alreadyExistsEmail)
-                {
-                    user.save().then(regReq => {
-                        res.status(200).json({ 'message': 'Zahtev za registracijom uspesno kreiran' });
-                    }).catch(err => {
-                        console.log(err);
-                        res.status(400).json({ 'message': 'error' })
-                    })
-                }
-                else res.json({ 'message': 'Korisnik sa unetim emailom vec postoji u sistemu' })
-             })
+                User.findOne({ email: req.body.email }, (err, alreadyExistsEmail) => {
+                    if (!alreadyExistsEmail) {
+                        user.save().then(regReq => {
+                            res.status(200).json({ 'message': 'Zahtev za registracijom uspesno kreiran' });
+                        }).catch(err => {
+                            console.log(err);
+                            res.status(400).json({ 'message': 'error' })
+                        })
+                    }
+                    else res.json({ 'message': 'Korisnik sa unetim emailom vec postoji u sistemu' })
+                })
             } else res.json({ 'message': 'Korisnik sa unetim koriscnickim imenom vec postoji u sistemu' })
         })
 
@@ -93,7 +102,7 @@ export class userController {
     getUserByUsername = (req: express.Request, response: express.Response) => {
         let username = req.body.username;
         console.log("Dohvatanje korisnika :" + req.body.username)
-        User.findOne({ 'username': username}, (err, data) => {
+        User.findOne({ 'username': username }, (err, data) => {
             if (data) {
                 console.log("Dohvatili korisnika")
                 response.json(data);
@@ -109,11 +118,11 @@ export class userController {
         console.log("Provera email: " + email)
         User.findOne({ email: email }, (err, data) => {
             if (data) {
-                console.log("Postoji korisnik sa email:"+ email)
+                console.log("Postoji korisnik sa email:" + email)
                 res.json(data);
             }
             else {
-                console.log("Ne postoji korisnik sa email:"+ email)
+                console.log("Ne postoji korisnik sa email:" + email)
                 res.json(null);
             }
 

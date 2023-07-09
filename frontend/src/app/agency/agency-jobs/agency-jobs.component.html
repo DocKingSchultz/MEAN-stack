@@ -1,1 +1,56 @@
-<p>agency-jobs works!</p>
+<form #jobForm="ngForm" *ngIf="updateJobStateVisible==true">
+  <div class="form-group">
+    <ng-container *ngFor="let room of users[updateUserJobIndex].clientJobs[updateClJobIndex].object.sketch.rooms">
+    <label for="colorSelect">Trenutno stanje:</label>
+    <select id="colorSelect" class="form-control" name="color" [(ngModel)]="room.color">
+      <option value="red">Soba se oprema</option>
+      <option value="green">Soba je opremljena</option>
+      <option value="">Nema akcije u sobi</option>
+    </select>
+  </ng-container>
+  </div>
+
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+<div class="table-responsive" *ngIf="updateJobStateVisible==false">
+    <table class=table>
+        <thead>
+          <tr>
+            <th>Ime Prezime</th>
+            <th>Broj telefona</th>
+            <th>Datum pocetka radova</th>
+            <th>Datum zavretka radova</th>
+            <th>Broj soba</th>
+            <th>Ponuda</th>
+            <th>Akcija</th>
+          </tr>
+        </thead>
+        <tbody>
+            <ng-container *ngFor="let user of users; let  i=index" >
+                <tr *ngFor="let job of user.clientJobs; let j = index" [ngStyle]="{'background-color': getJobColor(job.status)}">
+                  <ng-container *ngIf="user.type=='client' && job.agencyUsername==userMe.username && (job.status=='active' || job.status=='requested')">
+                  <td>{{ user.name }}  {{user.lastname}}</td>
+                  <td>{{user.phone}}</td>
+                  <td>{{ job.startDate }}</td>
+                  <td>{{ job.endDate }}</td>
+                  <td>{{job.object.roomCnt}}</td>
+                  <td>
+                    <input type="number" [(ngModel)]="job.cost" />
+                    <ng-container  *ngIf="job.status=='requested'">
+                    <button class="btn btn-primary" (click)="posaljiPonudu(i, j)">Posalji</button>
+                    <span class="button-space"></span>
+                    <button class="btn btn-primary" (click)="odbij(i, j)">Odbij</button>
+                    </ng-container>
+                  </td>
+                  
+                  <td >
+                    <button class="btn btn-primary" (click)="azuriraj(i, j)">Azuriraj</button>
+                    <span class="button-space"></span>
+                    <button class="btn btn-primary" (click)="pregled(i, j)">Pregled</button>                    
+                  </td>
+                </ng-container>
+                </tr>
+              </ng-container>
+        </tbody>
+      </table>
+    </div>

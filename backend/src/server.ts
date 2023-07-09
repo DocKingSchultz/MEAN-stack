@@ -87,7 +87,9 @@ router.route('/client/getAllObjects').post(
 router.route('/client/insertJob').post(
     (req, res)=>new clientController().insertJob(req, res)
 )
-
+router.route('/users/getAllUsers').post(
+    (req, res)=>new userController().getAllUsers(req, res)
+)
 app.listen(4000, () => console.log(`Express server running on port 4000`));
 
 

@@ -35,6 +35,7 @@ class clientController {
         this.insertJob = (req, response) => {
             console.log("Ubacivanje objekta");
             let job = req.body.job;
+            delete job._id;
             let username = req.body.username;
             user_1.default.updateOne({ username: username }, { $push: { 'clientJobs': job } }, (error, result) => {
                 if (error) {

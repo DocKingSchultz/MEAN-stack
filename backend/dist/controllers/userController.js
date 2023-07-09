@@ -26,6 +26,17 @@ class userController {
                 }
             });
         };
+        this.getAllUsers = (req, response) => {
+            user_1.default.find({}, (err, data) => {
+                if (err) {
+                    console.error('Error retrieving documents:', err);
+                    return;
+                }
+                else if (data) {
+                    response.json(data);
+                }
+            });
+        };
         this.refresh = (req, response) => {
             let username = req.body.username;
             let user = new user_1.default();
