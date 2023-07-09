@@ -160,8 +160,14 @@ export class JobsComponent {
         alert("promenjen status")
         this.usrServ.updateUser(this.user).subscribe((data: any) => {
           if (data) {
-            alert("Objekat uspesno isplacen")
-            this.ruter.navigate(["jobs"])
+            this.usrServ.updateAgencyWorkers(element.agencyUsername, element.workers).subscribe((dataJ:any)=>{
+              if(dataJ)
+              {
+                alert("Objekat uspesno isplacen")
+                this.ruter.navigate(["jobs"])
+              }
+              else alert("Objekat neuspesno isplacen")
+            })       
           }
           else {
             alert("Objekat neuspesno isplacen")

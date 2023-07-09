@@ -47,6 +47,7 @@ router.route('/client/addNewOjbect').post((req, res) => new clientController_1.c
 router.route('/client/getAllObjects').post((req, res) => new clientController_1.clientController().getAllObjects(req, res));
 router.route('/client/insertJob').post((req, res) => new clientController_1.clientController().insertJob(req, res));
 router.route('/users/getAllUsers').post((req, res) => new userController_1.userController().getAllUsers(req, res));
+router.route('/users/updateAgencyWorkers').post((req, res) => new userController_1.userController().updateAgencyWorkers(req, res));
 app.listen(4000, () => console.log(`Express server running on port 4000`));
 // export const cloudinary = require('cloudinary').v2;
 // // Configuration
