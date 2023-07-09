@@ -1,8 +1,6 @@
-import { Worker } from "cluster";
 import { ObjectInfo, ObjectInfoSchema } from "./objectinfo";
 import { Document } from "mongodb";
 import { Schema } from "mongoose";
-import { WorkerSchema } from "./worker";
 
 export interface Job  extends Document{
     object: ObjectInfo;
@@ -10,7 +8,7 @@ export interface Job  extends Document{
     endDate: Date;
     status: 'requested' | 'active' | 'finished' | 'rejected';
     cost: number;
-    workers: Worker[];
+    workers: number;
     agencyUsername:string
 }
 export  const JobSchema: Schema<Job> = new Schema({
@@ -37,8 +35,7 @@ export  const JobSchema: Schema<Job> = new Schema({
       required: true,
     },
     workers: {
-      type: [WorkerSchema],
-      default: [],
+      type: Number
     },
     agencyUsername:{
       type:String
