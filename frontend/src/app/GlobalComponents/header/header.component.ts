@@ -12,10 +12,9 @@ import { User } from 'src/models/user';
 })
 export class HeaderComponent implements OnDestroy{
 
-  constructor(private userServ:UserServiceService,public router:Router, private cserv:CommonServiceService)
-   {
-    
+  constructor(private userServ:UserServiceService,public router:Router, private cserv:CommonServiceService){
     this.userType="guest"
+    this.user = new User();
     var user = localStorage.getItem("user");
     if(user!=null)
     {
@@ -28,6 +27,19 @@ export class HeaderComponent implements OnDestroy{
     })
   }
 
+  ngOnInit(): void {
+    this.userType="guest"
+    var user = localStorage.getItem("user");
+    if(user!=null)
+    {
+      this.user = JSON.parse(user)
+      this.userType=JSON.parse(user).type
+    }
+    this.userTypeSubscription=this.cserv.getUpdate().subscribe
+    (type=>{
+      this.userType = type.text
+    })
+  }
 
   private userTypeSubscription:Subscription;
 
