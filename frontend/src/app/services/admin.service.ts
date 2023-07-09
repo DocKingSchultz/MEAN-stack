@@ -34,4 +34,12 @@ export class AdminService {
     return this.http.post(`${this.uri}/admin/changeAccStatus`,data)
   }
 
+  deleteUser(username:string)
+  {
+    const data = {
+      username:username,
+    }
+    return this.http.post(`${this.uri}/users/deleteUser`, data);
+  }
+
 }

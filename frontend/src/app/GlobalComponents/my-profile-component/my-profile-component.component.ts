@@ -25,16 +25,15 @@ export class MyProfileComponentComponent {
       if(data)
       {
         localStorage.setItem("user", JSON.stringify(data))
-        this.user = data;
-        if(this.user.type=='admin')
+        if(data.type=='admin')
         {
+          this.admin = data;
           const usernameParam = this.route.snapshot.paramMap.get('username');
           if (usernameParam) 
           {
             this.userv.getUserByUsername(usernameParam).subscribe((data:User)=>{
               if(data)
               {
-                this.admin = this.user;
                 this.user = data;
               }
             })
@@ -43,8 +42,7 @@ export class MyProfileComponentComponent {
         }
         else //client/agency
         {
-          //this.user = data;
-          //leave the user
+          this.user = data;
         }
        
       }
@@ -87,14 +85,11 @@ export class MyProfileComponentComponent {
                     if(info)
                     {
                       alert("Informacije izmenjene")
-                      // if(this.admin==null) //there is no admin logged in
-                      // {
-
-                      // }
                       this.userv.refreshUser(this.user.username).subscribe((data:any)=>{
                         if(data)
                         {
-                          localStorage.setItem("user", JSON.stringify(data))
+                          if(!this.admin)
+                            localStorage.setItem("user", JSON.stringify(data))
                           alert("Uspesno azurirani podaci")
                         }
                       })

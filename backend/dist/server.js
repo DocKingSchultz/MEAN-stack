@@ -39,6 +39,7 @@ router.route('/users/getUserByUsername').post((req, res) => new userController_1
 router.route('/users/getUserByEmail').post((req, res) => new userController_1.userController().getUserByEmail(req, res));
 router.route('/users/getAgencies').get((req, res) => new agencyController_1.agencyController().getAgencies(req, res));
 router.route('/users/getAgencyByUsername').post((req, res) => new agencyController_1.agencyController().getAgencyByUsername(req, res));
+router.route('/users/deleteUser').post((req, res) => new adminController_1.adminController().deleteUser(req, res));
 router.route('/users/getAgenciesByName').post((req, res) => new agencyController_1.agencyController().getAgenciesByName(req, res));
 router.route('/users/getAgenciesByAddress').post((req, res) => new agencyController_1.agencyController().getAgenciesByAddress(req, res));
 router.route('/users/getAgenciesByNameAndAddress').post((req, res) => new agencyController_1.agencyController().getAgenciesByNameAndAddress(req, res));
