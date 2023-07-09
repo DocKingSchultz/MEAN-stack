@@ -60,10 +60,6 @@ const User = new Schema({
         type: [objectinfo_1.ObjectInfoSchema],
         default: [],
     },
-    agencyWorkPictures: {
-        type: [String],
-        default: [],
-    },
     agencyComments: {
         type: [comment_1.CommentSchema],
         default: [],

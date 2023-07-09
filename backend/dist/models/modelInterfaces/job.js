@@ -3,7 +3,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.JobSchema = void 0;
 const objectinfo_1 = require("./objectinfo");
 const mongoose_1 = require("mongoose");
-const worker_1 = require("./worker");
 exports.JobSchema = new mongoose_1.Schema({
     object: {
         type: objectinfo_1.ObjectInfoSchema,
@@ -28,8 +27,7 @@ exports.JobSchema = new mongoose_1.Schema({
         required: true,
     },
     workers: {
-        type: [worker_1.WorkerSchema],
-        default: [],
+        type: Number
     },
     agencyUsername: {
         type: String

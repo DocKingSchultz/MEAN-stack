@@ -9,7 +9,7 @@ class agencyController {
     constructor() {
         this.getAgencies = (req, response) => {
             console.log("Dohvatanje agencija");
-            user_1.default.find({ 'type': 'agency' }, (err, res) => {
+            user_1.default.find({ 'type': 'agency', 'status': 'aktivan' }, (err, res) => {
                 if (res) {
                     response.json(res);
                 }
