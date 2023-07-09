@@ -34,7 +34,8 @@ import { CreateNewObjectComponent } from './client/create-new-object/create-new-
 import { CanvasPopupComponentComponent } from './GlobalComponents/canvas-popup-component/canvas-popup-component.component';
 import { AgencyDescriptionComponent } from './client/agency-description/agency-description.component';
 import { ArrangeNewJobComponent } from './arrange-new-job/arrange-new-job.component';
-import { AgencyJobsComponent } from './agency/agency-jobs/agency-jobs.component'
+import { AgencyJobsComponent } from './agency/agency-jobs/agency-jobs.component';
+import { AdministratorJobsComponent } from './AdminComponents/admin/administrator-jobs/administrator-jobs.component'
 
 @NgModule({
   declarations: [
@@ -65,6 +66,7 @@ import { AgencyJobsComponent } from './agency/agency-jobs/agency-jobs.component'
     AgencyDescriptionComponent,
     ArrangeNewJobComponent,
     AgencyJobsComponent,
+    AdministratorJobsComponent,
   ],
   imports: [
     BrowserModule,

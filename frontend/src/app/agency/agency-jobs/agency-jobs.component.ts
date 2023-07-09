@@ -36,6 +36,7 @@ export class AgencyJobsComponent {
   updateJobStateVisible = false;
   updateUserJobIndex: number
   updateClJobIndex: number
+
   azuriraj(userIndex: number, jobIndex: number) {
     this.updateJobStateVisible = true;
     this.updateUserJobIndex = userIndex
@@ -64,13 +65,31 @@ export class AgencyJobsComponent {
   }
   posaljiPonudu(userIndex: number, jobIndex: number) {
     if (this.users[userIndex].clientJobs[jobIndex].cost != 0) {
+      let job = this.users[userIndex].clientJobs[jobIndex]
+      
+      //Set room to yellow if not enough worklers
+      //
+      if (this.userMe.workers < job.workers || job.workers < job.object.roomCnt) {
+        job.object.sketch.rooms.forEach(room => {
+          room.color = "yellow"
+        });
+      }
+
+      this.userMe.workers -= job.workers
       this.usrServ.updateUser(this.users[userIndex]).subscribe((data: any) => {
         if (data) {
-          alert("Ponuda uspesno prosledjena")
-          this.ruter.navigate(["agency-jobs"])
+          this.usrServ.updateUser(this.userMe).subscribe((data: any) => {
+            if (data) {
+    
+              alert("Ponuda uspesno prosledjena")
+              this.ruter.navigate(["agency-jobs"])
+            }
+            else alert("Ponuda neuspesno prosledjena")
+          })
         }
         else alert("Ponuda neuspesno prosledjena")
       })
+      
     }
     else alert("Nema nista za dzabe !")
   }

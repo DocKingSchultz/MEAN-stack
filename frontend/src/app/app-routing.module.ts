@@ -21,6 +21,7 @@ import { AgencyDescriptionComponent } from './client/agency-description/agency-d
 import { JobsComponent } from './client/jobs/jobs.component';
 import { ArrangeNewJobComponent } from './arrange-new-job/arrange-new-job.component';
 import { AgencyJobsComponent } from './agency/agency-jobs/agency-jobs.component';
+import { AdministratorJobsComponent } from './AdminComponents/admin/administrator-jobs/administrator-jobs.component';
 
 const routes: Routes = [
   {path:"", component:HomeComponent},
@@ -45,6 +46,7 @@ const routes: Routes = [
   {path:"jobs", component:JobsComponent},
   {path:"newJob", component:ArrangeNewJobComponent},
   {path:"agency-jobs", component:AgencyJobsComponent},
+  {path:"admin-jobs", component:AdministratorJobsComponent},
   {path: '**', component: HomeComponent }
 ];
 

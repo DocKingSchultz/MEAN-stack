@@ -26,7 +26,7 @@
             <th>Datum pocetka radova</th>
             <th>Datum zavretka radova</th>
             <th>Broj soba</th>
-            <th>Ponuda</th>
+            <th>Novcana naknada i broj radnika</th>
             <th>Akcija</th>
           </tr>
         </thead>
@@ -39,16 +39,16 @@
                   <td>{{ job.startDate }}</td>
                   <td>{{ job.endDate }}</td>
                   <td>{{job.object.roomCnt}}</td>
-                  <td *ngIf="job.status!='finished' && job.status!='active'">
+                  <td *ngIf="job.isAccepted==false">
                     <input type="number" [(ngModel)]="job.cost" />
-                    <ng-container  *ngIf="job.status=='requested'">
+                    <input type="number" [(ngModel)]="job.workers" />
                     <button class="btn btn-primary" (click)="posaljiPonudu(i, j)">Posalji</button>
                     <span class="button-space"></span>
                     <button class="btn btn-primary" (click)="odbij(i, j)">Odbij</button>
-                    </ng-container>
                   </td>
-                  <td *ngIf="job.status=='finished' || job.status=='active'">
+                  <td *ngIf="job.isAccepted==true">
                     <input type="text" value="{{job.cost}}" readonly />
+                    <input type="text" value="{{job.workers}}" readonly />
                   </td>
                   <td >
                     <button class="btn btn-primary" (click)="azuriraj(i, j)" *ngIf="job.status=='active'">Azuriraj proces</button>
@@ -61,3 +61,6 @@
         </tbody>
       </table>
     </div>
+<ng-component *ngIf="userMe!=null">
+Broj slobodnihg radnika : {{userMe.workers}}
+</ng-component>
