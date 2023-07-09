@@ -52,7 +52,7 @@
                       <div *ngIf='req.picture!=""'>
                           <img src="{{req.picture}}" width="100px" alt="profile picture">
                       </div>
-                      <input type="file" name="picture" (change)='onFileSelected($event)'>
+                      <input type="file" name="picture" (change)='onFileSelected($event)' accept=".jpg, .png">
                   </div>
                   
                   <div class="row">

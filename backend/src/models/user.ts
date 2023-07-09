@@ -77,10 +77,6 @@ const User = new Schema<User>({
         type: [ObjectInfoSchema],
         default: [],
       },
-      agencyWorkPictures: {
-        type: [String],
-        default: [],
-      },
       agencyComments: {
         type: [CommentSchema],
         default: [],

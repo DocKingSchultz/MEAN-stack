@@ -2,7 +2,10 @@
     <form>
         <div>
             <label for="type">Tip</label>
-            <input type="text" id="type" [(ngModel)]="obj.type" name="type">
+            <select id="type" [(ngModel)]="obj.type" name="type">
+                <option value="stan">stan</option>
+                <option value="kuca">kuca</option>
+              </select>
         </div>
   
         <div>

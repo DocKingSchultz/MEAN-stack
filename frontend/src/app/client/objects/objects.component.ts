@@ -71,25 +71,32 @@ export class ObjectsComponent {
           if (this.changedObj.roomCnt <= 3 || this.changedObj.roomCnt > 0) {
             let user = localStorage.getItem("user")
             if (user != null) {
-              this.changedObj.sketch.rooms = jsonData.rooms;
-              this.changedObj.sketch.doors = jsonData.doors;
-              for(let i=0;i<this.changedObj.sketch.rooms.length;i++)
+              if(jsonData.rooms.length == this.changedObj.roomCnt)
               {
-                this.changedObj.sketch.rooms[i].color="white"
+                this.changedObj.sketch.rooms = jsonData.rooms;
+                this.changedObj.sketch.doors = jsonData.doors;
+                for(let i=0;i<this.changedObj.sketch.rooms.length;i++)
+                {
+                  this.changedObj.sketch.rooms[i].color="white"
+                }
+                this.objects[this.changedId]=this.changedObj
+                this.user=JSON.parse(user)
+                this.user.objects=this.objects
+                this.userServ.updateUser(this.user).subscribe((data: any) => {
+                  if(data)
+                  {
+                    alert("Objekat uspesno promenjen")
+                  }
+                  else
+                  {
+                    alert("Objekat neuspesno izmenjen")
+                  }
+                })
               }
-              this.objects[this.changedId]=this.changedObj
-              this.user=JSON.parse(user)
-              this.user.objects=this.objects
-              this.userServ.updateUser(this.user).subscribe((data: any) => {
-                if(data)
-                {
-                  alert("Objekat uspesno promenjen")
-                }
-                else
-                {
-                  alert("Objekat neuspesno izmenjen")
-                }
-              })
+              else
+              {
+                alert("Broj soba koje ste uneli i broj soba iz json fajla nisu isti!")
+              }
             }
           }
           else {

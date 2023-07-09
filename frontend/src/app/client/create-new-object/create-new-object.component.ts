@@ -89,28 +89,35 @@ export class CreateNewObjectComponent {
     if (this.obj.roomCnt <= 3 && this.obj.roomCnt > 0) {
       const user = localStorage.getItem("user");
       if (user != null) {
-        this.obj.sketch.rooms = jsonData.rooms;
-        this.obj.sketch.doors = jsonData.doors;
-        for (let i = 0; i < this.obj.sketch.rooms.length; i++) {
-          this.obj.sketch.rooms[i].color = "white";
-        }
-        this.clServ.addNewOjbect(this.obj, JSON.parse(user).username).subscribe((data: any) => {
-          if (data) {
-            drawSketch(this.obj.sketch.rooms, true, this.obj.sketch.doors);
-            if (user != null) {
-              this.userServ.refreshUser(JSON.parse(user).username).subscribe((data: any) => {
-                if (data) {
-                  localStorage.setItem("user", JSON.stringify(data));
-                  this.rutr.navigate(["objects"]);
-                }
-              });
+        if(jsonData.rooms.length == this.obj.roomCnt)
+        {
+          this.obj.sketch.rooms = jsonData.rooms;
+          this.obj.sketch.doors = jsonData.doors;
+          for (let i = 0; i < this.obj.sketch.rooms.length; i++) {
+            this.obj.sketch.rooms[i].color = "white";
+          }
+          this.clServ.addNewOjbect(this.obj, JSON.parse(user).username).subscribe((data: any) => {
+            if (data) {
+              drawSketch(this.obj.sketch.rooms, true, this.obj.sketch.doors);
+              if (user != null) {
+                this.userServ.refreshUser(JSON.parse(user).username).subscribe((data: any) => {
+                  if (data) {
+                    localStorage.setItem("user", JSON.stringify(data));
+                    this.rutr.navigate(["objects"]);
+                  }
+                });
+              } else {
+                alert("Objekat neuspešno ubačen");
+              }
             } else {
               alert("Objekat neuspešno ubačen");
             }
-          } else {
-            alert("Objekat neuspešno ubačen");
-          }
-        });
+          });
+        }
+        else
+        {
+          alert("Broj soba koje ste uneli i broj soba iz json fajla nisu isti!")
+        }
       }
     } else {
       alert("Broj prostorija mora biti između 1 i 3");

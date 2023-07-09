@@ -5,7 +5,7 @@ import user from "../models/user";
 export class agencyController {
     getAgencies = (req: express.Request, response: express.Response) => {
         console.log("Dohvatanje agencija");
-        User.find({ 'type': 'agency'}, (err, res) => {
+        User.find({ 'type': 'agency','status':'aktivan'}, (err, res) => {
             if (res) {
                 response.json(res);
             }

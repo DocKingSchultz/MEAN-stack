@@ -95,7 +95,7 @@ function checkPasswordMatching(pass, confpass) {
 
   function checkPasswordRegularity(password) {
     if (!password.match(/^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_\-+=<>?])[A-Za-z][A-Za-z0-9!@#$%^&*()_\-+=<>?]{6,11}$/)) {
-      alert('Password need to have ...');
+      alert('Sifre mora da se sastoji iz minimalno 7 karaktera, maksimalno 12 karaktera, bar 1 velik slovo, jedan broj i jedan specijalan karakter, mora pocinjati slovom!');
       return false;
     }
     return true;

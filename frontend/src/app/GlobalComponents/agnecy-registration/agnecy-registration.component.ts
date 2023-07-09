@@ -49,9 +49,14 @@ export class AgnecyRegistrationComponent {
               && checkPasswordRegularity(this.req.password)
               && checkPasswordMatching(this.req.password, this.req.passwordConfirmed)){
                 this.userServ.regitration(this.req).subscribe((mess:any)=>{
-                  this.ruter.navigate(['/']);
+                  if(mess['message']!='Korisnik sa unetim emailom vec postoji u sistemu' && mess['message']!='Korisnik sa unetim koriscnickim imenom vec postoji u sistemu')
+                    this.ruter.navigate(['/']);
                   alert(mess['message'])
                 })
+              }
+              else
+              {
+                alert("Neupsesna registracija! Probajte ponovo!")
               }
           }
           else {
@@ -69,9 +74,14 @@ export class AgnecyRegistrationComponent {
       && checkPasswordRegularity(this.req.password)
       && checkPasswordMatching(this.req.password, this.req.passwordConfirmed)){
         this.userServ.regitration(this.req).subscribe((mess:any)=>{
-          this.ruter.navigate(['/']);
+          if(mess['message']!='Korisnik sa unetim emailom vec postoji u sistemu' && mess['message']!='Korisnik sa unetim koriscnickim imenom vec postoji u sistemu')
+            this.ruter.navigate(['/']);
           alert(mess['message'])
         })
+      }
+      else
+      {
+        alert("Neupsesna registracija! Probajte ponovo!")
       }
     }
   }

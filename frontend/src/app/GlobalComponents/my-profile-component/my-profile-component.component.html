@@ -50,7 +50,7 @@
       <div class="column">
         <label for="picture">Profilna slika:</label>
         <img src="{{user.picture}}" width=100px alt="profile picture">
-        <input type="file" name="picture" (change)='onFileSelected($event)'>
+        <input type="file" name="picture" (change)='onFileSelected($event)' accept=".jpg, .png">
       </div>
     </div>
 
