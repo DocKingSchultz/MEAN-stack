@@ -19,9 +19,16 @@ export class ClientRegistrationComponent {
   ngOnInit(): void {
     this.req.picture="assets/pictures/deafultClientPhoto.jpg"
     this.req.type="client"
+
+    var user = localStorage.getItem("user");
+    if(user!=null)
+    {
+      this.admin=JSON.parse(user)
+    }  
   }
 
   req:User = new User();
+  admin:User = new User();
   selectedFile: File;
 
   onFileSelected(event: any) {
@@ -35,6 +42,11 @@ export class ClientRegistrationComponent {
   }
 
   registration() {
+    if(this.admin.username!='')
+    {
+      //the admin directly aktivates the user!
+      this.req.status="aktivan";
+    }
     if (this.selectedFile) {
       const img = new Image();
       const reader = new FileReader();

@@ -44,6 +44,15 @@
                     <textarea class="form-control" id="i11" rows="3" placeholder="Opis" name="descr" [(ngModel)]='req.description'></textarea>
                   </div>
                   
+                  <div class="form-outline mb-4" *ngIf="admin.username==''">
+                    <label>Broj radnika</label>
+                    <input type="text" id="i10" class="form-control form-control-lg" name="workers" placeholder="Broj radnika" [(ngModel)]='req.workers' readonly/>
+                  </div>
+
+                  <div class="form-outline mb-4" *ngIf="admin.username!=''">
+                    <input type="text" id="i10" class="form-control form-control-lg" name="workers" placeholder="Broj radnika" [(ngModel)]='req.workers'/>
+                  </div>
+
                   <div class="form-outline mb-4">
                     <p>Logo</p>
                     <div *ngIf='req.picture==""'>

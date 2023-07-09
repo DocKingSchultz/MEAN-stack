@@ -18,9 +18,16 @@ export class AgnecyRegistrationComponent {
   ngOnInit(): void {
     this.req.type="agency"
     this.req.picture="assets/pictures/defaultAgencyLogo.png"
+    
+    var user = localStorage.getItem("user");
+    if(user!=null)
+    {
+      this.admin=JSON.parse(user)
+    }  
   }
 
   req:User = new User();
+  admin:User = new User();
 
   selectedFile: File;
 
@@ -35,6 +42,11 @@ export class AgnecyRegistrationComponent {
   }
 
   registration() {
+    if(this.admin.username!='')
+    {
+      //the admin directly aktivates the user!
+      this.req.status="aktivan";
+    }
     if (this.selectedFile) {
       const img = new Image();
       const reader = new FileReader();
