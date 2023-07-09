@@ -3,6 +3,32 @@ import e, * as express from 'express';
 import user from "../models/user";
 
 export class userController {
+    updateAgencyWorkers= (req: express.Request, response: express.Response) => {
+        let username=req.body.username
+        let num = req.body.numWorkers
+        User.findOne(
+            { username: username },
+            function(err, result) {
+              if (err) {
+                console.error('Error updating document:', err);
+                return;
+              }
+              if(result)
+              {
+                User.findOneAndUpdate(
+                    { username: username },
+                    { $set: { workers: num+result.workers } },     function(err, result) {
+                        if (err) {
+                          console.error('Error updating document:', err);
+                          return;
+                        }
+                        console.log('Uspesno promenjen broj radnika');
+                        response.json("Uspesno promenjen broj radnika")
+                      }
+                    );
+              }
+        })
+    }
     login = (req: express.Request, response: express.Response) => {
         let username = req.body.username;
         let password = req.body.password;

@@ -10,6 +10,14 @@ export class UserServiceService {
   uri = 'http://localhost:4000';
   constructor(private httpClient: HttpClient)
   {  }
+  updateAgencyWorkers(username:string, numWorkers:number)
+  {
+    const data = {
+      username:username,
+      numWorkers:numWorkers
+    }
+    return this.httpClient.post(`${uri}/users/updateAgencyWorkers`, data);
+  }
   login(username:string, password:string, isAdmin:boolean){
     const data = {
       username:username,

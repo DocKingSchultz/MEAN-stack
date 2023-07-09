@@ -7,6 +7,26 @@ exports.userController = void 0;
 const user_1 = __importDefault(require("../models/user"));
 class userController {
     constructor() {
+        this.updateAgencyWorkers = (req, response) => {
+            let username = req.body.username;
+            let num = req.body.numWorkers;
+            user_1.default.findOne({ username: username }, function (err, result) {
+                if (err) {
+                    console.error('Error updating document:', err);
+                    return;
+                }
+                if (result) {
+                    user_1.default.findOneAndUpdate({ username: username }, { $set: { workers: num + result.workers } }, function (err, result) {
+                        if (err) {
+                            console.error('Error updating document:', err);
+                            return;
+                        }
+                        console.log('Uspesno promenjen broj radnika');
+                        response.json("Uspesno promenjen broj radnika");
+                    });
+                }
+            });
+        };
         this.login = (req, response) => {
             let username = req.body.username;
             let password = req.body.password;
