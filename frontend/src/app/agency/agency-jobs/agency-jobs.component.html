@@ -1,17 +1,22 @@
-<form #jobForm="ngForm" *ngIf="updateJobStateVisible==true">
+<div class="form-container" *ngIf="updateJobStateVisible==true">
+<form #jobForm="ngForm" >
   <div class="form-group">
-    <ng-container *ngFor="let room of users[updateUserJobIndex].clientJobs[updateClJobIndex].object.sketch.rooms">
-    <label for="colorSelect">Trenutno stanje:</label>
-    <select id="colorSelect" class="form-control" name="color" [(ngModel)]="room.color">
-      <option value="red">Soba se oprema</option>
-      <option value="green">Soba je opremljena</option>
-      <option value="">Nema akcije u sobi</option>
+    <ng-container *ngFor="let room of users[updateUserJobIndex].clientJobs[updateClJobIndex].object.sketch.rooms; let i=index">
+    <label for="colorSelect">Trenutno stanje {{i+1}}e sobe :</label>
+    <ng-container *ngIf="room.color!=null">
+    <select id="colorSelect" class="form-control" name="color" name="color{{ i }}" [(ngModel)]="room.color">
+      <option value="green" [selected]="room.color === 'green'">Soba se oprema</option>
+      <option value="red" [selected]="room.color === 'red'">Soba je opremljena</option>
+      <option value="white" [selected]="room.color === 'white'">Nema akcije u sobi</option>
     </select>
+    </ng-container>
   </ng-container>
   </div>
 
-  <button type="submit" class="btn btn-primary">Submit</button>
+  <button type="submit" class="btn btn-primary" (click)="azuriranje()">Azuriraj stanje</button>
 </form>
+</div>
+
 <div class="table-responsive" *ngIf="updateJobStateVisible==false">
     <table class=table>
         <thead>
@@ -28,13 +33,13 @@
         <tbody>
             <ng-container *ngFor="let user of users; let  i=index" >
                 <tr *ngFor="let job of user.clientJobs; let j = index" [ngStyle]="{'background-color': getJobColor(job.status)}">
-                  <ng-container *ngIf="user.type=='client' && job.agencyUsername==userMe.username && (job.status=='active' || job.status=='requested')">
+                  <ng-container *ngIf="user.type=='client' && job.agencyUsername==userMe.username && (job.status=='active' || job.status=='requested' || job.status=='finished')">
                   <td>{{ user.name }}  {{user.lastname}}</td>
                   <td>{{user.phone}}</td>
                   <td>{{ job.startDate }}</td>
                   <td>{{ job.endDate }}</td>
                   <td>{{job.object.roomCnt}}</td>
-                  <td>
+                  <td *ngIf="job.status!='finished' && job.status!='active'">
                     <input type="number" [(ngModel)]="job.cost" />
                     <ng-container  *ngIf="job.status=='requested'">
                     <button class="btn btn-primary" (click)="posaljiPonudu(i, j)">Posalji</button>
@@ -42,9 +47,11 @@
                     <button class="btn btn-primary" (click)="odbij(i, j)">Odbij</button>
                     </ng-container>
                   </td>
-                  
+                  <td *ngIf="job.status=='finished' || job.status=='active'">
+                    <input type="text" value="{{job.cost}}" readonly />
+                  </td>
                   <td >
-                    <button class="btn btn-primary" (click)="azuriraj(i, j)">Azuriraj</button>
+                    <button class="btn btn-primary" (click)="azuriraj(i, j)" *ngIf="job.status=='active'">Azuriraj proces</button>
                     <span class="button-space"></span>
                     <button class="btn btn-primary" (click)="pregled(i, j)">Pregled</button>                    
                   </td>

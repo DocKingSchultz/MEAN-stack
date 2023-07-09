@@ -118,9 +118,9 @@ export class JobsComponent {
     return ""
   }
   checkIfactiveToPayJobsID(id: number) {
-    let allGreen = true;
+    let allRed = true;
     for (let i = 0; i < this.filteredJobs[id].object.sketch.rooms.length; i++) {
-      if (this.filteredJobs[id].object.sketch.rooms[i].color != "green") return false;
+      if (this.filteredJobs[id].object.sketch.rooms[i].color != "red") return false;
     }
     if (this.filteredJobs[id].status == "active") return true
     else return false;

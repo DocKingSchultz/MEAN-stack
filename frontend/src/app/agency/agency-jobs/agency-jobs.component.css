@@ -1,3 +1,10 @@
 .button-space {
     margin-right: 10px; /* Adjust the value as per your requirement */
   }
+
+  .form-container {
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    height: 100vh; /* Set the height to the full viewport height */
+  }

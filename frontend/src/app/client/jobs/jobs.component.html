@@ -28,7 +28,8 @@
             <th>Datum pocetka radova</th>
             <th>Datum zavretka radova</th>
             <th>Ponuda agencije</th>
-            <th>status</th>
+            <th>Agencija</th>
+            <th>Status</th>
           </tr>
         </thead>
         <tbody>
@@ -36,7 +37,26 @@
             <td>{{ job.startDate }}</td>
             <td>{{ job.endDate }}</td>
             <td>{{job.cost}}</td>
-            <td>{{job.status}}</td>
+            <td>{{job.agencyUsername}}</td>
+            <td [ngSwitch]="job.status">
+                <ng-container *ngSwitchCase="'active'">
+                  Posao aktivan
+                </ng-container>
+              
+                <ng-container *ngSwitchCase="'requested'">
+                  Posao u procesu zahteva
+                </ng-container>
+              
+                <ng-container *ngSwitchCase="'finished'">
+                  Posao zavrsen 
+                </ng-container>
+                <ng-container *ngSwitchCase="'rejected'">
+                  Posao odbiven od strane agencije
+                </ng-container>
+                <ng-container *ngSwitchDefault>
+                  <!-- HTML code for default case -->
+                </ng-container>
+            </td>
             <td>
               <button class="btn btn-primary" (click)="pregled(i)">Objekat</button>
               &nbsp;
