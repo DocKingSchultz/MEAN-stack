@@ -31,6 +31,10 @@ exports.JobSchema = new mongoose_1.Schema({
     },
     agencyUsername: {
         type: String
+    },
+    isAccepted: {
+        type: Boolean,
+        default: false
     }
 });
 //# sourceMappingURL=job.js.map

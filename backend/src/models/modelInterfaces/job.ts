@@ -10,6 +10,7 @@ export interface Job  extends Document{
     cost: number;
     workers: number;
     agencyUsername:string
+    isAccepted:boolean
 }
 export  const JobSchema: Schema<Job> = new Schema({
     object: {
@@ -39,5 +40,9 @@ export  const JobSchema: Schema<Job> = new Schema({
     },
     agencyUsername:{
       type:String
+    },
+    isAccepted:{
+      type:Boolean,
+      default:false
     }
   });

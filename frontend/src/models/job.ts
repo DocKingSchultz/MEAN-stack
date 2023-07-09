@@ -10,6 +10,7 @@ export class Job {
       public cost: number = 0,
       public workers: number = 0,
       public _id:number=0,
-      public agencyUsername:string=""
+      public agencyUsername:string="",
+      public isAccepted:boolean=false
     ) {}
   }
