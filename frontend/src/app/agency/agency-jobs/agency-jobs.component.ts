@@ -31,8 +31,26 @@ export class AgencyJobsComponent {
 
 
   }
+  ngOnInit()
+  {
+    this.usrServ.getAllUsers().subscribe((data: any) => {
+      if (data) {
+        this.users = data;
+        this.updateJobStateVisible = false
+        let user = localStorage.getItem("user")
+        if (user != null) {
+          this.usrServ.refreshUser(JSON.parse(user).username).subscribe((data: any) => {
+            if (data) {
+              this.userMe = data
+            }
+          })
+        }
+      }
+      else alert("Greska pri dohvatanju svih korisnika na agency-jobs komponenti")
+    })
+  }
   users: User[] = []
-  userMe: User;
+  userMe: User=new User();
   updateJobStateVisible = false;
   updateUserJobIndex: number
   updateClJobIndex: number
@@ -64,9 +82,22 @@ export class AgencyJobsComponent {
 
   }
   posaljiPonudu(userIndex: number, jobIndex: number) {
-    if (this.users[userIndex].clientJobs[jobIndex].cost != 0) {
-      let job = this.users[userIndex].clientJobs[jobIndex]
-      
+    if (this.users[userIndex].clientJobs[jobIndex].cost == 0) 
+    {
+         alert("Nema nista za dzabe !")
+         return
+    }
+    if(this.users[userIndex].clientJobs[jobIndex].workers==0)
+    {
+         alert("Moram bar jedan radnik da bude naveden")
+         return
+    }
+    if(this.userMe.workers<this.users[userIndex].clientJobs[jobIndex].workers)
+    {
+      alert("Agencija nema dovoljno raspolozivih radnika")
+      return
+    }
+      let job = this.users[userIndex].clientJobs[jobIndex] 
       //Set room to yellow if not enough worklers
       //
       if (this.userMe.workers < job.workers || job.workers < job.object.roomCnt) {
@@ -74,8 +105,9 @@ export class AgencyJobsComponent {
           room.color = "yellow"
         });
       }
-
+      this.users[userIndex].clientJobs[jobIndex].isAccepted=true;
       this.userMe.workers -= job.workers
+      
       this.usrServ.updateUser(this.users[userIndex]).subscribe((data: any) => {
         if (data) {
           this.usrServ.updateUser(this.userMe).subscribe((data: any) => {
@@ -90,8 +122,7 @@ export class AgencyJobsComponent {
         else alert("Ponuda neuspesno prosledjena")
       })
       
-    }
-    else alert("Nema nista za dzabe !")
+
   }
   pregled(userIndex: number, jobIndex: number) {
 
@@ -100,6 +131,8 @@ export class AgencyJobsComponent {
   }
   getJobColor(status: string) {
     if (status == "active") return "green"
+    else if(status=="requested")return "white"
+    else if(status=="finished")return "grey"
     return ""
   }
 }

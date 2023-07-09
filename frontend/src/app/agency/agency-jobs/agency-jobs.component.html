@@ -5,8 +5,8 @@
     <label for="colorSelect">Trenutno stanje {{i+1}}e sobe :</label>
     <ng-container *ngIf="room.color!=null">
     <select id="colorSelect" class="form-control" name="color" name="color{{ i }}" [(ngModel)]="room.color">
-      <option value="green" [selected]="room.color === 'green'">Soba se oprema</option>
-      <option value="red" [selected]="room.color === 'red'">Soba je opremljena</option>
+      <option value="green" [selected]="room.color === 'green'">Soba je opremljena</option>
+      <option value="red" [selected]="room.color === 'red'">Soba se oprema</option>
       <option value="white" [selected]="room.color === 'white'">Nema akcije u sobi</option>
     </select>
     </ng-container>
@@ -59,8 +59,6 @@
                 </tr>
               </ng-container>
         </tbody>
+       Broj slobodnih radnika : {{userMe.workers}}
       </table>
     </div>
-<ng-component *ngIf="userMe!=null">
-Broj slobodnihg radnika : {{userMe.workers}}
-</ng-component>

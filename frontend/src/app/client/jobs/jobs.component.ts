@@ -33,7 +33,7 @@ export class JobsComponent {
   commetAlreadyExisted: boolean
   pregled(id: number) {
 
-    drawSketch(this.filteredJobs[id].object.sketch.rooms, false, this.jobs[id].object.sketch.doors)
+    drawSketch(this.filteredJobs[id].object.sketch.rooms, false, this.filteredJobs[id].object.sketch.doors)
   }
   initializeVariables() {
     this.selectedStatus = "all"
@@ -118,9 +118,8 @@ export class JobsComponent {
     return ""
   }
   checkIfactiveToPayJobsID(id: number) {
-    let allRed = true;
     for (let i = 0; i < this.filteredJobs[id].object.sketch.rooms.length; i++) {
-      if (this.filteredJobs[id].object.sketch.rooms[i].color != "red") return false;
+      if (this.filteredJobs[id].object.sketch.rooms[i].color != "green") return false;
     }
     if (this.filteredJobs[id].status == "active") return true
     else return false;
